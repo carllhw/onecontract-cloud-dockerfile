@@ -23,6 +23,7 @@ jobs:
               registry: https://ghcr.io
               repositories:
                 - carllhw/onecontract-cloud_elasticsearch
+                - carllhw/onecontract-cloud_kibana
           sync-policy:
             from: ghcr
             to: aliyuncs
