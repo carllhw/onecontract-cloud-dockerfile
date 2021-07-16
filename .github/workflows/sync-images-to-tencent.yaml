@@ -15,7 +15,7 @@ jobs:
         run: |
           cat << EOF >config.yaml
           registries:
-            aliyuncs:
+            tencentyun:
               registry: https://ccr.ccs.tencentyun.com
               username: $TO_USERNAME
               password: $TO_PASSWORD
@@ -26,7 +26,7 @@ jobs:
                 - carllhw/onecontract-cloud_kibana
           sync-policy:
             from: ghcr
-            to: aliyuncs
+            to: tencentyun
             dry-run: false
             replace:
               - old: carllhw/onecontract-cloud_
@@ -40,3 +40,33 @@ jobs:
         with:
           retain_days: 7
           keep_minimum_runs: 3
+  dockerhub-to-tencent:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
+      TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
+    steps:
+      - name: Dockerhub to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - hengyunabc/arthas:3.5.2-no-jdk
+          sync-policy:
+            from: dockerhub
+            to: tencentyun
+            dry-run: false
+            replace:
+              - old: hengyunabc/arthas
+                new: onecontract-cloud/arthas
+            filters:
+              - ^[Vv]?\d+\.\d+(\.\d+)?(-\d+)?$
+          EOF
+          registry-manager sync -c config.yaml
