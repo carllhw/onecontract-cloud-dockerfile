@@ -32,8 +32,6 @@ jobs:
             replace:
               - old: carllhw/onecontract-cloud_
                 new: onecontract-cloud/
-            filters:
-              - ^[Vv]?\d+\.\d+(\.\d+)?(-\d+)?$
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
