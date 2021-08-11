@@ -72,7 +72,7 @@ jobs:
                 new: onecontract-cloud/arthas
               - old: apache/skywalking-oap-server
                 new: onecontract-cloud/skywalking-oap-server
-              - old: apache/skywalking-java-agent
+              - old: apache/skywalking-ui
                 new: onecontract-cloud/skywalking-ui
               - old: apache/skywalking-java-agent
                 new: onecontract-cloud/skywalking-java-agent
