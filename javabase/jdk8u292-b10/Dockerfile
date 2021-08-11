@@ -14,6 +14,7 @@ RUN apt-get update; \
         openssh-client \
         procps \
         tar \
+        telnet \
         unzip \
         vim \
         wget; \
