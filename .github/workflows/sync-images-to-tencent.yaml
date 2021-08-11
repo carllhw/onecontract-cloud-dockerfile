@@ -59,6 +59,9 @@ jobs:
               registry: https://registry-1.docker.io
               repositories:
                 - hengyunabc/arthas:3.5.2-no-jdk
+                - apache/skywalking-oap-server:8.7.0-es7
+                - apache/skywalking-ui:8.7.0
+                - apache/skywalking-java-agent:8.7.0-alpine
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -66,6 +69,12 @@ jobs:
             replace:
               - old: hengyunabc/arthas
                 new: onecontract-cloud/arthas
+              - old: apache/skywalking-oap-server
+                new: onecontract-cloud/skywalking-oap-server
+              - old: apache/skywalking-java-agent
+                new: onecontract-cloud/skywalking-java-agent
+              - old: apache/skywalking-java-agent
+                new: onecontract-cloud/skywalking-java-agent
             filters:
               - ^[Vv]?\d+\.\d+(\.\d+)?(-\d+)?$
           EOF
