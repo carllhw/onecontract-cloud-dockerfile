@@ -57,6 +57,7 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
+                - minio/minio:RELEASE.2021-05-27T22-06-31Z
                 - hengyunabc/arthas:3.5.2-no-jdk
                 - apache/skywalking-oap-server:8.7.0-es7
                 - apache/skywalking-ui:8.7.0
@@ -66,6 +67,8 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
+              - old: minio/minio
+                new: onecontract-cloud/minio
               - old: hengyunabc/arthas
                 new: onecontract-cloud/arthas
               - old: apache/skywalking-oap-server
@@ -74,8 +77,6 @@ jobs:
                 new: onecontract-cloud/skywalking-ui
               - old: apache/skywalking-java-agent
                 new: onecontract-cloud/skywalking-java-agent
-            filters:
-              - ^[Vv]?\d+\.\d+(\.\d+)?(-\d+)?$
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
