@@ -57,8 +57,8 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - mysql:5.7.35
-                - redis:5.0.13
+                - library/mysql:5.7.35
+                - library/redis:5.0.13
                 - minio/minio:RELEASE.2021-08-25T00-41-18Z
                 - hengyunabc/arthas:3.5.2-no-jdk
                 - apache/skywalking-oap-server:8.7.0-es7
@@ -69,10 +69,8 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
-              - old: mysql
-                new: onecontract-cloud/mysql
-              - old: redis
-                new: onecontract-cloud/redis
+              - old: library
+                new: onecontract-cloud
               - old: minio/minio
                 new: onecontract-cloud/minio
               - old: hengyunabc/arthas
