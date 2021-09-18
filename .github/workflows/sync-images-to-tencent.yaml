@@ -59,6 +59,10 @@ jobs:
               repositories:
                 - library/mysql:5.7.35
                 - library/redis:5.0.13
+                - istio/install-cni:1.11.2
+                - istio/operator:1.11.2
+                - istio/pilot:1.11.2
+                - istio/proxyv2:1.11.2
                 - minio/minio:RELEASE.2021-08-25T00-41-18Z
                 - hengyunabc/arthas:3.5.2-no-jdk
                 - apache/skywalking-oap-server:8.7.0-es7
@@ -70,6 +74,8 @@ jobs:
             dry-run: false
             replace:
               - old: library
+                new: onecontract-cloud
+              - old: istio
                 new: onecontract-cloud
               - old: minio/minio
                 new: onecontract-cloud/minio
