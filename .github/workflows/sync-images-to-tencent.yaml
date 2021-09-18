@@ -64,7 +64,7 @@ jobs:
                 - istio/pilot:1.11.2
                 - istio/proxyv2:1.11.2
                 - minio/minio:RELEASE.2021-08-25T00-41-18Z
-                - hengyunabc/arthas:3.5.2-no-jdk
+                - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.7.0-es7
                 - apache/skywalking-ui:8.7.0
                 - apache/skywalking-java-agent:8.7.0-alpine
