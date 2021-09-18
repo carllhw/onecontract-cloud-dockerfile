@@ -75,7 +75,7 @@ jobs:
             replace:
               - old: library
                 new: onecontract-cloud
-              - old: istio
+              - old: istio/
                 new: onecontract-cloud/istio-
               - old: minio/minio
                 new: onecontract-cloud/minio
