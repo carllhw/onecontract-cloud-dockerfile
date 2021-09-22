@@ -59,7 +59,7 @@ jobs:
               repositories:
                 - library/mysql:5.7.35
                 - library/redis:5.0.13
-                - library/busybox:latest
+                - library/busybox:1.33.1
                 - istio/install-cni:1.11.2
                 - istio/operator:1.11.2
                 - istio/pilot:1.11.2
