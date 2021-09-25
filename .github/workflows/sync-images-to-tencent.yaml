@@ -69,6 +69,7 @@ jobs:
                 - apache/skywalking-oap-server:8.7.0-es7
                 - apache/skywalking-ui:8.7.0
                 - apache/skywalking-java-agent:8.7.0-alpine
+                - jimmidyson/configmap-reload:v0.5.0
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -77,17 +78,15 @@ jobs:
               - old: library
                 new: onecontract-cloud
               - old: istio/
-                new: onecontract-cloud/istio-
-              - old: minio/minio
-                new: onecontract-cloud/minio
-              - old: hengyunabc/arthas
-                new: onecontract-cloud/arthas
-              - old: apache/skywalking-oap-server
-                new: onecontract-cloud/skywalking-oap-server
-              - old: apache/skywalking-ui
-                new: onecontract-cloud/skywalking-ui
-              - old: apache/skywalking-java-agent
-                new: onecontract-cloud/skywalking-java-agent
+                new: onecontract-cloud/istio_
+              - old: minio/
+                new: onecontract-cloud/minio_
+              - old: apache/
+                new: onecontract-cloud/apache_
+              - old: hengyunabc/
+                new: onecontract-cloud/hengyunabc_
+              - old: jimmidyson/
+                new: onecontract-cloud/jimmidyson_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
@@ -113,14 +112,17 @@ jobs:
             ghcr:
               registry: https://quay.io
               repositories:
+                - prometheus/prometheus:v2.30.0
                 - prometheus/node-exporter:v1.2.2
+                - prometheus/alertmanager:v0.23.0
+                - prometheus/pushgateway:v1.4.1
           sync-policy:
             from: ghcr
             to: tencentyun
             dry-run: false
             replace:
               - old: prometheus/
-                new: onecontract-cloud/prometheus-
+                new: onecontract-cloud/prometheus_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
@@ -152,8 +154,7 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
-              - old: kube-state-metrics/
-                new: onecontract-cloud/prometheus-
+              - new: onecontract-cloud
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
