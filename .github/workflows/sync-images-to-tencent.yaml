@@ -60,10 +60,10 @@ jobs:
                 - library/mysql:5.7.35
                 - library/redis:5.0.13
                 - library/busybox:1.33.1
-                - istio/install-cni:1.11.2
-                - istio/operator:1.11.2
-                - istio/pilot:1.11.2
-                - istio/proxyv2:1.11.2
+                - istio/install-cni:1.11.3
+                - istio/operator:1.11.3
+                - istio/pilot:1.11.3
+                - istio/proxyv2:1.11.3
                 - minio/minio:RELEASE.2021-08-25T00-41-18Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.7.0-es7
