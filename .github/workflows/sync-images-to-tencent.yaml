@@ -95,3 +95,69 @@ jobs:
         with:
           retain_days: 7
           keep_minimum_runs: 3
+  quay-to-tencent:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
+      TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
+    steps:
+      - name: Quay to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            ghcr:
+              registry: https://quay.io
+              repositories:
+                - prometheus/node-exporter:v1.2.2
+          sync-policy:
+            from: ghcr
+            to: tencentyun
+            dry-run: false
+            replace:
+              - old: prometheus/
+                new: onecontract-cloud/prometheus-
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 7
+          keep_minimum_runs: 3
+  gcr-to-tencent:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
+      TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
+    steps:
+      - name: Gcr to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            ghcr:
+              registry: https://k8s.gcr.io
+              repositories:
+                - kube-state-metrics/kube-state-metrics:v2.1.1
+          sync-policy:
+            from: ghcr
+            to: tencentyun
+            dry-run: false
+            replace:
+              - old: kube-state-metrics/
+                new: onecontract-cloud/prometheus-
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 7
+          keep_minimum_runs: 3
