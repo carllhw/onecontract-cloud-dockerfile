@@ -109,7 +109,7 @@ jobs:
               registry: https://ccr.ccs.tencentyun.com
               username: $TO_USERNAME
               password: $TO_PASSWORD
-            ghcr:
+            quay:
               registry: https://quay.io
               repositories:
                 - prometheus/prometheus:v2.30.0
@@ -117,7 +117,7 @@ jobs:
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.1
           sync-policy:
-            from: ghcr
+            from: quay
             to: tencentyun
             dry-run: false
             replace:
@@ -145,16 +145,17 @@ jobs:
               registry: https://ccr.ccs.tencentyun.com
               username: $TO_USERNAME
               password: $TO_PASSWORD
-            ghcr:
+            gcr:
               registry: https://k8s.gcr.io
               repositories:
                 - kube-state-metrics/kube-state-metrics:v2.1.1
           sync-policy:
-            from: ghcr
+            from: gcr
             to: tencentyun
             dry-run: false
             replace:
-              - new: onecontract-cloud
+              - old: kube-state-metrics/
+                new: onecontract-cloud/prometheus_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
