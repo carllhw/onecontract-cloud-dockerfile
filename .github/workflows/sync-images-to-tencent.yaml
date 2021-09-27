@@ -151,13 +151,15 @@ jobs:
             gcr:
               registry: https://k8s.gcr.io
               repositories:
-                - kube-state-metrics/kube-state-metrics:v2.1.1
                 - ingress-nginx/controller:v1.0.2
+                - kube-state-metrics/kube-state-metrics:v2.1.1
           sync-policy:
             from: gcr
             to: tencentyun
             dry-run: false
             replace:
+              - old: ingress-nginx/
+                new: onecontract-cloud/ingress-nginx_
               - old: kube-state-metrics/
                 new: onecontract-cloud/prometheus_
           EOF
