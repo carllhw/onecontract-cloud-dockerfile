@@ -70,6 +70,7 @@ jobs:
                 - apache/skywalking-ui:8.7.0
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
+                - jettech/kube-webhook-certgen:v1.5.2
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -87,6 +88,8 @@ jobs:
                 new: onecontract-cloud/hengyunabc_
               - old: jimmidyson/
                 new: onecontract-cloud/jimmidyson_
+              - old: jettech/
+                new: onecontract-cloud/jettech_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
@@ -149,6 +152,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - kube-state-metrics/kube-state-metrics:v2.1.1
+                - ingress-nginx/controller:v1.0.2
           sync-policy:
             from: gcr
             to: tencentyun
