@@ -66,7 +66,7 @@ jobs:
                 - istio/proxyv2:1.11.3
                 - minio/minio:RELEASE.2021-08-25T00-41-18Z
                 - hengyunabc/arthas:3.5.4-no-jdk
-                - apache/skywalking-oap-server:8.8.0-es7
+                - apache/skywalking-oap-server:8.8.0
                 - apache/skywalking-ui:8.8.0
                 - apache/skywalking-java-agent:8.8.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
@@ -119,6 +119,7 @@ jobs:
                 - prometheus/node-exporter:v1.2.2
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.1
+                - thanos/thanos:v0.23.0
           sync-policy:
             from: quay
             to: tencentyun
@@ -126,6 +127,8 @@ jobs:
             replace:
               - old: prometheus/
                 new: onecontract-cloud/prometheus_
+              - old: thanos/
+                new: onecontract-cloud/thanos_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
