@@ -164,6 +164,8 @@ jobs:
             replace:
               - old: ingress-nginx/
                 new: onecontract-cloud/ingress-nginx_
+              - old: defaultbackend-amd64
+                new: onecontract-cloud/ingress-nginx_
               - old: kube-state-metrics/
                 new: onecontract-cloud/prometheus_
               - new: onecontract-cloud
