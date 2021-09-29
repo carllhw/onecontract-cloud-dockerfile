@@ -1,3 +1,4 @@
+# ref: https://github.com/TimeBye/registry-manager
 name: Sync images to Tencent
 on:
   workflow_dispatch:
@@ -163,8 +164,6 @@ jobs:
             dry-run: false
             replace:
               - old: ingress-nginx/
-                new: onecontract-cloud/ingress-nginx_
-              - old: defaultbackend-amd64
                 new: onecontract-cloud/ingress-nginx_
               - old: kube-state-metrics/
                 new: onecontract-cloud/prometheus_
