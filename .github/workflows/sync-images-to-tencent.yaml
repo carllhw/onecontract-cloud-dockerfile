@@ -162,12 +162,11 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
-              - old: library
-                new: onecontract-cloud
               - old: ingress-nginx/
                 new: onecontract-cloud/ingress-nginx_
               - old: kube-state-metrics/
                 new: onecontract-cloud/prometheus_
+              - new: onecontract-cloud
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
