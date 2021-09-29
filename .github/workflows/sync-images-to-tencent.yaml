@@ -68,7 +68,7 @@ jobs:
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.0
                 - apache/skywalking-ui:8.8.0
-                - apache/skywalking-java-agent:8.8.0-alpine
+                # - apache/skywalking-java-agent:8.8.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
           sync-policy:
@@ -115,7 +115,7 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - prometheus/prometheus:v2.30.0
+                - prometheus/prometheus:v2.30.1
                 - prometheus/node-exporter:v1.2.2
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.1
