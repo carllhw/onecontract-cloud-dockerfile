@@ -26,6 +26,7 @@ jobs:
                 - carllhw/onecontract-cloud_elasticsearch
                 - carllhw/onecontract-cloud_javabase
                 - carllhw/onecontract-cloud_kibana
+                - carllhw/onecontract-cloud_openvpn
           sync-policy:
             from: ghcr
             to: tencentyun
