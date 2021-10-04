@@ -30,4 +30,6 @@ COPY bin/* /usr/local/bin/
 RUN chmod 744 /usr/local/bin/openvpn-* && \
     chown root:root /usr/local/bin/openvpn-*
 
+WORKDIR /etc/openvpn
+
 CMD ["/usr/local/bin/openvpn-enterpoint.sh"]
