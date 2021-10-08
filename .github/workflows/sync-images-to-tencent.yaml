@@ -30,6 +30,7 @@ jobs:
           sync-policy:
             from: ghcr
             to: tencentyun
+            force: true
             dry-run: false
             replace:
               - old: carllhw/onecontract-cloud_
