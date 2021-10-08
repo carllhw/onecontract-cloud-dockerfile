@@ -72,9 +72,10 @@ jobs:
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.0
                 - apache/skywalking-ui:8.8.0
-                # - apache/skywalking-java-agent:8.8.0-alpine
+                - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
+                - kylemanna/openvpn:2.4
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -94,6 +95,32 @@ jobs:
                 new: onecontract-cloud/jimmidyson_
               - old: jettech/
                 new: onecontract-cloud/jettech_
+              - old: kylemanna/
+                new: onecontract-cloud/kylemanna_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Dockerhub to Tencent force
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - kylemanna/openvpn:latest
+          sync-policy:
+            from: dockerhub
+            to: tencentyun
+            force: true
+            dry-run: false
+            replace:
+              - old: library
+                new: onecontract-cloud
+              - old: kylemanna/
+                new: onecontract-cloud/kylemanna_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
