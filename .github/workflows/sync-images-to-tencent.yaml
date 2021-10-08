@@ -12,7 +12,7 @@ jobs:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
     steps:
-      - name: Ghcr to Tencent
+      - name: Ghcr to Tencent force
         run: |
           cat << EOF >config.yaml
           registries:
