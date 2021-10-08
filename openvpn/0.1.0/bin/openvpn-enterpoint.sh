@@ -48,14 +48,14 @@ env | grep "AUTH_" | while read i
 do
     var=$(echo "$i" | awk -F= '{print $1}')
     var_data=$( echo "${!var}" | sed "s/'/\\'/g" )
-    echo "export $var='$var_data'" >> $OPENVPNDIR/auth.env
+    echo "export $var='$var_data'" > $OPENVPNDIR/auth.env
 done
 
 env | grep "REMOTE_" | while read i
 do
     var=$(echo "$i" | awk -F= '{print $1}')
     var_data=$( echo "${!var}" | sed "s/'/\\'/g" )
-    echo "export $var='$var_data'" >> $OPENVPNDIR/remote.env
+    echo "export $var='$var_data'" > $OPENVPNDIR/remote.env
 done
 
 #=====[ Generating server config ]==============================================
