@@ -70,7 +70,7 @@ cipher AES-128-CBC
 auth SHA1
 server $VPNPOOL_NETWORK $VPNPOOL_NETMASK
 push "dhcp-option DNS $PUSH_DNS"
-push "dhcp-option DOMAIN-SEARCH cluster.local"
+push "dhcp-option DOMAIN cluster.local"
 push "dhcp-option DOMAIN-SEARCH svc.cluster.local"
 push "dhcp-option DOMAIN-SEARCH $PUSH_DNS_SEARCH"
 push "route $ROUTE_NETWORK $ROUTE_NETMASK"
