@@ -75,7 +75,6 @@ jobs:
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
-                - kylemanna/openvpn:2.4
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -95,8 +94,6 @@ jobs:
                 new: onecontract-cloud/jimmidyson_
               - old: jettech/
                 new: onecontract-cloud/jettech_
-              - old: kylemanna/
-                new: onecontract-cloud/kylemanna_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to Tencent force
@@ -110,7 +107,9 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - kylemanna/openvpn:latest
+              repositories:
+                - library/mysql:5.7
+                - library/redis:5.0
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -119,8 +118,6 @@ jobs:
             replace:
               - old: library
                 new: onecontract-cloud
-              - old: kylemanna/
-                new: onecontract-cloud/kylemanna_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
