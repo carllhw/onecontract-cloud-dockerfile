@@ -67,11 +67,11 @@ jobs:
                 - istio/operator:1.11.3
                 - istio/pilot:1.11.3
                 - istio/proxyv2:1.11.3
-                - minio/operator:v4.2.10
-                - minio/minio:RELEASE.2021-09-15T04-54-25Z
+                - minio/operator:v4.2.11
+                - minio/minio:RELEASE.2021-10-06T23-36-31Z
                 - hengyunabc/arthas:3.5.4-no-jdk
-                - apache/skywalking-oap-server:8.8.0
-                - apache/skywalking-ui:8.8.0
+                - apache/skywalking-oap-server:8.8.1
+                - apache/skywalking-ui:8.8.1
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
@@ -110,6 +110,7 @@ jobs:
               repositories:
                 - library/mysql:5.7
                 - library/redis:5.0
+                - library/busybox:latest
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -143,11 +144,11 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - prometheus/prometheus:v2.30.1
+                - prometheus/prometheus:v2.30.3
                 - prometheus/node-exporter:v1.2.2
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.1
-                - thanos/thanos:v0.23.0
+                - thanos/thanos:v0.23.1
           sync-policy:
             from: quay
             to: tencentyun
@@ -182,7 +183,7 @@ jobs:
             gcr:
               registry: https://k8s.gcr.io
               repositories:
-                - ingress-nginx/controller:v1.0.2
+                - ingress-nginx/controller:v1.0.3
                 - defaultbackend-amd64:1.5
                 - kube-state-metrics/kube-state-metrics:v2.2.1
           sync-policy:
