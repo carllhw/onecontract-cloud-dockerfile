@@ -8,25 +8,21 @@ function checkpoint { [ "$CONTINUE" = "0" ] && echo "Unrecoverable errors found,
 OPENVPNDIR="/etc/openvpn"
 
 # Providing defaults values for missing env variables
-[ "$CERT_COUNTRY" = "" ]    && export CERT_COUNTRY="US"
-[ "$CERT_PROVINCE" = "" ]   && export CERT_PROVINCE="AL"
-[ "$CERT_CITY" = "" ]       && export CERT_CITY="Birmingham"
-[ "$CERT_ORG" = "" ]        && export CERT_ORG="ACME"
-[ "$CERT_EMAIL" = "" ]      && export CERT_EMAIL="nobody@example.com"
-[ "$CERT_OU" = "" ]         && export CERT_OU="IT"
-[ "$VPNPOOL_NETWORK" = "" ] && export VPNPOOL_NETWORK="10.43.0.0"
-[ "$VPNPOOL_CIDR" = "" ]    && export VPNPOOL_CIDR="16"
-[ "$REMOTE_IP" = "" ]       && export REMOTE_IP="ipOrHostname"
-[ "$REMOTE_PORT" = "" ]     && export REMOTE_PORT="1194"
-[ "$PUSHDNS" = "" ]         && export PUSHDNS="169.254.169.250"
-[ "$PUSHSEARCH" = "" ]      && export PUSHSEARCH="rancher.internal"
+[ "$CERT_COUNTRY" = "" ]        && export CERT_COUNTRY="US"
+[ "$CERT_PROVINCE" = "" ]       && export CERT_PROVINCE="AL"
+[ "$CERT_CITY" = "" ]           && export CERT_CITY="Birmingham"
+[ "$CERT_ORG" = "" ]            && export CERT_ORG="ACME"
+[ "$CERT_EMAIL" = "" ]          && export CERT_EMAIL="nobody@example.com"
+[ "$CERT_OU" = "" ]             && export CERT_OU="IT"
+[ "$VPNPOOL_NETWORK" = "" ]     && export VPNPOOL_NETWORK="10.43.0.0"
+[ "$VPNPOOL_CIDR" = "" ]        && export VPNPOOL_CIDR="16"
+[ "$REMOTE_IP" = "" ]           && export REMOTE_IP="ipOrHostname"
+[ "$REMOTE_PORT" = "" ]         && export REMOTE_PORT="1194"
+[ "$PUSH_DNS" = "" ]            && export PUSH_DNS="169.254.169.250"
+[ "$PUSH_DNS_SEARCH" = "" ]     && export PUSH_DNS_SEARCH="default.cluster.local"
 
 [ "$ROUTE_NETWORK" = "" ]   && export ROUTE_NETWORK="10.42.0.0"
 [ "$ROUTE_NETMASK" = "" ]   && export ROUTE_NETMASK="255.255.0.0"
-
-export RANCHER_METADATA_API='push "route 169.254.169.250 255.255.255.255"'
-[ "$NO_RANCHER_METADATA_API" != "" ] && export RANCHER_METADATA_API=""
-
 
 # Checking mandatory variables
 for i in AUTH_METHOD
@@ -73,10 +69,11 @@ dh easy-rsa/keys/dh2048.pem
 cipher AES-128-CBC
 auth SHA1
 server $VPNPOOL_NETWORK $VPNPOOL_NETMASK
-push "dhcp-option DNS $PUSHDNS"
-push "dhcp-option SEARCH $PUSHSEARCH"
+push "dhcp-option DNS $PUSH_DNS"
+push "dhcp-option DOMAIN-SEARCH cluster.local"
+push "dhcp-option DOMAIN-SEARCH svc.cluster.local"
+push "dhcp-option DOMAIN-SEARCH $PUSH_DNS_SEARCH"
 push "route $ROUTE_NETWORK $ROUTE_NETMASK"
-$RANCHER_METADATA_API
 keepalive 10 120
 comp-lzo
 persist-key
@@ -115,7 +112,7 @@ if [ ! -d $OPENVPNDIR/easy-rsa ]; then
    checkpoint
    ./build-dh || error "Cannot create dh file"
    checkpoint
-   ./build-key --batch RancherVPNClient
+   ./build-key --batch VPNClient
    openvpn --genkey --secret keys/ta.key
    popd
 fi

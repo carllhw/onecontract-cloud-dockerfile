@@ -93,12 +93,6 @@ def auth_http_digest(url, username, password):
     else:
         auth_failure("Invalid credentials for username "+ username)
 
-def auth_rancher_local(url, username, password):
-    if (requests.post(url, data = { "authProvider": "localauthconfig", "code": username + ":" + password})):
-        auth_success(username)
-    else:
-        auth_failure("Invalid credentials for username "+ username)
-
 if all (k in os.environ for k in ("username","password","AUTH_METHOD")):
     username = os.environ.get('username')
     password = os.environ.get('password')
@@ -155,19 +149,6 @@ if all (k in os.environ for k in ("username","password","AUTH_METHOD")):
             auth_http_digest(url, username, password)
         else:
             auth_failure('Missing mandatory environment variable for authentication method "httpdigest" : AUTH_HTTPDIGEST_URL')
-
-    #=====[ Rancher local ]==============================================================
-    # How to test:
-    #   @todo
-    # Example :
-    #   AUTH_METHOD='rancherlocal'
-    elif auth_method=='rancherlocal':
-        if "AUTH_RANCHERLOCAL_URL" in os.environ:
-            url=os.environ.get('AUTH_RANCHERLOCAL_URL')
-            auth_rancher_local(url, username, password)
-        else:
-            auth_failure('Missing mandatory environment variable for authentication method "rancherlocal" : AUTH_RANCHERLOCAL_URL')
-
 
     #=====[ Kerberos ]==============================================================
     # How to test:
