@@ -67,7 +67,7 @@ jobs:
                 - istio/operator:1.11.3
                 - istio/pilot:1.11.3
                 - istio/proxyv2:1.11.3
-                - minio/operator:v4.2.11
+                - minio/operator:v4.2.14
                 - minio/minio:RELEASE.2021-10-06T23-36-31Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.1
@@ -147,7 +147,7 @@ jobs:
                 - prometheus/prometheus:v2.30.3
                 - prometheus/node-exporter:v1.2.2
                 - prometheus/alertmanager:v0.23.0
-                - prometheus/pushgateway:v1.4.1
+                - prometheus/pushgateway:v1.4.2
                 - thanos/thanos:v0.23.1
           sync-policy:
             from: quay
