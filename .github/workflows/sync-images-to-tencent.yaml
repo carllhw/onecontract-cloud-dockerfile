@@ -76,6 +76,7 @@ jobs:
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
+                - jenkins/jenkins:2.303.2-jdk11
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -95,6 +96,8 @@ jobs:
                 new: onecontract-cloud/jimmidyson_
               - old: jettech/
                 new: onecontract-cloud/jettech_
+              - old: jenkins/
+                new: onecontract-cloud/jenkins_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to Tencent force
