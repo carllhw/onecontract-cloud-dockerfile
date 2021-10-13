@@ -31,6 +31,6 @@ RUN apt-get update; \
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
-
+RUN python3 -m pip install --upgrade pip
 COPY requirements.txt /opt
 RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ -r /opt/requirements.txt
