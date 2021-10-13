@@ -76,7 +76,7 @@ jobs:
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
-                - jenkins/jenkins:2.303.2-jdk11
+                - jenkins/jenkins:2.316-jdk11
           sync-policy:
             from: dockerhub
             to: tencentyun
