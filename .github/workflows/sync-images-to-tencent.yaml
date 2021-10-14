@@ -187,9 +187,9 @@ jobs:
             gcr:
               registry: https://k8s.gcr.io
               repositories:
-                - ingress-nginx/controller:v1.0.3
+                - ingress-nginx/controller:v1.0.4
                 - defaultbackend-amd64:1.5
-                - kube-state-metrics/kube-state-metrics:v2.2.1
+                - kube-state-metrics/kube-state-metrics:v2.2.3
           sync-policy:
             from: gcr
             to: tencentyun
