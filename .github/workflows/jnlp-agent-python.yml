@@ -26,7 +26,7 @@ jobs:
           for file_path in $(find jnlp-agent-python -name Dockerfile | sort -r | head -n 3);
           do
             /usr/bin/docker buildx prune -a -f
-            /usr/bin/docker buildx build --pull --push --no-cache \
+            /usr/bin/docker buildx build --push --no-cache \
               --platform linux/amd64,linux/arm64 \
               --file ${file_path} \
               --tag ghcr.io/${{ github.repository_owner }}/onecontract-cloud_$(dirname $file_path | sed 's / : g') \
