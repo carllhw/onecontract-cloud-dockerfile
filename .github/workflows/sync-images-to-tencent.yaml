@@ -61,22 +61,21 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - library/mysql:5.7.35
-                - library/redis:5.0.13
-                - library/busybox:1.33.1
-                - istio/install-cni:1.11.3
-                - istio/operator:1.11.3
-                - istio/pilot:1.11.3
-                - istio/proxyv2:1.11.3
-                - minio/operator:v4.2.14
-                - minio/minio:RELEASE.2021-10-06T23-36-31Z
+                - library/mysql:5.7.36
+                - library/redis:5.0.14
+                - istio/install-cni:1.11.4
+                - istio/operator:1.11.4
+                - istio/pilot:1.11.4
+                - istio/proxyv2:1.11.4
+                - minio/operator:v4.3.2
+                - minio/minio:RELEASE.2021-10-23T03-28-24Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.1
                 - apache/skywalking-ui:8.8.1
                 - apache/skywalking-java-agent:8.7.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
-                - jenkins/jenkins:2.316-jdk11
+                - jenkins/jenkins:2.317-jdk11
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -115,6 +114,7 @@ jobs:
                 - library/mysql:5.7
                 - library/redis:5.0
                 - library/busybox:latest
+                - minio/minio:latest
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -123,6 +123,8 @@ jobs:
             replace:
               - old: library
                 new: onecontract-cloud
+              - old: minio/
+                new: onecontract-cloud/minio_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
