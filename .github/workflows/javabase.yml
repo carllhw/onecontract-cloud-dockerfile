@@ -2,7 +2,7 @@ name: javabase
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 3 * * 6"
+    - cron: "30 18 * * 5"
   push:
     paths:
       - "javabase/**"

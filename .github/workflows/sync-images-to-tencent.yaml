@@ -3,7 +3,7 @@ name: Sync images to Tencent
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 19 * * *"
 jobs:
   ghcr-to-tencent:
     runs-on: ubuntu-20.04
@@ -67,7 +67,7 @@ jobs:
                 - istio/operator:1.11.4
                 - istio/pilot:1.11.4
                 - istio/proxyv2:1.11.4
-                - minio/operator:v4.3.2
+                - minio/operator:v4.3.3
                 - minio/minio:RELEASE.2021-10-23T03-28-24Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.1
@@ -155,7 +155,7 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - prometheus/prometheus:v2.31.0
+                - prometheus/prometheus:v2.31.1
                 - prometheus/node-exporter:v1.2.2
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.2
