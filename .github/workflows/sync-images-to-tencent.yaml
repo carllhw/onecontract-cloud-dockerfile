@@ -64,6 +64,7 @@ jobs:
               repositories:
                 - library/mysql:5.7.36
                 - library/redis:5.0.14
+                - library/httpd:2.4.51
                 - istio/install-cni:1.11.4
                 - istio/operator:1.11.4
                 - istio/pilot:1.11.4
@@ -120,6 +121,8 @@ jobs:
                 - library/mysql:5.7
                 - library/redis:5.0
                 - library/busybox:latest
+                - library/httpd:latest
+                - library/httpd:2.4
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
