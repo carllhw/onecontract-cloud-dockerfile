@@ -65,6 +65,7 @@ jobs:
                 - library/mysql:5.7.36
                 - library/redis:5.0.14
                 - library/httpd:2.4.51
+                - library/nginx:1.20.1
                 - istio/install-cni:1.11.4
                 - istio/operator:1.11.4
                 - istio/pilot:1.11.4
@@ -123,6 +124,9 @@ jobs:
                 - library/busybox:latest
                 - library/httpd:latest
                 - library/httpd:2.4
+                - library/nginx:latest
+                - library/nginx:stable
+                - library/nginx:1.20
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
