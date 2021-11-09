@@ -1,10 +1,9 @@
-FROM nginxinc/nginx-unprivileged:1.20
-
-USER 0
+FROM nginx:1.20
 
 # Modify timezone
 ENV TZ=Asia/Shanghai
 
+# Install base packages
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
         vim \
