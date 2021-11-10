@@ -70,8 +70,8 @@ jobs:
                 - istio/operator:1.11.4
                 - istio/pilot:1.11.4
                 - istio/proxyv2:1.11.4
-                - minio/operator:v4.3.3
-                - minio/minio:RELEASE.2021-10-27T16-29-42Z
+                - minio/operator:v4.3.4
+                - minio/minio:RELEASE.2021-11-03T03-36-36Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.1
                 - apache/skywalking-ui:8.8.1
@@ -204,7 +204,7 @@ jobs:
               repositories:
                 - ingress-nginx/controller:v1.0.4
                 - defaultbackend-amd64:1.5
-                - kube-state-metrics/kube-state-metrics:v2.2.3
+                - kube-state-metrics/kube-state-metrics:v2.2.4
           sync-policy:
             from: gcr
             to: tencentyun
