@@ -165,7 +165,7 @@ jobs:
               registry: https://quay.io
               repositories:
                 - prometheus/prometheus:v2.31.1
-                - prometheus/node-exporter:v1.2.2
+                - prometheus/node-exporter:v1.3.0
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.2
                 - thanos/thanos:v0.23.1
