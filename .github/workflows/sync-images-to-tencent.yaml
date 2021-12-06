@@ -67,11 +67,11 @@ jobs:
                 - library/redis:5.0.14
                 - library/httpd:2.4.51
                 - library/nginx:1.20.1
-                - istio/install-cni:1.11.4
-                - istio/operator:1.11.4
-                - istio/pilot:1.11.4
-                - istio/proxyv2:1.11.4
-                - minio/operator:v4.3.4
+                - istio/install-cni:1.11.5
+                - istio/operator:1.11.5
+                - istio/pilot:1.11.5
+                - istio/proxyv2:1.11.5
+                - minio/operator:v4.3.6
                 - minio/minio:RELEASE.2021-11-03T03-36-36Z
                 - hengyunabc/arthas:3.5.4-no-jdk
                 - apache/skywalking-oap-server:8.8.1
@@ -165,7 +165,7 @@ jobs:
               registry: https://quay.io
               repositories:
                 - prometheus/prometheus:v2.31.1
-                - prometheus/node-exporter:v1.3.0
+                - prometheus/node-exporter:v1.3.1
                 - prometheus/alertmanager:v0.23.0
                 - prometheus/pushgateway:v1.4.2
                 - thanos/thanos:v0.23.1
