@@ -66,23 +66,23 @@ jobs:
                 - library/mysql:5.7.36
                 - library/redis:5.0.14
                 - library/httpd:2.4.51
-                - library/nginx:1.20.1
+                - library/nginx:1.20.2
                 - istio/install-cni:1.11.5
                 - istio/operator:1.11.5
                 - istio/pilot:1.11.5
                 - istio/proxyv2:1.11.5
                 - minio/operator:v4.3.6
                 - minio/minio:RELEASE.2021-11-03T03-36-36Z
-                - hengyunabc/arthas:3.5.4-no-jdk
-                - apache/skywalking-oap-server:8.8.1
-                - apache/skywalking-ui:8.8.1
-                - apache/skywalking-java-agent:8.7.0-alpine
+                - hengyunabc/arthas:3.5.5-no-jdk
+                - apache/skywalking-oap-server:8.9.0
+                - apache/skywalking-ui:8.9.0
+                - apache/skywalking-java-agent:8.8.0-alpine
                 - jimmidyson/configmap-reload:v0.5.0
                 - jettech/kube-webhook-certgen:v1.5.2
-                - jenkins/jenkins:2.317-jdk11
-                - grafana/loki:2.3.0
-                - grafana/promtail:2.3.0
-                - grafana/grafana:8.1.2
+                - jenkins/jenkins:2.323-jdk11
+                - grafana/loki:2.4.1
+                - grafana/promtail:2.4.1
+                - grafana/grafana:8.2.6
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -203,7 +203,7 @@ jobs:
             gcr:
               registry: https://k8s.gcr.io
               repositories:
-                - ingress-nginx/controller:v1.0.5
+                - ingress-nginx/controller:v1.1.0
                 - defaultbackend-amd64:1.5
                 - kube-state-metrics/kube-state-metrics:v2.2.4
                 - node-problem-detector/node-problem-detector:v0.8.10
