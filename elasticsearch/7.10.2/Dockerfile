@@ -17,4 +17,6 @@ RUN set -eux; \
     # https://logging.apache.org/log4j/2.x/security.html
     rm -f /usr/share/elasticsearch/lib/log4j*; \
     wget -qO "/usr/share/elasticsearch/lib/log4j-api-${LOG4J_VERSION}.jar" "https://maven.aliyun.com/repository/public/org/apache/logging/log4j/log4j-api/${LOG4J_VERSION}/log4j-api-${LOG4J_VERSION}.jar"; \
-    wget -qO "/usr/share/elasticsearch/lib/log4j-core-${LOG4J_VERSION}.jar" "https://maven.aliyun.com/repository/public/org/apache/logging/log4j/log4j-core/${LOG4J_VERSION}/log4j-core-${LOG4J_VERSION}.jar"
+    wget -qO "/usr/share/elasticsearch/lib/log4j-core-${LOG4J_VERSION}.jar" "https://maven.aliyun.com/repository/public/org/apache/logging/log4j/log4j-core/${LOG4J_VERSION}/log4j-core-${LOG4J_VERSION}.jar"; \
+    rm -f /usr/share/elasticsearch/modules/x-pack-core/log4j*; \
+    wget -qO "/usr/share/elasticsearch/modules/x-pack-core/log4j-1.2-api-${LOG4J_VERSION}.jar" "https://maven.aliyun.com/repository/public/org/apache/logging/log4j/log4j-1.2-api/${LOG4J_VERSION}/log4j-1.2-api-${LOG4J_VERSION}.jar"
