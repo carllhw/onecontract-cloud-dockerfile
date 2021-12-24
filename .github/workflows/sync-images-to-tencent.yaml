@@ -28,7 +28,6 @@ jobs:
                 - carllhw/onecontract-cloud_javabase
                 - carllhw/onecontract-cloud_jnlp-agent-python
                 - carllhw/onecontract-cloud_kibana
-                - carllhw/onecontract-cloud_mysql-backup
                 - carllhw/onecontract-cloud_openvpn
                 - carllhw/onecontract-cloud_rustbase
           sync-policy:
