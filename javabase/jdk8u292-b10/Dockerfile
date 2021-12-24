@@ -8,6 +8,7 @@ ENV TZ="Asia/Shanghai" \
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
+        dnsutils \
         gnupg2 \
         netcat \
         net-tools \
