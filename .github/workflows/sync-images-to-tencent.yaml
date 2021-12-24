@@ -24,12 +24,13 @@ jobs:
               registry: https://ghcr.io
               repositories:
                 - carllhw/onecontract-cloud_elasticsearch
-                - carllhw/onecontract-cloud_javabase
                 - carllhw/onecontract-cloud_frontbase
-                - carllhw/onecontract-cloud_rustbase
-                - carllhw/onecontract-cloud_kibana
-                - carllhw/onecontract-cloud_openvpn
+                - carllhw/onecontract-cloud_javabase
                 - carllhw/onecontract-cloud_jnlp-agent-python
+                - carllhw/onecontract-cloud_kibana
+                - carllhw/onecontract-cloud_mysql-backup
+                - carllhw/onecontract-cloud_openvpn
+                - carllhw/onecontract-cloud_rustbase
           sync-policy:
             from: ghcr
             to: tencentyun
@@ -63,49 +64,49 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - library/mysql:5.7.36
-                - library/redis:5.0.14
+                - apache/skywalking-java-agent:8.8.0-alpine
+                - apache/skywalking-oap-server:8.9.0
+                - apache/skywalking-ui:8.9.0
+                - grafana/grafana:8.2.6
+                - grafana/loki:2.4.1
+                - grafana/promtail:2.4.1
+                - hengyunabc/arthas:3.5.5-no-jdk
+                - jenkins/jenkins:2.323-jdk11
+                - jettech/kube-webhook-certgen:v1.5.2
+                - jimmidyson/configmap-reload:v0.5.0
                 - library/httpd:2.4.51
+                - library/mysql:5.7.36
                 - library/nginx:1.20.2
+                - library/redis:5.0.14
+                - minio/operator:v4.3.6
+                - minio/minio:RELEASE.2021-11-03T03-36-36Z
                 - istio/install-cni:1.11.5
                 - istio/operator:1.11.5
                 - istio/pilot:1.11.5
                 - istio/proxyv2:1.11.5
-                - minio/operator:v4.3.6
-                - minio/minio:RELEASE.2021-11-03T03-36-36Z
-                - hengyunabc/arthas:3.5.5-no-jdk
-                - apache/skywalking-oap-server:8.9.0
-                - apache/skywalking-ui:8.9.0
-                - apache/skywalking-java-agent:8.8.0-alpine
-                - jimmidyson/configmap-reload:v0.5.0
-                - jettech/kube-webhook-certgen:v1.5.2
-                - jenkins/jenkins:2.323-jdk11
-                - grafana/loki:2.4.1
-                - grafana/promtail:2.4.1
-                - grafana/grafana:8.2.6
           sync-policy:
             from: dockerhub
             to: tencentyun
             dry-run: false
             replace:
+              - old: apache/
+                new: onecontract-cloud/apache_
+              - old: grafana/
+                new: onecontract-cloud/grafana_
+              - old: hengyunabc/
+                new: onecontract-cloud/hengyunabc_
+              - old: jenkins/
+                new: onecontract-cloud/jenkins_
+              - old: jettech/
+                new: onecontract-cloud/jettech_
+              - old: jimmidyson/
+                new: onecontract-cloud/jimmidyson_
               - old: library
                 new: onecontract-cloud
               - old: istio/
                 new: onecontract-cloud/istio_
               - old: minio/
                 new: onecontract-cloud/minio_
-              - old: apache/
-                new: onecontract-cloud/apache_
-              - old: hengyunabc/
-                new: onecontract-cloud/hengyunabc_
-              - old: jimmidyson/
-                new: onecontract-cloud/jimmidyson_
-              - old: jettech/
-                new: onecontract-cloud/jettech_
-              - old: jenkins/
-                new: onecontract-cloud/jenkins_
-              - old: grafana/
-                new: onecontract-cloud/grafana_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to Tencent force
@@ -119,15 +120,14 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-              repositories:
-                - library/mysql:5.7
-                - library/redis:5.0
                 - library/busybox:latest
                 - library/httpd:latest
                 - library/httpd:2.4
                 - library/nginx:latest
                 - library/nginx:stable
                 - library/nginx:1.20
+                - library/mysql:5.7
+                - library/redis:5.0
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
@@ -164,10 +164,10 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - prometheus/prometheus:v2.31.1
-                - prometheus/node-exporter:v1.3.1
                 - prometheus/alertmanager:v0.23.0
+                - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.2
+                - prometheus/prometheus:v2.31.1
                 - thanos/thanos:v0.23.1
           sync-policy:
             from: quay
@@ -203,8 +203,8 @@ jobs:
             gcr:
               registry: https://k8s.gcr.io
               repositories:
-                - ingress-nginx/controller:v1.1.0
                 - defaultbackend-amd64:1.5
+                - ingress-nginx/controller:v1.1.0
                 - kube-state-metrics/kube-state-metrics:v2.2.4
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
