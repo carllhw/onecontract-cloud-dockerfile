@@ -1,7 +1,7 @@
 FROM docker.elastic.co/elasticsearch/elasticsearch:7.10.2
 
 ARG ELASTICSEARCH_VERSION=7.10.2
-ARG LOG4J_VERSION=2.17.0
+ARG LOG4J_VERSION=2.17.1
 
 RUN set -eux; \
     yum install -y \
