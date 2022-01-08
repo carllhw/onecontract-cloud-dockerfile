@@ -6,9 +6,13 @@ ENV TZ=Asia/Shanghai
 # Install base packages
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
-        vim \
+        ca-certificates \
         curl \
-        ca-certificates; \
+        dnsutils \
+        netcat \
+        net-tools \
+        procps \
+        vim; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*;
 
