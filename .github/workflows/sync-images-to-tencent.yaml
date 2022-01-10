@@ -71,6 +71,10 @@ jobs:
                 - grafana/loki:2.4.1
                 - grafana/promtail:2.4.1
                 - hengyunabc/arthas:3.5.5-no-jdk
+                - istio/install-cni:1.11.5
+                - istio/operator:1.11.5
+                - istio/pilot:1.11.5
+                - istio/proxyv2:1.11.5
                 - jenkins/jenkins:2.328-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.5.0
@@ -80,10 +84,7 @@ jobs:
                 - library/redis:5.0.14
                 - minio/operator:v4.3.6
                 - minio/minio:RELEASE.2021-11-03T03-36-36Z
-                - istio/install-cni:1.11.5
-                - istio/operator:1.11.5
-                - istio/pilot:1.11.5
-                - istio/proxyv2:1.11.5
+                - sonatype/nexus3:3.37.3
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -95,6 +96,8 @@ jobs:
                 new: onecontract-cloud/grafana_
               - old: hengyunabc/
                 new: onecontract-cloud/hengyunabc_
+              - old: istio/
+                new: onecontract-cloud/istio_
               - old: jenkins/
                 new: onecontract-cloud/jenkins_
               - old: jettech/
@@ -103,10 +106,10 @@ jobs:
                 new: onecontract-cloud/jimmidyson_
               - old: library
                 new: onecontract-cloud
-              - old: istio/
-                new: onecontract-cloud/istio_
               - old: minio/
                 new: onecontract-cloud/minio_
+              - old: sonatype/
+                new: onecontract-cloud/sonatype_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to Tencent force
