@@ -23,6 +23,7 @@ jobs:
             ghcr:
               registry: https://ghcr.io
               repositories:
+                - carllhw/onecontract-cloud_applicationinsights-agent
                 - carllhw/onecontract-cloud_arms-agent
                 - carllhw/onecontract-cloud_elasticsearch
                 - carllhw/onecontract-cloud_frontbase
