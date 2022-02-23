@@ -2,7 +2,7 @@ FROM ghcr.io/carllhw/onecontract-cloud_adoptopenjdk:jdk8u292-b10
 
 ENV TZ="Asia/Shanghai" \
     TINI_VERSION="v0.19.0" \
-    JAVA_OPTS="-XX:MaxRAMPercentage=90.0"
+    JAVA_OPTS="-XX:MaxRAMPercentage=80.0"
 
 # Install base packages
 RUN apt-get update; \
