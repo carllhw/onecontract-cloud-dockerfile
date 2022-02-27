@@ -4,12 +4,6 @@ ARG ELASTICSEARCH_VERSION=7.14.0
 ARG LOG4J_VERSION=2.17.1
 
 RUN set -eux; \
-    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup; \
-    curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo; \
-    yum install -y \
-         wget
-
-RUN set -eux; \
     # analysis-ik
     curl -LfsSo "/tmp/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip" \
         "https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ELASTICSEARCH_VERSION}/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip"; \
