@@ -209,7 +209,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - ingress-nginx/controller:v1.1.0
+                - ingress-nginx/controller:v1.1.1
                 - kube-state-metrics/kube-state-metrics:v2.2.4
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
