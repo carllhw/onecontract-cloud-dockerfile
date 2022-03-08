@@ -77,7 +77,7 @@ jobs:
                 - istio/operator:1.11.5
                 - istio/pilot:1.11.5
                 - istio/proxyv2:1.11.5
-                - jenkins/jenkins:2.328-jdk11
+                - jenkins/jenkins:2.337-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.5.0
                 - library/httpd:2.4.51
