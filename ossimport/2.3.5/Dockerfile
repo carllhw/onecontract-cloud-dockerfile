@@ -13,6 +13,7 @@ RUN apt-get update; \
         netcat \
         net-tools \
         openssh-client \
+        openssh-server \
         procps \
         tar \
         telnet \
@@ -20,12 +21,16 @@ RUN apt-get update; \
         vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
+    # Modify `sshd_config`
+    sed -ri 's/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config; \
+    sed -ri 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config; \
+    sed -ri 's/^UsePAM yes/UsePAM no/' /etc/ssh/sshd_config; \
     rm -rf /var/lib/apt/lists/*
 
 # Install ossimport
 RUN curl -LfsSo "/tmp/ossimport.tar.gz" \
         "https://gosspublic.alicdn.com/ossimport/distributed/ossimport-${OSSIMPORT_VERSION}.tar.gz"; \
-    tar -C /opt/ -xf /tmp/ossimport.tar.gz; \
+    tar -C /root/ossimport -xf /tmp/ossimport.tar.gz; \
     rm -r /tmp/*;
 
 # Add mirror source
