@@ -1,7 +1,5 @@
 FROM ghcr.io/carllhw/onecontract-cloud_adoptopenjdk:jdk8u292-b10
 
-ARG OSSIMPORT_VERSION=2.3.5
-
 ENV TZ="Asia/Shanghai"
 
 # Install base packages
@@ -30,13 +28,10 @@ RUN apt-get update; \
     mkdir -p /run/sshd; \
     rm -rf /var/lib/apt/lists/*
 
-# Install ossimport
-RUN curl -LfsSo "/tmp/ossimport.tar.gz" \
-        "https://gosspublic.alicdn.com/ossimport/distributed/ossimport-${OSSIMPORT_VERSION}.tar.gz"; \
-    mkdir /root/ossimport; \
-    tar -C /root/ossimport -xf /tmp/ossimport.tar.gz; \
-    rm -r /tmp/*;
-
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
+
+EXPOSE 22
+
+CMD [ "/bin/sh","-c","/usr/sbin/sshd -D" ]
