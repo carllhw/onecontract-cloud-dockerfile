@@ -30,6 +30,7 @@ RUN apt-get update; \
 # Install ossimport
 RUN curl -LfsSo "/tmp/ossimport.tar.gz" \
         "https://gosspublic.alicdn.com/ossimport/distributed/ossimport-${OSSIMPORT_VERSION}.tar.gz"; \
+    mkdir /root/ossimport; \
     tar -C /root/ossimport -xf /tmp/ossimport.tar.gz; \
     rm -r /tmp/*;
 
