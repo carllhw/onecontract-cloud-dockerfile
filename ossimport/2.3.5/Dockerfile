@@ -25,6 +25,9 @@ RUN apt-get update; \
     sed -ri 's/^#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config; \
     sed -ri 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config; \
     sed -ri 's/^UsePAM yes/UsePAM no/' /etc/ssh/sshd_config; \
+    # Delete root password (set as empty)
+    passwd -d root; \
+    mkdir -p /run/sshd; \
     rm -rf /var/lib/apt/lists/*
 
 # Install ossimport
