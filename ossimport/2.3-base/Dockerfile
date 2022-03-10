@@ -21,15 +21,15 @@ RUN apt-get update; \
     apt-get upgrade -y --no-install-recommends; \
     # ssh
     mkdir -p /run/sshd; \
-    # OssImport
-    mkdir /root/ossimport; \
+    # ossimport
+    mkdir /root/import; \
     rm -rf /var/lib/apt/lists/*
 
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
 
-WORKDIR /root/ossimport
+WORKDIR /root/import
 
 EXPOSE 22
 
