@@ -26,11 +26,15 @@ RUN apt-get update; \
     # Delete root password (set as empty)
     passwd -d root; \
     mkdir -p /run/sshd; \
+    # OssImport
+    mkdir /root/ossimport; \
     rm -rf /var/lib/apt/lists/*
 
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
+
+WORKDIR /root/ossimport
 
 EXPOSE 22
 
