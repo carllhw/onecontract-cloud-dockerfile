@@ -19,6 +19,8 @@ RUN apt-get update; \
         vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
+    # ssh
+    mkdir -p /run/sshd; \
     # OssImport
     mkdir /root/ossimport; \
     rm -rf /var/lib/apt/lists/*
