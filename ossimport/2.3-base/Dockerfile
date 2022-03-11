@@ -21,8 +21,8 @@ RUN apt-get update; \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
     # locale
-    && echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen \
-    && locale-gen zh_CN.UTF-8 \
+    && echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen; \
+    && locale-gen zh_CN.UTF-8; \
     # ssh
     mkdir -p /run/sshd; \
     # ossimport
