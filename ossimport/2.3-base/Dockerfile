@@ -1,7 +1,6 @@
 FROM ghcr.io/carllhw/onecontract-cloud_adoptopenjdk:jdk8u292-b10
 
 ENV TZ="Asia/Shanghai"
-ENV LANG='zh_CN.UTF-8' LANGUAGE='zh_CN.UTF-8' LC_ALL='zh_CN.UTF-8'
 
 # Install base packages
 RUN apt-get update; \
@@ -20,9 +19,6 @@ RUN apt-get update; \
         vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
-    # locale
-    echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen; \
-    locale-gen zh_CN.UTF-8; \
     # ssh
     mkdir -p /run/sshd; \
     # ossimport
