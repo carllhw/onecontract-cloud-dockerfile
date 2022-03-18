@@ -4,8 +4,8 @@ ARG RCLONE_VERSION=v1.57.0
 
 ENV TZ="Asia/Shanghai"
 
-RUN apt update; \
-    apt install -y --no-install-recommends \
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         dnsutils \
