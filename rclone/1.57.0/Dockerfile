@@ -12,15 +12,10 @@ RUN set -eux; \
         ca-certificates \
         curl \
         dnsutils \
-        gnupg2 \
         netcat \
-        net-tools \
-        openssh-client \
         procps \
         tar \
-        telnet \
         unzip \
-        vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
