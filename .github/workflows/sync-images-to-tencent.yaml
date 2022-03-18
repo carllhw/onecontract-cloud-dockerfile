@@ -81,10 +81,13 @@ jobs:
                 - jenkins/jenkins:2.337-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.5.0
-                - library/httpd:2.4.51
-                - library/mysql:5.7.36
+                - library/httpd:2.4.53
+                - library/mysql:5.7.37
+                - library/mysql:8.0.28
                 - library/nginx:1.20.2
                 - library/redis:5.0.14
+                - library/redis:6.0.16
+                - library/redis:6.2.6
                 - minio/operator:v4.3.6
                 - minio/minio:RELEASE.2021-11-03T03-36-36Z
                 - sonatype/nexus3:3.37.3
@@ -133,7 +136,10 @@ jobs:
                 - library/nginx:stable
                 - library/nginx:1.20
                 - library/mysql:5.7
+                - library/mysql:8.0
                 - library/redis:5.0
+                - library/redis:6.0
+                - library/redis:6.2
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
