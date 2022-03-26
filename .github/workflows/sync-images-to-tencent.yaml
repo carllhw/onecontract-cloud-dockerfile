@@ -67,20 +67,20 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - apache/skywalking-java-agent:8.8.0-alpine
-                - apache/skywalking-oap-server:8.9.0
-                - apache/skywalking-ui:8.9.0
-                - grafana/grafana:8.2.6
-                - grafana/loki:2.4.1
-                - grafana/promtail:2.4.1
-                - hengyunabc/arthas:3.5.5-no-jdk
-                - istio/install-cni:1.11.5
-                - istio/operator:1.11.5
-                - istio/pilot:1.11.5
-                - istio/proxyv2:1.11.5
-                - jenkins/jenkins:2.337-jdk11
+                - apache/skywalking-java-agent:8.9.0-alpine
+                - apache/skywalking-oap-server:8.9.1
+                - apache/skywalking-ui:8.9.1
+                - grafana/grafana:8.4.4
+                - grafana/loki:2.4.2
+                - grafana/promtail:2.4.2
+                - hengyunabc/arthas:3.6.0-no-jdk
+                - istio/install-cni:1.12.5
+                - istio/operator:1.12.5
+                - istio/pilot:1.12.5
+                - istio/proxyv2:1.12.5
+                - jenkins/jenkins:2.340-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
-                - jimmidyson/configmap-reload:v0.5.0
+                - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.53
                 - library/mysql:5.7.37
                 - library/mysql:8.0.28
@@ -88,8 +88,8 @@ jobs:
                 - library/redis:5.0.14
                 - library/redis:6.0.16
                 - library/redis:6.2.6
-                - minio/operator:v4.3.6
-                - minio/minio:RELEASE.2021-11-03T03-36-36Z
+                - minio/operator:v4.4.12
+                - minio/minio:RELEASE.2022-03-26T06-49-28Z
                 - sonatype/nexus3:3.38.0
           sync-policy:
             from: dockerhub
@@ -176,11 +176,11 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - prometheus/alertmanager:v0.23.0
+                - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.2
-                - prometheus/prometheus:v2.31.1
-                - thanos/thanos:v0.23.1
+                - prometheus/prometheus:v2.34.0
+                - thanos/thanos:v0.25.2
           sync-policy:
             from: quay
             to: tencentyun
@@ -216,8 +216,8 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - ingress-nginx/controller:v1.1.1
-                - kube-state-metrics/kube-state-metrics:v2.2.4
+                - ingress-nginx/controller:v1.1.2
+                - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
             from: gcr
