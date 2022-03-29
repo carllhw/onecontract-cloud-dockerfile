@@ -66,6 +66,8 @@ jobs:
             replace:
               - old: fluxcd/
                 new: onecontract-cloud/
+          EOF
+          registry-manager sync -c config.yaml
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
