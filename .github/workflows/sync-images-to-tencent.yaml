@@ -44,6 +44,29 @@ jobs:
                 new: onecontract-cloud/
           EOF
           registry-manager sync -c config.yaml
+      - name: Ghcr to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            ghcr:
+              registry: https://ghcr.io
+              repositories:
+                - fluxcd/helm-controller:v0.18.2
+                - fluxcd/kustomize-controller:v0.22.2
+                - fluxcd/notification-controller:v0.23.1
+                - fluxcd/source-controller:v0.22.4
+          sync-policy:
+            from: ghcr
+            to: tencentyun
+            force: true
+            dry-run: false
+            replace:
+              - old: fluxcd/
+                new: onecontract-cloud/
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
