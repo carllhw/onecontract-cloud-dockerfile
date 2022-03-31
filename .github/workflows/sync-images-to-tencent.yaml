@@ -55,10 +55,10 @@ jobs:
             ghcr:
               registry: https://ghcr.io
               repositories:
-                - fluxcd/helm-controller:v0.18.2
-                - fluxcd/kustomize-controller:v0.22.2
-                - fluxcd/notification-controller:v0.23.1
-                - fluxcd/source-controller:v0.22.4
+                - fluxcd/helm-controller
+                - fluxcd/kustomize-controller
+                - fluxcd/notification-controller
+                - fluxcd/source-controller
           sync-policy:
             from: ghcr
             to: tencentyun
@@ -66,6 +66,8 @@ jobs:
             replace:
               - old: fluxcd/
                 new: onecontract-cloud/
+          filters:
+            - ^[Vv]?\d+\.\d+(\.\d+)?(-\d+)?$
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
