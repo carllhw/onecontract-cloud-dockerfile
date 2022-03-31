@@ -36,7 +36,7 @@ jobs:
                 - carllhw/onecontract-cloud_rustbase
           sync-policy:
             from: ghcr
-            to: tencentyun
+            to: dockerhub
             force: true
             dry-run: false
             replace:
