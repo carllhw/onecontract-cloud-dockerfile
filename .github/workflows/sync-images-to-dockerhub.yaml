@@ -1,5 +1,5 @@
 # ref: https://github.com/TimeBye/registry-manager
-name: Sync images to Tencent
+name: Sync images to Dockerhub
 on:
   workflow_dispatch:
   schedule:
