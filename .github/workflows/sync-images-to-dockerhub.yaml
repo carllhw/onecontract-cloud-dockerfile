@@ -34,6 +34,7 @@ jobs:
                 - carllhw/onecontract-cloud_openvpn
                 - carllhw/onecontract-cloud_rclone
                 - carllhw/onecontract-cloud_rustbase
+                - carllhw/onecontract-cloud_srm-agent-call-chain
           sync-policy:
             from: ghcr
             to: dockerhub
