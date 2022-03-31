@@ -62,7 +62,7 @@ jobs:
                 - fluxcd/notification-controller:v0.20.1
                 - fluxcd/notification-controller:v0.23.2
                 - fluxcd/source-controller:v0.20.1
-                - fluxcd/source-controller:v0.22.4
+                - fluxcd/source-controller:v0.22.5
           sync-policy:
             from: ghcr
             to: tencentyun
