@@ -1,4 +1,4 @@
-FROM ghcr.io/carllhw/onecontract-cloud_adoptopenjdk:jdk8u292-b10
+FROM onecontract/adoptopenjdk:jdk8u292-b10
 
 ENV TZ="Asia/Shanghai" \
     TINI_VERSION="v0.19.0" \
