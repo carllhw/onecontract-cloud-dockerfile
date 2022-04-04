@@ -12,39 +12,6 @@ jobs:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
     steps:
-      - name: Ghcr to Tencent force
-        run: |
-          cat << EOF >config.yaml
-          registries:
-            tencentyun:
-              registry: https://ccr.ccs.tencentyun.com
-              username: $TO_USERNAME
-              password: $TO_PASSWORD
-            ghcr:
-              registry: https://ghcr.io
-              repositories:
-                - carllhw/onecontract-cloud_applicationinsights-agent
-                - carllhw/onecontract-cloud_arms-agent
-                - carllhw/onecontract-cloud_elasticsearch
-                - carllhw/onecontract-cloud_frontbase
-                - carllhw/onecontract-cloud_javabase
-                - carllhw/onecontract-cloud_jnlp-agent-python
-                - carllhw/onecontract-cloud_kibana
-                - carllhw/onecontract-cloud_mysql-backup
-                - carllhw/onecontract-cloud_openvpn
-                - carllhw/onecontract-cloud_rclone
-                - carllhw/onecontract-cloud_rustbase
-                - carllhw/onecontract-cloud_srm-agent-call-chain
-          sync-policy:
-            from: ghcr
-            to: tencentyun
-            force: true
-            dry-run: false
-            replace:
-              - old: carllhw/onecontract-cloud_
-                new: onecontract-cloud/
-          EOF
-          registry-manager sync -c config.yaml
       - name: Ghcr to Tencent
         run: |
           cat << EOF >config.yaml
@@ -119,6 +86,18 @@ jobs:
                 - library/redis:6.2.6
                 - minio/operator:v4.4.12
                 - minio/minio:RELEASE.2022-03-26T06-49-28Z
+                - onecontract/applicationinsights-agent
+                - onecontract/arms-agent
+                - onecontract/elasticsearch
+                - onecontract/frontbase
+                - onecontract/javabase
+                - onecontract/jnlp-agent-python
+                - onecontract/kibana
+                - onecontract/mysql-backup
+                - onecontract/openvpn
+                - onecontract/rclone
+                - onecontract/rustbase
+                - onecontract/srm-agent-call-chain
                 - sonatype/nexus3:3.38.0
           sync-policy:
             from: dockerhub
@@ -143,6 +122,8 @@ jobs:
                 new: onecontract-cloud
               - old: minio/
                 new: onecontract-cloud/minio_
+              - old: onecontract/
+                new: onecontract-cloud/
               - old: sonatype/
                 new: onecontract-cloud/sonatype_
           EOF
