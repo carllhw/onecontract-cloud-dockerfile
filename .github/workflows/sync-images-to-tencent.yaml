@@ -52,7 +52,7 @@ jobs:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
     steps:
-      - name: Dockerhub to Tencent
+      - name: Dockerhub Onecontract to Tencent force
         run: |
           cat << EOF >config.yaml
           registries:
@@ -63,29 +63,6 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - apache/skywalking-java-agent:8.9.0-alpine
-                - apache/skywalking-oap-server:8.9.1
-                - apache/skywalking-ui:8.9.1
-                - grafana/grafana:8.4.4
-                - grafana/loki:2.4.2
-                - grafana/promtail:2.4.2
-                - hengyunabc/arthas:3.6.0-no-jdk
-                - istio/install-cni:1.12.5
-                - istio/operator:1.12.5
-                - istio/pilot:1.12.5
-                - istio/proxyv2:1.12.5
-                - jenkins/jenkins:2.341-jdk8
-                - jettech/kube-webhook-certgen:v1.5.2
-                - jimmidyson/configmap-reload:v0.7.1
-                - library/httpd:2.4.53
-                - library/mysql:5.7.37
-                - library/mysql:8.0.28
-                - library/nginx:1.20.2
-                - library/redis:5.0.14
-                - library/redis:6.0.16
-                - library/redis:6.2.6
-                - minio/operator:v4.4.12
-                - minio/minio:RELEASE.2022-03-26T06-49-28Z
                 - onecontract/applicationinsights-agent
                 - onecontract/arms-agent
                 - onecontract/elasticsearch
@@ -98,34 +75,14 @@ jobs:
                 - onecontract/rclone
                 - onecontract/rustbase
                 - onecontract/srm-agent-call-chain
-                - sonatype/nexus3:3.38.0
           sync-policy:
             from: dockerhub
             to: tencentyun
+            force: true
             dry-run: false
             replace:
-              - old: apache/
-                new: onecontract-cloud/apache_
-              - old: grafana/
-                new: onecontract-cloud/grafana_
-              - old: hengyunabc/
-                new: onecontract-cloud/hengyunabc_
-              - old: istio/
-                new: onecontract-cloud/istio_
-              - old: jenkins/
-                new: onecontract-cloud/jenkins_
-              - old: jettech/
-                new: onecontract-cloud/jettech_
-              - old: jimmidyson/
-                new: onecontract-cloud/jimmidyson_
-              - old: library
-                new: onecontract-cloud
-              - old: minio/
-                new: onecontract-cloud/minio_
               - old: onecontract/
                 new: onecontract-cloud/
-              - old: sonatype/
-                new: onecontract-cloud/sonatype_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to Tencent force
@@ -161,6 +118,68 @@ jobs:
                 new: onecontract-cloud
               - old: minio/
                 new: onecontract-cloud/minio_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Dockerhub to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - apache/skywalking-java-agent:8.9.0-alpine
+                - apache/skywalking-oap-server:8.9.1
+                - apache/skywalking-ui:8.9.1
+                - grafana/grafana:8.4.4
+                - grafana/loki:2.4.2
+                - grafana/promtail:2.4.2
+                - hengyunabc/arthas:3.6.0-no-jdk
+                - istio/install-cni:1.12.5
+                - istio/operator:1.12.5
+                - istio/pilot:1.12.5
+                - istio/proxyv2:1.12.5
+                - jenkins/jenkins:2.341-jdk8
+                - jettech/kube-webhook-certgen:v1.5.2
+                - jimmidyson/configmap-reload:v0.7.1
+                - library/httpd:2.4.53
+                - library/mysql:5.7.37
+                - library/mysql:8.0.28
+                - library/nginx:1.20.2
+                - library/redis:5.0.14
+                - library/redis:6.0.16
+                - library/redis:6.2.6
+                - minio/operator:v4.4.12
+                - minio/minio:RELEASE.2022-03-26T06-49-28Z
+                - sonatype/nexus3:3.38.0
+          sync-policy:
+            from: dockerhub
+            to: tencentyun
+            dry-run: false
+            replace:
+              - old: apache/
+                new: onecontract-cloud/apache_
+              - old: grafana/
+                new: onecontract-cloud/grafana_
+              - old: hengyunabc/
+                new: onecontract-cloud/hengyunabc_
+              - old: istio/
+                new: onecontract-cloud/istio_
+              - old: jenkins/
+                new: onecontract-cloud/jenkins_
+              - old: jettech/
+                new: onecontract-cloud/jettech_
+              - old: jimmidyson/
+                new: onecontract-cloud/jimmidyson_
+              - old: library
+                new: onecontract-cloud
+              - old: minio/
+                new: onecontract-cloud/minio_
+              - old: sonatype/
+                new: onecontract-cloud/sonatype_
           EOF
           registry-manager sync -c config.yaml
       - name: Delete workflow runs
