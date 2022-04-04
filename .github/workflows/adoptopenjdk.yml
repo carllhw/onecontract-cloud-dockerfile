@@ -32,7 +32,7 @@ jobs:
             /usr/bin/docker buildx build --push --no-cache \
               --platform linux/amd64,linux/arm64 \
               --file ${file_path} \
-              --tag ${{ secrets.DOCKERHUB_USERNAME }}/onecontract-cloud_$(dirname $file_path | sed 's / : g') \
+              --tag ${{ secrets.DOCKERHUB_USERNAME }}/$(dirname $file_path | sed 's / : g') \
               ${file_path%/*}
           done
       - name: Delete workflow runs
