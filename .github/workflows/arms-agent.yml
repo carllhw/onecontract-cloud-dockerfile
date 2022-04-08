@@ -35,8 +35,3 @@ jobs:
               --tag ${{ secrets.DOCKERHUB_USERNAME }}/$(dirname $file_path | sed 's / : g') \
               ${file_path%/*}
           done
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 7
-          keep_minimum_runs: 3

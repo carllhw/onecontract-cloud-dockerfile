@@ -40,11 +40,6 @@ jobs:
                 new: onecontract-cloud/
           EOF
           registry-manager sync -c config.yaml
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 7
-          keep_minimum_runs: 3
   dockerhub-to-tencent:
     runs-on: ubuntu-20.04
     container: setzero/registry-manager
@@ -182,11 +177,6 @@ jobs:
                 new: onecontract-cloud/sonatype_
           EOF
           registry-manager sync -c config.yaml
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 7
-          keep_minimum_runs: 3
   quay-to-tencent:
     runs-on: ubuntu-20.04
     container: setzero/registry-manager
@@ -221,11 +211,6 @@ jobs:
                 new: onecontract-cloud/thanos_
           EOF
           registry-manager sync -c config.yaml
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 7
-          keep_minimum_runs: 3
   gcr-to-tencent:
     runs-on: ubuntu-20.04
     container: setzero/registry-manager
@@ -262,8 +247,3 @@ jobs:
               - new: onecontract-cloud
           EOF
           registry-manager sync -c config.yaml
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          retain_days: 7
-          keep_minimum_runs: 3
