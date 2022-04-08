@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
-        uses: ActionsRML/delete-workflow-runs@main
+        uses: GitRML/delete-workflow-runs@main
         with:
           retain_days: ${{ github.event.inputs.retain_days }}
