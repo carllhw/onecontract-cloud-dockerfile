@@ -1,11 +1,6 @@
-name: Delete old workflow runs
+name: Delete workflow runs
 on:
   workflow_dispatch:
-    inputs:
-      retain_days:
-        description: "Number of days."
-        required: true
-        default: 7
   schedule:
     - cron: "0 16 * * *"
 jobs:
@@ -15,4 +10,5 @@ jobs:
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
         with:
-          retain_days: ${{ github.event.inputs.retain_days }}
+          retain_days: 7
+          keep_minimum_runs: 3
