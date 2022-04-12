@@ -133,8 +133,8 @@ jobs:
                 - apache/skywalking-oap-server:8.9.1
                 - apache/skywalking-ui:8.9.1
                 - grafana/grafana:8.4.6
-                - grafana/loki:2.4.2
-                - grafana/promtail:2.4.2
+                - grafana/loki:2.5.0
+                - grafana/promtail:2.5.0
                 - hengyunabc/arthas:3.6.0-no-jdk
                 - istio/install-cni:1.12.5
                 - istio/operator:1.12.5
