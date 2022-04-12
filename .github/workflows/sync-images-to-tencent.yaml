@@ -91,6 +91,7 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
+                - curlimages/curl:latest
                 - library/busybox:latest
                 - library/httpd:latest
                 - library/httpd:2.4
@@ -109,6 +110,8 @@ jobs:
             force: true
             dry-run: false
             replace:
+              - old: curlimages/
+                new: onecontract-cloud/curlimages_
               - old: library
                 new: onecontract-cloud
               - old: minio/
@@ -129,7 +132,7 @@ jobs:
                 - apache/skywalking-java-agent:8.9.0-alpine
                 - apache/skywalking-oap-server:8.9.1
                 - apache/skywalking-ui:8.9.1
-                - grafana/grafana:8.4.4
+                - grafana/grafana:8.4.6
                 - grafana/loki:2.4.2
                 - grafana/promtail:2.4.2
                 - hengyunabc/arthas:3.6.0-no-jdk
@@ -195,17 +198,23 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
+                - kiwigrid/k8s-sidecar:1.15.6
                 - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.2
                 - prometheus/prometheus:v2.34.0
+                - prometheus-operator/prometheus-operator:v0.55.1
                 - thanos/thanos:v0.25.2
           sync-policy:
             from: quay
             to: tencentyun
             dry-run: false
             replace:
+              - old: kiwigrid/
+                new: onecontract-cloud/kiwigrid_
               - old: prometheus/
+                new: onecontract-cloud/prometheus_
+              - old: prometheus-operator/
                 new: onecontract-cloud/prometheus_
               - old: thanos/
                 new: onecontract-cloud/thanos_
