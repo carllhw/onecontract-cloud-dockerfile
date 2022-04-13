@@ -38,7 +38,7 @@ jobs:
             dry-run: false
             replace:
               - old: fluxcd/
-                new: onecontract-cloud/
+                new: oc-tools/
               - old: open-telemetry/opentelemetry-operator/
                 new: oc-tools/open-telemetry_
           EOF
@@ -114,11 +114,11 @@ jobs:
             dry-run: false
             replace:
               - old: curlimages/
-                new: onecontract-cloud/curlimages_
+                new: oc-tools/curlimages_
               - old: library
-                new: onecontract-cloud
+                new: oc-tools
               - old: minio/
-                new: onecontract-cloud/minio_
+                new: oc-tools/minio_
           EOF
           registry-manager sync -c config.yaml
       - name: Dockerhub to C7N
@@ -167,31 +167,31 @@ jobs:
             dry-run: false
             replace:
               - old: apache/
-                new: onecontract-cloud/apache_
+                new: oc-tools/apache_
               - old: grafana/
-                new: onecontract-cloud/grafana_
+                new: oc-tools/grafana_
               - old: hengyunabc/
-                new: onecontract-cloud/hengyunabc_
+                new: oc-tools/hengyunabc_
               - old: istio/
-                new: onecontract-cloud/istio_
+                new: oc-tools/istio_
               - old: jaegertracing/
-                new: onecontract-cloud/jaegertracing_
+                new: oc-tools/jaegertracing_
               - old: jenkins/
-                new: onecontract-cloud/jenkins_
+                new: oc-tools/jenkins_
               - old: jettech/
-                new: onecontract-cloud/jettech_
+                new: oc-tools/jettech_
               - old: jimmidyson/
-                new: onecontract-cloud/jimmidyson_
+                new: oc-tools/jimmidyson_
               - old: library
-                new: onecontract-cloud
+                new: oc-tools
               - old: minio/
-                new: onecontract-cloud/minio_
+                new: oc-tools/minio_
               - old: otel/
-                new: onecontract-cloud/otel_
+                new: oc-tools/otel_
               - old: sonatype/
-                new: onecontract-cloud/sonatype_
+                new: oc-tools/sonatype_
               - old: timescale/
-                new: onecontract-cloud/timescale_
+                new: oc-tools/timescale_
           EOF
           registry-manager sync -c config.yaml
   quay-to-c7n:
@@ -225,13 +225,13 @@ jobs:
             dry-run: false
             replace:
               - old: kiwigrid/
-                new: onecontract-cloud/kiwigrid_
+                new: oc-tools/kiwigrid_
               - old: prometheus/
-                new: onecontract-cloud/prometheus_
+                new: oc-tools/prometheus_
               - old: prometheus-operator/
-                new: onecontract-cloud/prometheus_
+                new: oc-tools/prometheus_
               - old: thanos/
-                new: onecontract-cloud/thanos_
+                new: oc-tools/thanos_
           EOF
           registry-manager sync -c config.yaml
   gcr-to-c7n:
@@ -259,7 +259,7 @@ jobs:
             dry-run: false
             replace:
               - old: kubebuilder/
-                new: onecontract-cloud/kubebuilder_
+                new: oc-tools/kubebuilder_
           EOF
           registry-manager sync -c config.yaml
       - name: K8S Gcr to C7N
@@ -283,11 +283,11 @@ jobs:
             dry-run: false
             replace:
               - old: ingress-nginx/
-                new: onecontract-cloud/ingress-nginx_
+                new: oc-tools/ingress-nginx_
               - old: kube-state-metrics/
-                new: onecontract-cloud/prometheus_
+                new: oc-tools/prometheus_
               - old: node-problem-detector/
-                new: onecontract-cloud/node-problem-detector_
-              - new: onecontract-cloud
+                new: oc-tools/node-problem-detector_
+              - new: oc-tools
           EOF
           registry-manager sync -c config.yaml
