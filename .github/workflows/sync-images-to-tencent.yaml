@@ -31,6 +31,7 @@ jobs:
                 - fluxcd/notification-controller:v0.23.2
                 - fluxcd/source-controller:v0.20.1
                 - fluxcd/source-controller:v0.22.5
+                - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.45.0
           sync-policy:
             from: ghcr
             to: tencentyun
@@ -38,6 +39,8 @@ jobs:
             replace:
               - old: fluxcd/
                 new: onecontract-cloud/
+              - old: open-telemetry/opentelemetry-operator/
+                new: onecontract-cloud/open-telemetry_
           EOF
           registry-manager sync -c config.yaml
   dockerhub-to-tencent:
@@ -140,6 +143,7 @@ jobs:
                 - istio/operator:1.12.5
                 - istio/pilot:1.12.5
                 - istio/proxyv2:1.12.5
+                - jaegertracing/jaeger-query:1.32
                 - jenkins/jenkins:2.341-jdk8
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
@@ -147,12 +151,16 @@ jobs:
                 - library/mysql:5.7.37
                 - library/mysql:8.0.28
                 - library/nginx:1.20.2
+                - library/postgres:12-alpine
                 - library/redis:5.0.14
                 - library/redis:6.0.16
                 - library/redis:6.2.6
                 - minio/operator:v4.4.12
                 - minio/minio:RELEASE.2022-03-26T06-49-28Z
+                - otel/opentelemetry-collector-contrib:0.48.0
                 - sonatype/nexus3:3.38.0
+                - timescale/promscale:0.10.0
+                - timescale/timescaledb-ha:pg13.4-ts2.4.2-p0
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -166,6 +174,8 @@ jobs:
                 new: onecontract-cloud/hengyunabc_
               - old: istio/
                 new: onecontract-cloud/istio_
+              - old: jaegertracing/
+                new: onecontract-cloud/jaegertracing_
               - old: jenkins/
                 new: onecontract-cloud/jenkins_
               - old: jettech/
@@ -176,8 +186,12 @@ jobs:
                 new: onecontract-cloud
               - old: minio/
                 new: onecontract-cloud/minio_
+              - old: otel/
+                new: onecontract-cloud/otel_
               - old: sonatype/
                 new: onecontract-cloud/sonatype_
+              - old: timescale/
+                new: onecontract-cloud/timescale_
           EOF
           registry-manager sync -c config.yaml
   quay-to-tencent:
@@ -228,6 +242,27 @@ jobs:
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
     steps:
       - name: Gcr to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://gcr.io
+              repositories:
+                - kubebuilder/kube-rbac-proxy:v0.8.0
+          sync-policy:
+            from: gcr
+            to: tencentyun
+            dry-run: false
+            replace:
+              - old: kubebuilder/
+                new: onecontract-cloud/kubebuilder_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: K8S Gcr to Tencent
         run: |
           cat << EOF >config.yaml
           registries:
