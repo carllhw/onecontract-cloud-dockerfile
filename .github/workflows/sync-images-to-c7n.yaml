@@ -1,0 +1,35 @@
+# ref: https://github.com/TimeBye/registry-manager
+name: Sync images to C7N
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *"
+jobs:
+  ghcr-to-c7n:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+    steps:
+      - name: Ghcr to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn/
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            ghcr:
+              registry: https://ghcr.io
+              repositories:
+                - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.45.0
+          sync-policy:
+            from: ghcr
+            to: c7n
+            dry-run: false
+            replace:
+              - old: open-telemetry/opentelemetry-operator/
+                new: oc-tools/open-telemetry_
+          EOF
+          registry-manager sync -c config.yaml
