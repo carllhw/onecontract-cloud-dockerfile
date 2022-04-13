@@ -17,19 +17,277 @@ jobs:
           cat << EOF >config.yaml
           registries:
             c7n:
-              registry: https://registry.choerodon.com.cn/
+              registry: https://registry.choerodon.com.cn
               username: $TO_USERNAME
               password: $TO_PASSWORD
             ghcr:
               registry: https://ghcr.io
               repositories:
+                - fluxcd/helm-controller:v0.15.0
+                - fluxcd/helm-controller:v0.18.2
+                - fluxcd/kustomize-controller:v0.19.1
+                - fluxcd/kustomize-controller:v0.22.3
+                - fluxcd/notification-controller:v0.20.1
+                - fluxcd/notification-controller:v0.23.2
+                - fluxcd/source-controller:v0.20.1
+                - fluxcd/source-controller:v0.22.5
                 - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.45.0
           sync-policy:
             from: ghcr
             to: c7n
             dry-run: false
             replace:
+              - old: fluxcd/
+                new: onecontract-cloud/
               - old: open-telemetry/opentelemetry-operator/
                 new: oc-tools/open-telemetry_
+          EOF
+          registry-manager sync -c config.yaml
+  dockerhub-to-c7n:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+    steps:
+      - name: Dockerhub Onecontract to C7N force
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - onecontract/applicationinsights-agent
+                - onecontract/arms-agent
+                - onecontract/elasticsearch
+                - onecontract/frontbase
+                - onecontract/javabase
+                - onecontract/jnlp-agent-python
+                - onecontract/kibana
+                - onecontract/mysql-backup
+                - onecontract/openvpn
+                - onecontract/rclone
+                - onecontract/rustbase
+                - onecontract/srm-agent-call-chain
+          sync-policy:
+            from: dockerhub
+            to: c7n
+            force: true
+            dry-run: false
+            replace:
+              - old: onecontract/
+                new: oc-tools/onecontract_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Dockerhub to C7N force
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - curlimages/curl:latest
+                - library/busybox:latest
+                - library/httpd:latest
+                - library/httpd:2.4
+                - library/nginx:latest
+                - library/nginx:stable
+                - library/nginx:1.20
+                - library/mysql:5.7
+                - library/mysql:8.0
+                - library/redis:5.0
+                - library/redis:6.0
+                - library/redis:6.2
+                - minio/minio:latest
+          sync-policy:
+            from: dockerhub
+            to: c7n
+            force: true
+            dry-run: false
+            replace:
+              - old: curlimages/
+                new: onecontract-cloud/curlimages_
+              - old: library
+                new: onecontract-cloud
+              - old: minio/
+                new: onecontract-cloud/minio_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Dockerhub to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              repositories:
+                - apache/skywalking-java-agent:8.9.0-alpine
+                - apache/skywalking-oap-server:8.9.1
+                - apache/skywalking-ui:8.9.1
+                - grafana/grafana:8.4.6
+                - grafana/loki:2.5.0
+                - grafana/promtail:2.5.0
+                - hengyunabc/arthas:3.6.0-no-jdk
+                - istio/install-cni:1.12.5
+                - istio/operator:1.12.5
+                - istio/pilot:1.12.5
+                - istio/proxyv2:1.12.5
+                - jaegertracing/jaeger-query:1.32
+                - jenkins/jenkins:2.341-jdk8
+                - jettech/kube-webhook-certgen:v1.5.2
+                - jimmidyson/configmap-reload:v0.7.1
+                - library/httpd:2.4.53
+                - library/mysql:5.7.37
+                - library/mysql:8.0.28
+                - library/nginx:1.20.2
+                - library/postgres:12-alpine
+                - library/redis:5.0.14
+                - library/redis:6.0.16
+                - library/redis:6.2.6
+                - minio/operator:v4.4.12
+                - minio/minio:RELEASE.2022-03-26T06-49-28Z
+                - otel/opentelemetry-collector-contrib:0.48.0
+                - sonatype/nexus3:3.38.0
+                - timescale/promscale:0.10.0
+                - timescale/timescaledb-ha:pg13.4-ts2.4.2-p0
+          sync-policy:
+            from: dockerhub
+            to: c7n
+            dry-run: false
+            replace:
+              - old: apache/
+                new: onecontract-cloud/apache_
+              - old: grafana/
+                new: onecontract-cloud/grafana_
+              - old: hengyunabc/
+                new: onecontract-cloud/hengyunabc_
+              - old: istio/
+                new: onecontract-cloud/istio_
+              - old: jaegertracing/
+                new: onecontract-cloud/jaegertracing_
+              - old: jenkins/
+                new: onecontract-cloud/jenkins_
+              - old: jettech/
+                new: onecontract-cloud/jettech_
+              - old: jimmidyson/
+                new: onecontract-cloud/jimmidyson_
+              - old: library
+                new: onecontract-cloud
+              - old: minio/
+                new: onecontract-cloud/minio_
+              - old: otel/
+                new: onecontract-cloud/otel_
+              - old: sonatype/
+                new: onecontract-cloud/sonatype_
+              - old: timescale/
+                new: onecontract-cloud/timescale_
+          EOF
+          registry-manager sync -c config.yaml
+  quay-to-c7n:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+    steps:
+      - name: Quay to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            quay:
+              registry: https://quay.io
+              repositories:
+                - kiwigrid/k8s-sidecar:1.15.6
+                - prometheus/alertmanager:v0.24.0
+                - prometheus/node-exporter:v1.3.1
+                - prometheus/pushgateway:v1.4.2
+                - prometheus/prometheus:v2.34.0
+                - prometheus-operator/prometheus-operator:v0.55.1
+                - thanos/thanos:v0.25.2
+          sync-policy:
+            from: quay
+            to: c7n
+            dry-run: false
+            replace:
+              - old: kiwigrid/
+                new: onecontract-cloud/kiwigrid_
+              - old: prometheus/
+                new: onecontract-cloud/prometheus_
+              - old: prometheus-operator/
+                new: onecontract-cloud/prometheus_
+              - old: thanos/
+                new: onecontract-cloud/thanos_
+          EOF
+          registry-manager sync -c config.yaml
+  gcr-to-c7n:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+    steps:
+      - name: Gcr to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://gcr.io
+              repositories:
+                - kubebuilder/kube-rbac-proxy:v0.8.0
+          sync-policy:
+            from: gcr
+            to: c7n
+            dry-run: false
+            replace:
+              - old: kubebuilder/
+                new: onecontract-cloud/kubebuilder_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: K8S Gcr to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://k8s.gcr.io
+              repositories:
+                - defaultbackend-amd64:1.5
+                - ingress-nginx/controller:v1.1.2
+                - kube-state-metrics/kube-state-metrics:v2.4.2
+                - node-problem-detector/node-problem-detector:v0.8.10
+          sync-policy:
+            from: gcr
+            to: c7n
+            dry-run: false
+            replace:
+              - old: ingress-nginx/
+                new: onecontract-cloud/ingress-nginx_
+              - old: kube-state-metrics/
+                new: onecontract-cloud/prometheus_
+              - old: node-problem-detector/
+                new: onecontract-cloud/node-problem-detector_
+              - new: onecontract-cloud
           EOF
           registry-manager sync -c config.yaml
