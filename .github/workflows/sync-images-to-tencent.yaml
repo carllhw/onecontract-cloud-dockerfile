@@ -217,6 +217,7 @@ jobs:
                 - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.2
                 - prometheus/prometheus:v2.34.0
+                - prometheus-operator/prometheus-config-reloader:v0.54.1
                 - prometheus-operator/prometheus-operator:v0.55.1
                 - thanos/thanos:v0.25.2
           sync-policy:
