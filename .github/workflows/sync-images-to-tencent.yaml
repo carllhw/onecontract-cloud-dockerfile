@@ -31,7 +31,7 @@ jobs:
                 - fluxcd/notification-controller:v0.23.2
                 - fluxcd/source-controller:v0.20.1
                 - fluxcd/source-controller:v0.22.5
-                - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.45.0
+                - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.48.0
           sync-policy:
             from: ghcr
             to: tencentyun
@@ -212,6 +212,9 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
+                - jetstack/cert-manager-cainjector:v1.6.1
+                - jetstack/cert-manager-controller:v1.6.1
+                - jetstack/cert-manager-webhook:v1.6.1
                 - kiwigrid/k8s-sidecar:1.15.6
                 - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
@@ -225,6 +228,8 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
+              - old: jetstack/
+                new: onecontract-cloud/jetstack_
               - old: kiwigrid/
                 new: onecontract-cloud/kiwigrid_
               - old: prometheus/
