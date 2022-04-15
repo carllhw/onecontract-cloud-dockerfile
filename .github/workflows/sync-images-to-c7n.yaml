@@ -229,7 +229,7 @@ jobs:
             dry-run: false
             replace:
               - old: jetstack/
-                new: onecontract-cloud/jetstack_
+                new: oc-tools/jetstack_
               - old: kiwigrid/
                 new: oc-tools/kiwigrid_
               - old: prometheus/
