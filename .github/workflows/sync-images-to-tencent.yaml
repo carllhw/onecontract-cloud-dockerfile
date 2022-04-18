@@ -70,6 +70,7 @@ jobs:
                 - onecontract/kibana
                 - onecontract/mysql-backup
                 - onecontract/openvpn
+                - onecontract/otel-javaagent
                 - onecontract/rclone
                 - onecontract/rustbase
                 - onecontract/srm-agent-call-chain
