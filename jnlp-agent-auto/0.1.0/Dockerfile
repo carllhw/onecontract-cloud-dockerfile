@@ -21,13 +21,7 @@ COPY --from=jre-build /javaruntime $JAVA_HOME
 
 # jenkins agent
 ARG VERSION=4.13
-ARG user=jenkins
-ARG group=jenkins
-ARG uid=1000
-ARG gid=1000
-
-RUN groupadd -g ${gid} ${group}
-RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
+ARG user=pwuser
 
 ARG AGENT_WORKDIR=/home/${user}/agent
 
@@ -53,10 +47,8 @@ ENV LANG C.UTF-8
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
-ARG user=pwuser
-USER ${user}
-
 # requirements
+USER ${pwuser}
 COPY requirements.txt /opt
 RUN pip install --no-cache-dir -r /opt/requirements.txt
 
