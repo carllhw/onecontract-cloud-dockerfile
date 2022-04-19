@@ -50,9 +50,15 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
 
 ENV LANG C.UTF-8
 
-USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
+
+ARG user=pwuser
+USER ${user}
+
+# requirements
+COPY requirements.txt /opt
+RUN pip install --no-cache-dir -r /opt/requirements.txt
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
