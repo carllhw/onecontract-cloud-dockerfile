@@ -12,6 +12,8 @@ FROM jenkins/inbound-agent:4.11-1 AS inbound-agent
 
 FROM marketsquare/robotframework-browser:12.3.0
 
+USER root
+
 # jre
 ENV JAVA_HOME=/opt/java/openjdk
 ENV PATH "${JAVA_HOME}/bin:${PATH}"
