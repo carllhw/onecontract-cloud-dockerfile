@@ -72,6 +72,7 @@ jobs:
                 - onecontract/openvpn
                 - onecontract/otel-javaagent
                 - onecontract/rclone
+                - onecontract/robot-browser-requests-pabot
                 - onecontract/rustbase
                 - onecontract/srm-agent-call-chain
           sync-policy:
