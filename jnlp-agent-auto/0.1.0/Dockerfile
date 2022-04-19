@@ -48,7 +48,7 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # requirements
-USER ${pwuser}
+USER ${user}
 COPY requirements.txt /opt
 RUN pip install --no-cache-dir -r /opt/requirements.txt
 
