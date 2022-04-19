@@ -66,13 +66,13 @@ jobs:
                 - onecontract/elasticsearch
                 - onecontract/frontbase
                 - onecontract/javabase
+                - onecontract/jnlp-agent-auto
                 - onecontract/jnlp-agent-python
                 - onecontract/kibana
                 - onecontract/mysql-backup
                 - onecontract/openvpn
                 - onecontract/otel-javaagent
                 - onecontract/rclone
-                - onecontract/robot-browser-requests-pabot
                 - onecontract/rustbase
                 - onecontract/srm-agent-call-chain
           sync-policy:

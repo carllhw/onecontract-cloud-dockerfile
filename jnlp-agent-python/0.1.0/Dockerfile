@@ -1,5 +1,7 @@
 FROM jenkins/inbound-agent:4.11-1
 
+ARG user=jenkins
+
 USER root
 
 ARG TIMEZONE="Asia/Shanghai"
@@ -34,3 +36,5 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
 
 COPY requirements.txt /opt
 RUN pip3 install --no-cache-dir -r /opt/requirements.txt
+
+USER ${user}
