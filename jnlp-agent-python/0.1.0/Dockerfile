@@ -1,4 +1,4 @@
-FROM jenkins/inbound-agent:4.11-1
+FROM jenkins/inbound-agent:4.13-1
 
 ARG user=jenkins
 

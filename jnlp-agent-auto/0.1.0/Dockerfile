@@ -8,7 +8,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM jenkins/inbound-agent:4.11-1 AS inbound-agent
+FROM jenkins/inbound-agent:4.13-1 AS inbound-agent
 
 FROM marketsquare/robotframework-browser:12.3.0
 
