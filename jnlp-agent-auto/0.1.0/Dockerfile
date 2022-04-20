@@ -47,10 +47,13 @@ ENV LANG C.UTF-8
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
-# requirements
+# auto
+RUN set -eux; \
+    npx playwright install-deps
 USER ${user}
-COPY requirements.txt /opt
-RUN pip install --no-cache-dir -r /opt/requirements.txt
+COPY requirements.txt /home/${user}
+RUN set -eux; \
+    pip install --no-cache-dir -r /home/${user}/requirements.txt
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
