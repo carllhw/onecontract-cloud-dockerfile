@@ -48,6 +48,8 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # auto
+RUN set -eux; \
+    npx playwright install-deps
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
