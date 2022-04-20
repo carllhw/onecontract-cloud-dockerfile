@@ -48,12 +48,12 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # auto
-RUN set -eux; \
-    npx playwright install-deps
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
-    pip install --no-cache-dir -r /home/${user}/requirements.txt
+    pip install --no-cache-dir -r /home/${user}/requirements.txt; \
+    rfbrowser clean-node; \
+    rfbrowser init
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
