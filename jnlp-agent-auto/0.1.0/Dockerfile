@@ -53,9 +53,7 @@ RUN set -eux; \
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
-    pip install --no-cache-dir -r /home/${user}/requirements.txt; \
-    rfbrowser clean-node; \
-    rfbrowser init
+    pip install --no-cache-dir -r /home/${user}/requirements.txt
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
