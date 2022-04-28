@@ -24,9 +24,9 @@ jobs:
               registry: https://ghcr.io
               repositories:
                 - fluxcd/helm-controller:v0.20.1
-                - fluxcd/kustomize-controller:v0.24.3
+                - fluxcd/kustomize-controller:v0.24.4
                 - fluxcd/notification-controller:v0.23.4
-                - fluxcd/source-controller:v0.24.2
+                - fluxcd/source-controller:v0.24.3
                 - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.48.0
           sync-policy:
             from: ghcr
