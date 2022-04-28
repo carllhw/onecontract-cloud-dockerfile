@@ -136,7 +136,7 @@ jobs:
                 - grafana/grafana:8.4.6
                 - grafana/loki:2.5.0
                 - grafana/promtail:2.5.0
-                - hengyunabc/arthas:3.6.0-no-jdk
+                - hengyunabc/arthas:3.6.1-no-jdk
                 - istio/install-cni:1.12.5
                 - istio/operator:1.12.5
                 - istio/pilot:1.12.5
