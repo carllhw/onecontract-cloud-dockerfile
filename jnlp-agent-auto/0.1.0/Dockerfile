@@ -48,7 +48,11 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # auto
+ARG TIMEZONE="Asia/Shanghai"
 RUN set -eux; \
+    echo ${TIMEZONE} > /etc/timezone; \
+    rm /etc/localtime; \
+    dpkg-reconfigure -f noninteractive tzdata; \
     npx playwright install-deps
 USER ${user}
 COPY requirements.txt /home/${user}
