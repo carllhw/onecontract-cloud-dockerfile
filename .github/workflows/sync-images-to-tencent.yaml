@@ -104,6 +104,7 @@ jobs:
                 - library/redis:5.0
                 - library/redis:6.0
                 - library/redis:6.2
+                - library/redis:7.0
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
@@ -130,33 +131,34 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - apache/skywalking-java-agent:8.9.0-alpine
-                - apache/skywalking-oap-server:8.9.1
-                - apache/skywalking-ui:8.9.1
-                - grafana/grafana:8.4.6
+                - apache/skywalking-java-agent:8.10.0-alpine
+                - apache/skywalking-oap-server:9.0.0
+                - apache/skywalking-ui:9.0.0
+                - grafana/grafana:8.5.1
                 - grafana/loki:2.5.0
                 - grafana/promtail:2.5.0
                 - hengyunabc/arthas:3.6.1-no-jdk
-                - istio/install-cni:1.12.5
-                - istio/operator:1.12.5
-                - istio/pilot:1.12.5
-                - istio/proxyv2:1.12.5
+                - istio/install-cni:1.13.3
+                - istio/operator:1.13.3
+                - istio/pilot:1.13.3
+                - istio/proxyv2:1.13.3
                 - jaegertracing/jaeger-query:1.32
-                - jenkins/jenkins:2.344-jdk11
+                - jenkins/jenkins:2.345-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.53
-                - library/mysql:5.7.37
-                - library/mysql:8.0.28
+                - library/mysql:5.7.38
+                - library/mysql:8.0.29
                 - library/nginx:1.20.2
                 - library/postgres:12-alpine
                 - library/redis:5.0.14
                 - library/redis:6.0.16
-                - library/redis:6.2.6
-                - minio/operator:v4.4.12
-                - minio/minio:RELEASE.2022-03-26T06-49-28Z
+                - library/redis:6.2.7
+                - library/redis:7.0.0
+                - minio/operator:v4.4.16
+                - minio/minio:RELEASE.2022-04-30T22-23-53Z
                 - otel/opentelemetry-collector-contrib:0.48.0
-                - sonatype/nexus3:3.38.0
+                - sonatype/nexus3:3.38.1
                 - timescale/promscale:0.10.0
                 - timescale/timescaledb-ha:pg13.4-ts2.4.2-p0
           sync-policy:
@@ -217,9 +219,9 @@ jobs:
                 - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.2
-                - prometheus/prometheus:v2.34.0
-                - prometheus-operator/prometheus-config-reloader:v0.54.1
-                - prometheus-operator/prometheus-operator:v0.55.1
+                - prometheus/prometheus:v2.35.0
+                - prometheus-operator/prometheus-config-reloader:v0.56.0
+                - prometheus-operator/prometheus-operator:v0.56.0
                 - thanos/thanos:v0.25.2
           sync-policy:
             from: quay
@@ -278,7 +280,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - ingress-nginx/controller:v1.1.2
+                - ingress-nginx/controller:v1.2.0
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
