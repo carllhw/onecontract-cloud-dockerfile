@@ -24,9 +24,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         run: |
           set -eux;
           for file_path in $(find javabase -name Dockerfile | sort -r | head -n 3);
+          do
+            /usr/bin/docker buildx prune -a -f
+            /usr/bin/docker buildx build --push --no-cache \
+              --platform linux/amd64,linux/arm64 \
+              --file ${file_path} \
+              --tag ${{ secrets.DOCKERHUB_USERNAME }}/$(dirname $file_path | sed 's / : g') \
+              ${file_path%/*}
+          done
+      - name: Build and push
+        if: ${{ github.event_name != 'schedule' }}
+        run: |
+          set -eux;
+          for file_path in $(git diff --name-only HEAD~ HEAD | grep javabase/ | grep Dockerfile);
           do
             /usr/bin/docker buildx prune -a -f
             /usr/bin/docker buildx build --push --no-cache \
