@@ -37,7 +37,7 @@ jobs:
               ${file_path%/*}
           done
       - name: Build and push
-        if: ${{ github.event_name != 'schedule' }}
+        if: ${{ github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' }}
         run: |
           set -eux;
           for file_path in $(git diff --name-only HEAD~ HEAD | grep rclone/ | grep Dockerfile);
