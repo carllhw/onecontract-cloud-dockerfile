@@ -213,6 +213,9 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
+                - argoproj/argocli:v3.3.5
+                - argoproj/argoexec:v3.3.5
+                - argoproj/workflow-controller:v3.3.5
                 - jetstack/cert-manager-cainjector:v1.6.1
                 - jetstack/cert-manager-controller:v1.6.1
                 - jetstack/cert-manager-webhook:v1.6.1
@@ -229,6 +232,8 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
+              - old: argoproj/
+                new: onecontract-cloud/argoproj_
               - old: jetstack/
                 new: onecontract-cloud/jetstack_
               - old: kiwigrid/
