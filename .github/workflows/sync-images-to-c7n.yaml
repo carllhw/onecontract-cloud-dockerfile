@@ -233,7 +233,7 @@ jobs:
             dry-run: false
             replace:
               - old: argoproj/
-                new: onecontract-cloud/argoproj_
+                new: oc-tools/argoproj_
               - old: jetstack/
                 new: oc-tools/jetstack_
               - old: kiwigrid/
