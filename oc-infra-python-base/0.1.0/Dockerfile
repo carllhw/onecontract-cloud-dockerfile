@@ -1,6 +1,6 @@
 FROM python:3.10
 
-ARG CI_TRIGGER="20220519-164520"
+ARG CI_TRIGGER="20220519-223530"
 ARG TIMEZONE="Asia/Shanghai"
 
 RUN echo ${TIMEZONE} > /etc/timezone; \
