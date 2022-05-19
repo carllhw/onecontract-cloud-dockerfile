@@ -1,5 +1,7 @@
 FROM eclipse-temurin:11.0.14.1_1-jdk-focal AS jre-build
 
+ARG CI_TRIGGER="20220519-164520"
+
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
          --strip-debug \
