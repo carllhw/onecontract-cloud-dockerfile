@@ -135,31 +135,31 @@ jobs:
                 - apache/skywalking-java-agent:8.10.0-alpine
                 - apache/skywalking-oap-server:9.0.0
                 - apache/skywalking-ui:9.0.0
-                - grafana/grafana:8.5.3
+                - grafana/grafana:8.5.4
                 - grafana/loki:2.5.0
                 - grafana/promtail:2.5.0
                 - hengyunabc/arthas:3.6.1-no-jdk
-                - istio/install-cni:1.13.3
-                - istio/operator:1.13.3
-                - istio/pilot:1.13.3
-                - istio/proxyv2:1.13.3
+                - istio/install-cni:1.14.0
+                - istio/operator:1.14.0
+                - istio/pilot:1.14.0
+                - istio/proxyv2:1.14.0
                 - jaegertracing/jaeger-query:1.32
-                - jenkins/jenkins:2.348-jdk11
+                - jenkins/jenkins:2.350-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.53
                 - library/mysql:5.7.38
                 - library/mysql:8.0.29
-                - library/nginx:1.20.2
-                - library/postgres:12-alpine
+                - library/nginx:1.22.0
+                - library/postgres:12.11
                 - library/redis:5.0.14
                 - library/redis:6.0.16
                 - library/redis:6.2.7
                 - library/redis:7.0.0
-                - minio/operator:v4.4.16
-                - minio/minio:RELEASE.2022-04-30T22-23-53Z
+                - minio/operator:v4.4.22
+                - minio/minio:RELEASE.2022-06-02T02-11-04Z
                 - otel/opentelemetry-collector-contrib:0.48.0
-                - sonatype/nexus3:3.38.1
+                - sonatype/nexus3:3.39.0
                 - timescale/promscale:0.10.0
                 - timescale/timescaledb-ha:pg13.4-ts2.4.2-p0
           sync-policy:
@@ -213,20 +213,20 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - argoproj/argocli:v3.3.5
-                - argoproj/argoexec:v3.3.5
-                - argoproj/workflow-controller:v3.3.5
-                - jetstack/cert-manager-cainjector:v1.6.1
-                - jetstack/cert-manager-controller:v1.6.1
-                - jetstack/cert-manager-webhook:v1.6.1
-                - kiwigrid/k8s-sidecar:1.15.6
+                - argoproj/argocli:v3.3.6
+                - argoproj/argoexec:v3.3.6
+                - argoproj/workflow-controller:v3.3.6
+                - jetstack/cert-manager-cainjector:v1.8.0
+                - jetstack/cert-manager-controller:v1.8.0
+                - jetstack/cert-manager-webhook:v1.8.0
+                - kiwigrid/k8s-sidecar:1.18.1
                 - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
-                - prometheus/pushgateway:v1.4.2
-                - prometheus/prometheus:v2.35.0
-                - prometheus-operator/prometheus-config-reloader:v0.56.0
-                - prometheus-operator/prometheus-operator:v0.56.0
-                - thanos/thanos:v0.25.2
+                - prometheus/pushgateway:v1.4.3
+                - prometheus/prometheus:v2.36.0
+                - prometheus-operator/prometheus-config-reloader:v0.56.3
+                - prometheus-operator/prometheus-operator:v0.56.3
+                - thanos/thanos:v0.26.0
           sync-policy:
             from: quay
             to: tencentyun
@@ -286,7 +286,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - ingress-nginx/controller:v1.2.0
+                - ingress-nginx/controller:v1.2.1
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
