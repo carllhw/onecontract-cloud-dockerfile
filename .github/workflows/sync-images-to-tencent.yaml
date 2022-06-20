@@ -216,6 +216,7 @@ jobs:
                 - argoproj/argocli:v3.3.6
                 - argoproj/argoexec:v3.3.6
                 - argoproj/workflow-controller:v3.3.6
+                - coreos/etcd:v3.5.4
                 - jetstack/cert-manager-cainjector:v1.8.0
                 - jetstack/cert-manager-controller:v1.8.0
                 - jetstack/cert-manager-webhook:v1.8.0
@@ -234,6 +235,8 @@ jobs:
             replace:
               - old: argoproj/
                 new: onecontract-cloud/argoproj_
+              - old: coreos/
+                new: onecontract-cloud/coreos_
               - old: jetstack/
                 new: onecontract-cloud/jetstack_
               - old: kiwigrid/
