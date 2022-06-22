@@ -1,8 +1,12 @@
+FROM mysql:5.7 as mysql
 FROM python:3.10
 
-ARG CI_TRIGGER="20220601-163918"
+ARG CI_TRIGGER="20220622-105429"
 
 ENV TZ="Asia/Shanghai"
+
+COPY --from=mysql /usr/bin/mysqlpump /usr/bin/mysqlpump
+COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
