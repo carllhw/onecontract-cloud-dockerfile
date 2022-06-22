@@ -1,7 +1,7 @@
 FROM mysql:5.7 as mysql
 FROM python:3.10
 
-ARG CI_TRIGGER="20220622-105429"
+ARG CI_TRIGGER="20220622-112940"
 
 ENV TZ="Asia/Shanghai"
 
