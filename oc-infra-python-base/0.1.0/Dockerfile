@@ -5,6 +5,7 @@ ARG CI_TRIGGER="20220622-112940"
 
 ENV TZ="Asia/Shanghai"
 
+COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
 COPY --from=mysql /usr/bin/mysqlpump /usr/bin/mysqlpump
 COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
 
