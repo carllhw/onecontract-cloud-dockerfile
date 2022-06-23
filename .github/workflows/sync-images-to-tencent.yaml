@@ -135,7 +135,7 @@ jobs:
                 - apache/skywalking-java-agent:8.10.0-alpine
                 - apache/skywalking-oap-server:9.0.0
                 - apache/skywalking-ui:9.0.0
-                - grafana/grafana:8.5.5
+                - grafana/grafana:9.0.1
                 - grafana/loki:2.5.0
                 - grafana/promtail:2.5.0
                 - hengyunabc/arthas:3.6.2-no-jdk
@@ -158,10 +158,11 @@ jobs:
                 - library/redis:7.0.0
                 - minio/operator:v4.4.22
                 - minio/minio:RELEASE.2022-06-02T02-11-04Z
-                - otel/opentelemetry-collector-contrib:0.48.0
+                - otel/opentelemetry-collector-contrib:0.50.0
                 - sonatype/nexus3:3.39.0
-                - timescale/promscale:0.10.0
-                - timescale/timescaledb-ha:pg13.4-ts2.4.2-p0
+                - timescale/promscale:0.11.0
+                - timescale/timescaledb-ha:pg13.7-ts2.7.0-p6
+                - zqiannnn/prometheus-alert:v4.8.1
           sync-policy:
             from: dockerhub
             to: tencentyun
@@ -193,6 +194,8 @@ jobs:
                 new: onecontract-cloud/sonatype_
               - old: timescale/
                 new: onecontract-cloud/timescale_
+              - old: zqiannnn/
+                new: onecontract-cloud/zqiannnn_
           EOF
           registry-manager sync -c config.yaml
   quay-to-tencent:
