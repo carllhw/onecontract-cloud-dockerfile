@@ -195,7 +195,7 @@ jobs:
               - old: timescale/
                 new: oc-tools/timescale_
               - old: zqiannnn/
-                new: onecontract-cloud/zqiannnn_
+                new: oc-tools/zqiannnn_
           EOF
           registry-manager sync -c config.yaml
   quay-to-c7n:
