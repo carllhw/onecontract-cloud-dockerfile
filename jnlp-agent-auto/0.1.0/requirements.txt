@@ -1,4 +1,5 @@
 allure-robotframework==2.9.45
+jsonpath>=0.82
 openpyxl==3.0.10
 robotframework-archivelibrary==0.4.1
 robotframework-faker==5.0.0
