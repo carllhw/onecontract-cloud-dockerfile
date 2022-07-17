@@ -1,6 +1,6 @@
 FROM mysql:5.7
 
-ARG RCLONE_VERSION=v1.57.0
+ARG RCLONE_VERSION="v1.59.0"
 
 ENV TZ="Asia/Shanghai"
 
