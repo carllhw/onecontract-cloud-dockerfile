@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM mysql:5.7-debian
 
 ARG RCLONE_VERSION="v1.59.0"
 
