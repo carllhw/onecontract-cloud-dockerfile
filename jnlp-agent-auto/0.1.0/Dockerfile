@@ -1,6 +1,6 @@
 FROM eclipse-temurin:11.0.14.1_1-jdk-focal AS jre-build
 
-ARG CI_TRIGGER="20220713-190949"
+ARG CI_TRIGGER="20220719-183556"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
@@ -59,7 +59,8 @@ RUN set -eux; \
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
-    pip install --no-cache-dir -r /home/${user}/requirements.txt
+    pip install --no-cache-dir -r /home/${user}/requirements.txt; \
+    cp -r -a /home/pwuser/.local/lib/python3.8/site-packages/Browser/wrapper/node_modules /usr/lib/node_modules/playwright/node_modules
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
