@@ -59,8 +59,12 @@ RUN set -eux; \
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
-    pip install --no-cache-dir -r /home/${user}/requirements.txt; \
+    pip install --no-cache-dir -r /home/${user}/requirements.txt
+
+USER root
+RUN set -eux; \
     cp -r -a /home/pwuser/.local/lib/python3.8/site-packages/Browser/wrapper/node_modules /usr/lib/node_modules/playwright/node_modules
+USER ${user}
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
