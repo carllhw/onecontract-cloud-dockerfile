@@ -63,6 +63,7 @@ RUN set -eux; \
 
 USER root
 RUN set -eux; \
+    rm -rf /usr/lib/node_modules/playwright/node_modules; \
     cp -r /home/pwuser/.local/lib/python3.8/site-packages/Browser/wrapper/node_modules /usr/lib/node_modules/playwright/node_modules
 USER ${user}
 
