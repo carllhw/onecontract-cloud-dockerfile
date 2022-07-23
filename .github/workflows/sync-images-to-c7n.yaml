@@ -99,9 +99,11 @@ jobs:
                 - library/httpd:2.4
                 - library/nginx:latest
                 - library/nginx:stable
-                - library/nginx:1.20
+                - library/nginx:1.22
                 - library/mysql:5.7
+                - library/mysql:5.7-debian
                 - library/mysql:8.0
+                - library/mysql:8.0-debian
                 - library/redis:5.0
                 - library/redis:6.0
                 - library/redis:6.2
@@ -132,34 +134,36 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - apache/skywalking-java-agent:8.10.0-alpine
-                - apache/skywalking-oap-server:9.0.0
-                - apache/skywalking-ui:9.0.0
-                - grafana/grafana:9.0.1
-                - grafana/loki:2.5.0
-                - grafana/promtail:2.5.0
+                - apache/skywalking-java-agent:8.11.0-alpine
+                - apache/skywalking-oap-server:9.1.0
+                - apache/skywalking-ui:9.1.0
+                - grafana/grafana:9.0.4
+                - grafana/loki:2.6.1
+                - grafana/promtail:2.6.1
                 - hengyunabc/arthas:3.6.2-no-jdk
-                - istio/install-cni:1.14.0
-                - istio/operator:1.14.0
-                - istio/pilot:1.14.0
-                - istio/proxyv2:1.14.0
+                - istio/install-cni:1.14.2
+                - istio/operator:1.14.2
+                - istio/pilot:1.14.2
+                - istio/proxyv2:1.14.2
                 - jaegertracing/jaeger-query:1.32
-                - jenkins/jenkins:2.356-jdk11
+                - jenkins/jenkins:2.360-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
-                - library/httpd:2.4.53
+                - library/httpd:2.4.54
                 - library/mysql:5.7.38
+                - library/mysql:5.7.38-debian
                 - library/mysql:8.0.29
+                - library/mysql:8.0.29-debian
                 - library/nginx:1.22.0
                 - library/postgres:12.11
                 - library/redis:5.0.14
                 - library/redis:6.0.16
                 - library/redis:6.2.7
-                - library/redis:7.0.0
-                - minio/operator:v4.4.22
-                - minio/minio:RELEASE.2022-06-02T02-11-04Z
+                - library/redis:7.0.4
+                - minio/operator:v4.4.26
+                - minio/minio:RELEASE.2022-07-17T15-43-14Z
                 - otel/opentelemetry-collector-contrib:0.50.0
-                - sonatype/nexus3:3.39.0
+                - sonatype/nexus3:3.40.1
                 - timescale/promscale:0.11.0
                 - timescale/timescaledb-ha:pg13.7-ts2.7.0-p6
                 - zqiannnn/prometheus-alert:v4.8.1
@@ -216,9 +220,9 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - argoproj/argocli:v3.3.6
-                - argoproj/argoexec:v3.3.6
-                - argoproj/workflow-controller:v3.3.6
+                - argoproj/argocli:v3.3.8
+                - argoproj/argoexec:v3.3.8
+                - argoproj/workflow-controller:v3.3.8
                 - coreos/etcd:v3.5.4
                 - jetstack/cert-manager-cainjector:v1.8.0
                 - jetstack/cert-manager-controller:v1.8.0
@@ -230,7 +234,7 @@ jobs:
                 - prometheus/prometheus:v2.36.0
                 - prometheus-operator/prometheus-config-reloader:v0.56.3
                 - prometheus-operator/prometheus-operator:v0.56.3
-                - thanos/thanos:v0.26.0
+                - thanos/thanos:v0.27.0
           sync-policy:
             from: quay
             to: c7n
@@ -292,7 +296,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - ingress-nginx/controller:v1.2.1
+                - ingress-nginx/controller:v1.3.0
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
