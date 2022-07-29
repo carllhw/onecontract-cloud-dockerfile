@@ -298,6 +298,7 @@ jobs:
               repositories:
                 - defaultbackend-amd64:1.5
                 - ingress-nginx/controller:v1.3.0
+                - ingress-nginx/controller:v1.2.1
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
