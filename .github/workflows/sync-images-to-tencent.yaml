@@ -138,7 +138,7 @@ jobs:
                 - apache/skywalking-java-agent:8.11.0-alpine
                 - apache/skywalking-oap-server:9.1.0
                 - apache/skywalking-ui:9.1.0
-                - grafana/grafana:9.0.4
+                - grafana/grafana:9.0.7
                 - grafana/loki:2.6.1
                 - grafana/promtail:2.6.1
                 - hengyunabc/arthas:3.6.2-no-jdk
@@ -163,6 +163,7 @@ jobs:
                 - library/redis:7.0.4
                 - minio/operator:v4.4.26
                 - minio/minio:RELEASE.2022-07-17T15-43-14Z
+                - nacos/nacos-server:v2.1.0
                 - otel/opentelemetry-collector-contrib:0.50.0
                 - sonatype/nexus3:3.40.1
                 - timescale/promscale:0.11.0
@@ -193,6 +194,8 @@ jobs:
                 new: onecontract-cloud
               - old: minio/
                 new: onecontract-cloud/minio_
+              - old: nacos/
+                new: onecontract-cloud/nacos_
               - old: otel/
                 new: onecontract-cloud/otel_
               - old: sonatype/
