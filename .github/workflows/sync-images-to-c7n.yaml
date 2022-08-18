@@ -343,9 +343,9 @@ jobs:
             to: c7n
             dry-run: false
             replace:
-              - old: gitlab-org/
-                new: oc-tools/
               - old: gitlab-org/gitlab-runner/
+                new: oc-tools/
+              - old: gitlab-org/
                 new: oc-tools/
           EOF
           registry-manager sync -c config.yaml

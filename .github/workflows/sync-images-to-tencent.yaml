@@ -343,9 +343,9 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
-              - old: gitlab-org/
-                new: onecontract-cloud/
               - old: gitlab-org/gitlab-runner/
+                new: onecontract-cloud/
+              - old: gitlab-org/
                 new: onecontract-cloud/
           EOF
           registry-manager sync -c config.yaml
