@@ -336,13 +336,16 @@ jobs:
             gcr:
               registry: https://registry.gitlab.com
               repositories:
+                - gitlab-org/gitlab-runner:alpine-v14.10.1
                 - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-f761588f
           sync-policy:
             from: gcr
             to: c7n
             dry-run: false
             replace:
+              - old: gitlab-org/
+                new: oc-tools/
               - old: gitlab-org/gitlab-runner/
-                new: oc-tools/gitlab-runner_
+                new: oc-tools/
           EOF
           registry-manager sync -c config.yaml
