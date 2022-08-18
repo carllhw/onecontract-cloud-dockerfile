@@ -318,3 +318,31 @@ jobs:
               - new: oc-tools
           EOF
           registry-manager sync -c config.yaml
+  gitlab-to-c7n:
+    runs-on: ubuntu-20.04
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+    steps:
+      - name: Gitlab to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://registry.gitlab.com
+              repositories:
+                - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-f761588f
+          sync-policy:
+            from: gcr
+            to: c7n
+            dry-run: false
+            replace:
+              - old: gitlab-org/gitlab-runner/
+                new: oc-tools/gitlab-runner_
+          EOF
+          registry-manager sync -c config.yaml
