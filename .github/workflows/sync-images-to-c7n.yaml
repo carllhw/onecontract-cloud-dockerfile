@@ -59,6 +59,7 @@ jobs:
               repositories:
                 - onecontract/applicationinsights-agent
                 - onecontract/arms-agent
+                - onecontract/arthas
                 - onecontract/cibase
                 - onecontract/elasticsearch
                 - onecontract/frontbase
