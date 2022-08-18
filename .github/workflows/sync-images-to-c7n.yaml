@@ -195,7 +195,7 @@ jobs:
               - old: minio/
                 new: oc-tools/minio_
               - old: nacos/
-                new: onecontract-cloud/nacos_
+                new: oc-tools/nacos_
               - old: otel/
                 new: oc-tools/otel_
               - old: sonatype/
