@@ -68,6 +68,7 @@ jobs:
                 - onecontract/jnlp-agent-python
                 - onecontract/kibana
                 - onecontract/mysql-backup
+                - onecontract/nodebase
                 - onecontract/oc-infra-python-base
                 - onecontract/openvpn
                 - onecontract/otel-javaagent
