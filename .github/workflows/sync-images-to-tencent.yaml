@@ -152,6 +152,7 @@ jobs:
                 - jenkins/jenkins:2.370-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
+                - kiwigrid/k8s-sidecar:latest
                 - library/httpd:2.4.54
                 - library/mysql:5.7.38
                 - library/mysql:5.7.38-debian
@@ -192,6 +193,8 @@ jobs:
                 new: onecontract-cloud/jettech_
               - old: jimmidyson/
                 new: onecontract-cloud/jimmidyson_
+              - old: kiwigrid/
+                new: onecontract-cloud/kiwigrid_
               - old: library
                 new: onecontract-cloud
               - old: minio/
@@ -233,7 +236,6 @@ jobs:
                 - jetstack/cert-manager-cainjector:v1.8.0
                 - jetstack/cert-manager-controller:v1.8.0
                 - jetstack/cert-manager-webhook:v1.8.0
-                - kiwigrid/k8s-sidecar:1.18.1
                 - prometheus/alertmanager:v0.24.0
                 - prometheus/node-exporter:v1.3.1
                 - prometheus/pushgateway:v1.4.3
@@ -252,8 +254,6 @@ jobs:
                 new: onecontract-cloud/coreos_
               - old: jetstack/
                 new: onecontract-cloud/jetstack_
-              - old: kiwigrid/
-                new: onecontract-cloud/kiwigrid_
               - old: prometheus/
                 new: onecontract-cloud/prometheus_
               - old: prometheus-operator/
