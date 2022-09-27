@@ -140,7 +140,7 @@ jobs:
                 - apache/skywalking-java-agent:8.11.0-alpine
                 - apache/skywalking-oap-server:9.1.0
                 - apache/skywalking-ui:9.1.0
-                - grafana/grafana:9.0.7
+                - grafana/grafana:9.1.6
                 - grafana/loki:2.6.1
                 - grafana/promtail:2.6.1
                 - hengyunabc/arthas:3.6.2-no-jdk
