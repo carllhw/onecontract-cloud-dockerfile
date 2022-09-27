@@ -97,6 +97,7 @@ jobs:
               registry: https://registry-1.docker.io
               repositories:
                 - curlimages/curl:latest
+                - kiwigrid/k8s-sidecar:latest
                 - library/busybox:latest
                 - library/httpd:latest
                 - library/httpd:2.4
@@ -120,6 +121,8 @@ jobs:
             replace:
               - old: curlimages/
                 new: onecontract-cloud/curlimages_
+              - old: kiwigrid/
+                new: onecontract-cloud/kiwigrid_
               - old: library
                 new: onecontract-cloud
               - old: minio/
@@ -152,7 +155,6 @@ jobs:
                 - jenkins/jenkins:2.370-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
-                - kiwigrid/k8s-sidecar:latest
                 - library/httpd:2.4.54
                 - library/mysql:5.7.38
                 - library/mysql:5.7.38-debian
@@ -193,8 +195,6 @@ jobs:
                 new: onecontract-cloud/jettech_
               - old: jimmidyson/
                 new: onecontract-cloud/jimmidyson_
-              - old: kiwigrid/
-                new: onecontract-cloud/kiwigrid_
               - old: library
                 new: onecontract-cloud
               - old: minio/
