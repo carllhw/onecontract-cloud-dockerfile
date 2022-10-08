@@ -122,7 +122,7 @@ jobs:
               - old: curlimages/
                 new: oc-tools/curlimages_
               - old: kiwigrid/
-                new: onecontract-cloud/kiwigrid_
+                new: oc-tools/kiwigrid_
               - old: library
                 new: oc-tools
               - old: minio/
