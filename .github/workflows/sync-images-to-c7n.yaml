@@ -143,6 +143,8 @@ jobs:
                 - apache/skywalking-java-agent:8.11.0-alpine
                 - apache/skywalking-oap-server:9.1.0
                 - apache/skywalking-ui:9.1.0
+                - fatedier/frps:v0.44.0
+                - fatedier/frpc:v0.44.0
                 - grafana/grafana:9.1.6
                 - grafana/loki:2.6.1
                 - grafana/promtail:2.6.1
@@ -181,6 +183,8 @@ jobs:
             replace:
               - old: apache/
                 new: oc-tools/apache_
+              - old: fatedier/
+                new: oc-tools/fatedier_
               - old: grafana/
                 new: oc-tools/grafana_
               - old: hengyunabc/
