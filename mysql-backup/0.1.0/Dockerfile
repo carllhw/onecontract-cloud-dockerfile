@@ -1,6 +1,6 @@
 FROM mysql:5.7-debian
 
-ARG RCLONE_VERSION="v1.59.0"
+ARG RCLONE_VERSION="v1.59.2"
 
 ENV TZ="Asia/Shanghai"
 
