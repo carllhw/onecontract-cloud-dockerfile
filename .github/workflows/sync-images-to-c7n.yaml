@@ -170,7 +170,7 @@ jobs:
                 - library/redis:7.0.4
                 - minio/operator:v4.4.26
                 - minio/minio:RELEASE.2022-07-17T15-43-14Z
-                - nacos/nacos-server:v2.1.1
+                - nacos/nacos-server:v2.1.2
                 - otel/opentelemetry-collector-contrib:0.50.0
                 - sonatype/nexus3:3.40.1
                 - timescale/promscale:0.11.0
