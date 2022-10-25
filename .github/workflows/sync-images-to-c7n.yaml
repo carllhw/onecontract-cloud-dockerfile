@@ -108,6 +108,9 @@ jobs:
                 - library/mysql:5.7-debian
                 - library/mysql:8.0
                 - library/mysql:8.0-debian
+                - library/rabbitmq:3.9-management
+                - library/rabbitmq:3.10-management
+                - library/rabbitmq:3.11-management
                 - library/redis:5.0
                 - library/redis:6.0
                 - library/redis:6.2
@@ -164,6 +167,10 @@ jobs:
                 - library/mysql:8.0.29-debian
                 - library/nginx:1.22.0
                 - library/postgres:12.11
+                - library/rabbitmq:3.8.34-management
+                - library/rabbitmq:3.9.24-management
+                - library/rabbitmq:3.10.10-management
+                - library/rabbitmq:3.11.2-management
                 - library/redis:5.0.14
                 - library/redis:6.0.16
                 - library/redis:6.2.7
