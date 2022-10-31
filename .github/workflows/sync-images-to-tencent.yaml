@@ -115,10 +115,10 @@ jobs:
                 - library/redis:6.0
                 - library/redis:6.2
                 - library/redis:7.0
-                - library/zookeeper:3.5
-                - library/zookeeper:3.6
-                - library/zookeeper:3.7
-                - library/zookeeper:3.8
+                - library/zookeeper:3.5-temurin
+                - library/zookeeper:3.6-temurin
+                - library/zookeeper:3.7-temurin
+                - library/zookeeper:3.8-temurin
                 - minio/minio:latest
           sync-policy:
             from: dockerhub
@@ -180,10 +180,10 @@ jobs:
                 - library/redis:6.2.7
                 - library/redis:7.0.4
                 - library/zookeeper:3.4.14
-                - library/zookeeper:3.5.9
-                - library/zookeeper:3.6.3
-                - library/zookeeper:3.7.1
-                - library/zookeeper:3.8.0
+                - library/zookeeper:3.5.9-temurin
+                - library/zookeeper:3.6.3-temurin
+                - library/zookeeper:3.7.1-temurin
+                - library/zookeeper:3.8.0-temurin
                 - minio/operator:v4.4.26
                 - minio/minio:RELEASE.2022-07-17T15-43-14Z
                 - nacos/nacos-server:v2.1.2
