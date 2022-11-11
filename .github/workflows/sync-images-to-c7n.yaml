@@ -156,10 +156,10 @@ jobs:
                 - grafana/loki:2.6.1
                 - grafana/promtail:2.6.1
                 - hengyunabc/arthas:3.6.2-no-jdk
-                - istio/install-cni:1.14.2
-                - istio/operator:1.14.2
-                - istio/pilot:1.14.2
-                - istio/proxyv2:1.14.2
+                - istio/install-cni:1.15.3
+                - istio/operator:1.15.3
+                - istio/pilot:1.15.3
+                - istio/proxyv2:1.15.3
                 - jaegertracing/jaeger-query:1.32
                 - jenkins/jenkins:2.370-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
