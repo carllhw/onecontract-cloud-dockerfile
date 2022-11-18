@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.16_8-jdk-jammy
+FROM eclipse-temurin:11.0.17_8-jdk-focal
 
 ENV TZ="Asia/Shanghai" \
     TINI_VERSION="v0.19.0" \
