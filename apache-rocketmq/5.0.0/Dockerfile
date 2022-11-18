@@ -17,7 +17,8 @@ RUN set -eux; \
         unzip \
         vim \
         wget; \
-    && rm -rf /var/lib/apt/lists/*
+    apt-get upgrade -y --no-install-recommends; \
+    rm -rf /var/lib/apt/lists/*
 
 ARG user=rocketmq
 ARG group=rocketmq
