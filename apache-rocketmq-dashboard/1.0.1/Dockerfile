@@ -52,15 +52,15 @@ RUN set -eux; \
     unzip rocketmq-dashboard.zip ; \
     rm rocketmq-dashboard.zip
 
-RUN cd rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION} ; \
+RUN cd rocketmq-dashboard-master ; \
     mvn -DskipTests clean install ;\
     ls -l target
 
 RUN mkdir bin; \
-    mv rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}/target/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}.jar bin/ ; \
+    mv rocketmq-dashboard-master/target/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}.jar bin/ ; \
     mv bin/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}.jar bin/rocketmq-dashboard.jar; \
     ls -l bin; \
-    rm -rf rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}
+    rm -rf rocketmq-dashboard-master
 
 RUN rm -rf /root/.m2/repository/*
 RUN rm -rf /usr/share/maven
