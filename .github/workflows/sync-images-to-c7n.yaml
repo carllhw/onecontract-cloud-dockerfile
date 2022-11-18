@@ -57,6 +57,8 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
+                - onecontract/apache-rocketmq
+                - onecontract/apache-rocketmq-dashboard
                 - onecontract/applicationinsights-agent
                 - onecontract/arms-agent
                 - onecontract/arthas
