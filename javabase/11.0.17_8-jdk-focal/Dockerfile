@@ -1,8 +1,7 @@
 FROM eclipse-temurin:11.0.17_8-jdk-focal
 
 ENV TZ="Asia/Shanghai" \
-    TINI_VERSION="v0.19.0" \
-    JAVA_OPTS="-XX:MaxRAMPercentage=75.0"
+    TINI_VERSION="v0.19.0"
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \

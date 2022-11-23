@@ -1,8 +1,7 @@
 FROM onecontract/adoptopenjdk:jdk8u292-b10
 
 ENV TZ="Asia/Shanghai" \
-    TINI_VERSION="v0.19.0" \
-    JAVA_OPTS="-XX:MaxRAMPercentage=75.0"
+    TINI_VERSION="v0.19.0"
 
 # Install base packages
 RUN apt-get update; \
