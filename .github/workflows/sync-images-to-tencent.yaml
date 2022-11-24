@@ -338,7 +338,7 @@ jobs:
             to: tencentyun
             dry-run: false
             replace:
-              - old: descheduler
+              - old: descheduler/
                 new: onecontract-cloud/descheduler_
               - old: ingress-nginx/
                 new: onecontract-cloud/ingress-nginx_
