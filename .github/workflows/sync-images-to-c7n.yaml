@@ -339,7 +339,7 @@ jobs:
             dry-run: false
             replace:
               - old: descheduler/
-                new: onecontract-cloud/descheduler_
+                new: oc-tools/descheduler_
               - old: ingress-nginx/
                 new: oc-tools/ingress-nginx_
               - old: kube-state-metrics/
