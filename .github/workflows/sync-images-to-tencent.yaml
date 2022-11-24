@@ -328,7 +328,7 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - descheduler/descheduler:v0.21.0
+                - descheduler/descheduler:v0.23.1
                 - ingress-nginx/controller:v1.3.0
                 - ingress-nginx/controller:v1.2.1
                 - kube-state-metrics/kube-state-metrics:v2.4.2
