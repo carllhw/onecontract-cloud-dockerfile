@@ -46,8 +46,10 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
 
 ENV LANG C.UTF-8
 
+USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
+USER root
 
 # auto
 ARG TIMEZONE="Asia/Shanghai"
