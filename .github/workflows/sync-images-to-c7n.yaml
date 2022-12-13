@@ -99,6 +99,9 @@ jobs:
               registry: https://registry-1.docker.io
               repositories:
                 - curlimages/curl:latest
+                - jenkins/jenkins:lts-jdk11
+                - jenkins/jenkins:lts-jdk17
+                - jenkins/jenkins:lts
                 - kiwigrid/k8s-sidecar:latest
                 - library/busybox:latest
                 - library/httpd:latest
@@ -130,6 +133,8 @@ jobs:
             replace:
               - old: curlimages/
                 new: oc-tools/curlimages_
+              - old: jenkins/
+                new: onecontract-cloud/jenkins_
               - old: kiwigrid/
                 new: oc-tools/kiwigrid_
               - old: library
@@ -167,7 +172,7 @@ jobs:
                 - istio/pilot:1.15.3
                 - istio/proxyv2:1.15.3
                 - jaegertracing/jaeger-query:1.32
-                - jenkins/jenkins:2.370-jdk11
+                - jenkins/jenkins:2.375.1-lts-jdk11
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.54
