@@ -134,7 +134,7 @@ jobs:
               - old: curlimages/
                 new: oc-tools/curlimages_
               - old: jenkins/
-                new: onecontract-cloud/jenkins_
+                new: oc-tools/jenkins_
               - old: kiwigrid/
                 new: oc-tools/kiwigrid_
               - old: library
