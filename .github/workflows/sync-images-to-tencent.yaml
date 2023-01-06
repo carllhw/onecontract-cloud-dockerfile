@@ -159,9 +159,9 @@ jobs:
                 - apache/skywalking-ui:9.1.0
                 - fatedier/frps:v0.44.0
                 - fatedier/frpc:v0.44.0
-                - grafana/grafana:9.1.6
-                - grafana/loki:2.7.0
-                - grafana/promtail:2.7.0
+                - grafana/grafana:9.3.1
+                - grafana/loki:2.7.1
+                - grafana/promtail:2.7.1
                 - hengyunabc/arthas:3.6.2-no-jdk
                 - istio/install-cni:1.14.5
                 - istio/operator:1.14.5
