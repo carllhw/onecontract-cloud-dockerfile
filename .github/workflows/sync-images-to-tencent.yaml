@@ -110,17 +110,13 @@ jobs:
                 - library/nginx:stable
                 - library/nginx:1.22
                 - library/mysql:5.7
-                - library/mysql:5.7-debian
                 - library/mysql:8.0
-                - library/mysql:8.0-debian
                 - library/rabbitmq:3.9-management
                 - library/rabbitmq:3.10-management
                 - library/rabbitmq:3.11-management
-                - library/redis:5.0
                 - library/redis:6.0
                 - library/redis:6.2
                 - library/redis:7.0
-                - library/zookeeper:3.5-temurin
                 - library/zookeeper:3.6-temurin
                 - library/zookeeper:3.7-temurin
                 - library/zookeeper:3.8-temurin
@@ -176,21 +172,16 @@ jobs:
                 - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.54
-                - library/mysql:5.7.38
-                - library/mysql:5.7.38-debian
-                - library/mysql:8.0.29
-                - library/mysql:8.0.29-debian
-                - library/nginx:1.22.0
-                - library/postgres:12.11
-                - library/rabbitmq:3.8.34-management
-                - library/rabbitmq:3.9.24-management
-                - library/rabbitmq:3.10.10-management
-                - library/rabbitmq:3.11.2-management
-                - library/redis:5.0.14
+                - library/mysql:5.7.40
+                - library/mysql:8.0.31
+                - library/nginx:1.22.1
+                - library/postgres:12.13
+                - library/rabbitmq:3.9.27-management
+                - library/rabbitmq:3.10.13-management
+                - library/rabbitmq:3.11.5-management
                 - library/redis:6.0.16
-                - library/redis:6.2.7
-                - library/redis:7.0.4
-                - library/zookeeper:3.4.14
+                - library/redis:6.2.8
+                - library/redis:7.0.7
                 - library/zookeeper:3.5.9-temurin
                 - library/zookeeper:3.6.3-temurin
                 - library/zookeeper:3.7.1-temurin
@@ -333,9 +324,8 @@ jobs:
               registry: https://k8s.gcr.io
               repositories:
                 - defaultbackend-amd64:1.5
-                - descheduler/descheduler:v0.23.1
-                - ingress-nginx/controller:v1.3.0
-                - ingress-nginx/controller:v1.2.1
+                - descheduler/descheduler:v0.26.0
+                - ingress-nginx/controller:v1.5.1
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
