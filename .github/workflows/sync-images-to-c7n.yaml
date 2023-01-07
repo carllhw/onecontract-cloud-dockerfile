@@ -6,7 +6,7 @@ on:
     - cron: "0 18 * * *"
 jobs:
   ghcr-to-c7n:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
@@ -40,7 +40,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   dockerhub-to-c7n:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
@@ -234,7 +234,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   quay-to-c7n:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
@@ -285,7 +285,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   gcr-to-c7n:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
@@ -345,7 +345,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   gitlab-to-c7n:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}

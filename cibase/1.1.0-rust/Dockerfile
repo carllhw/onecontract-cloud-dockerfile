@@ -1,4 +1,4 @@
-FROM choerodon/cibase:1.0.0-base
+FROM choerodon/cibase:1.1.0-base
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \

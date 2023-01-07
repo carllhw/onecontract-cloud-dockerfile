@@ -6,7 +6,7 @@ on:
     - cron: "0 19 * * *"
 jobs:
   ghcr-to-tencent:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
@@ -40,7 +40,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   dockerhub-to-tencent:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
@@ -234,7 +234,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   quay-to-tencent:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
@@ -285,7 +285,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   gcr-to-tencent:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
@@ -345,7 +345,7 @@ jobs:
           EOF
           registry-manager sync -c config.yaml
   gitlab-to-tencent:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
