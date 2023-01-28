@@ -41,7 +41,7 @@ jobs:
           registry-manager sync -c config.yaml
   dockerhub-to-tencent:
     runs-on: ubuntu-latest
-    container: setzero/registry-manager
+    container: onecontract/registry-manager
     env:
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
