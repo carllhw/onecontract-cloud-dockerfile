@@ -41,7 +41,7 @@ jobs:
           registry-manager sync -c config.yaml
   dockerhub-to-c7n:
     runs-on: ubuntu-latest
-    container: onecontract/registry-manager
+    container: setzero/registry-manager
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
