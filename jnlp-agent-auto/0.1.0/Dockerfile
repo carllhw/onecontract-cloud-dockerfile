@@ -12,7 +12,7 @@ RUN jlink \
 
 FROM jenkins/inbound-agent:4.13-1 AS inbound-agent
 
-FROM marketsquare/robotframework-browser:12.3.0
+FROM marketsquare/robotframework-browser:v15.0.0
 
 USER root
 
@@ -61,7 +61,7 @@ RUN set -eux; \
 USER ${user}
 COPY requirements.txt /home/${user}
 RUN set -eux; \
-    pip install --no-cache-dir -r /home/${user}/requirements.txt
+    pip3 install --no-cache-dir -r /home/${user}/requirements.txt
 
 USER root
 RUN set -eux; \
