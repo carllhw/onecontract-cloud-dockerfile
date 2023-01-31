@@ -72,7 +72,6 @@ jobs:
                 - onecontract/mysql-backup
                 - onecontract/nodebase
                 - onecontract/oc-infra-python-base
-                - onecontract/openvpn
                 - onecontract/otel-javaagent
                 - onecontract/rclone
                 - onecontract/rustbase
