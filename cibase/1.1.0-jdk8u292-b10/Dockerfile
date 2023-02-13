@@ -1,5 +1,9 @@
 FROM choerodon/cibase:1.1.0-base
 
+RUN set -eux; \
+    ARCH="$(dpkg --print-architecture)"; \
+    rm /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN apt-get update \
