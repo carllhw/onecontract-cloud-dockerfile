@@ -1,5 +1,7 @@
 FROM choerodon/cibase:1.1.0-base
 
+ARG DOCKER_BUILDX_VERSION=v0.10.2
+
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     rm /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list; \
