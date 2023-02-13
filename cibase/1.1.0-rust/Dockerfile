@@ -7,4 +7,9 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends \
         protobuf-compiler; \
     apt-get upgrade -y --no-install-recommends; \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*; \
+# install docker buildx
+    mkdir -p /usr/local/lib/docker/cli-plugins; \
+    wget -qO /usr/local/lib/docker/cli-plugins/docker-buildx \
+        https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${ARCH}; \
+    chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
