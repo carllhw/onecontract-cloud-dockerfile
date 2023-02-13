@@ -37,6 +37,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 # Install Maven End
 
 ARG JIB_VERSION=0.11.0
+ARG DOCKER_BUILDX_VERSION=v0.10.2
 ENV PATH="/opt/jib/bin:${PATH}"
 
 RUN set -eux; \
