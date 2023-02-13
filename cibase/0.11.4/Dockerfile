@@ -1,6 +1,6 @@
 FROM choerodon/cibase:0.11.4
 
-ARG JIB_VERSION=0.11.0
+ARG JIB_VERSION=0.12.0
 ARG DOCKER_BUILDX_VERSION=v0.10.2
 ENV PATH="/opt/jib/bin:${PATH}"
 
