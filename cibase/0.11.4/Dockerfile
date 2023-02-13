@@ -10,4 +10,9 @@ RUN set -eux; \
         https://github.com/GoogleContainerTools/jib/releases/download/v${JIB_VERSION}-cli/jib-jre-${JIB_VERSION}.zip; \
     unzip /tmp/jib-jre-${JIB_VERSION}.zip -d /tmp/; \
     mv /tmp/jib-${JIB_VERSION} /opt/jib; \
-    rm /tmp/jib-jre-${JIB_VERSION}.zip
+    rm /tmp/jib-jre-${JIB_VERSION}.zip; \
+# install docker buildx
+    mkdir -p /usr/local/lib/docker/cli-plugins; \
+    wget -qO /usr/local/lib/docker/cli-plugins/docker-buildx \
+        https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${ARCH}; \
+    chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
