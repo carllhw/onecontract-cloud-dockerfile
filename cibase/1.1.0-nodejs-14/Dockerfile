@@ -1,6 +1,7 @@
 FROM choerodon/cibase:1.1.0-base
 
 ARG DOCKER_BUILDX_VERSION=v0.10.2
+ARG TYPESCRIPT_VERSION="3.6.3"
 ENV PATH="/opt/jib/bin:${PATH}"
 
 RUN set -eux; \
