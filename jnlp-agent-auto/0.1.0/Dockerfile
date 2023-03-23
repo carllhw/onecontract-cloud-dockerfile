@@ -12,7 +12,7 @@ RUN jlink \
 
 FROM jenkins/inbound-agent:4.13-1 AS inbound-agent
 
-FROM marketsquare/robotframework-browser:v15.0.0
+FROM marketsquare/robotframework-browser:16.0.2
 
 USER root
 
