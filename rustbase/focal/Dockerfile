@@ -9,6 +9,7 @@ RUN apt-get update; \
         procps \
         tar \
         telnet \
+        tzdata \
         unzip \
         vim \
         wget; \
