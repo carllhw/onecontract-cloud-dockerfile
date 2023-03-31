@@ -7,6 +7,8 @@ RUN set -eux; \
     rm /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        libssl-dev \
+        pkg-config \
         protobuf-compiler; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
