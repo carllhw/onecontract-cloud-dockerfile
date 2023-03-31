@@ -2,10 +2,14 @@ FROM ubuntu:20.04
 
 ENV TZ="Asia/Shanghai"
 
-RUN apt-get update; \
+RUN set -eux; \
+    ARCH="$(dpkg --print-architecture)"; \
+    apt-get update; \
     apt-get install -y --no-install-recommends \
+        libssl-dev \
         netcat \
         net-tools \
+        pkg-config \
         procps \
         tar \
         telnet \
