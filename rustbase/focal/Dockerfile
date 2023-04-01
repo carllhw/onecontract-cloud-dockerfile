@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ="Asia/Shanghai"
 
 RUN set -eux; \
