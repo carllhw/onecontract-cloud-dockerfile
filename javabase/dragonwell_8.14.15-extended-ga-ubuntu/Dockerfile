@@ -1,6 +1,4 @@
-FROM ubuntu:20.04
-
-ARG RCLONE_VERSION="v1.59.2"
+FROM alibabadragonwell/dragonwell:8.14.15-extended-ga-ubuntu
 
 ENV TZ="Asia/Shanghai"
 
@@ -9,19 +7,19 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
-        curl \
         dnsutils \
+        gnupg2 \
         netcat \
+        net-tools \
+        openssh-client \
         procps \
         tar \
+        telnet \
         unzip \
+        vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
-    rm -rf /var/lib/apt/lists/*; \
-# rclone
-    curl -LfsSo "/tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip" "https://downloads.rclone.org/${RCLONE_VERSION}/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip"; \
-    unzip -q /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip -d /tmp; \
-    cp /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}/rclone /usr/local/bin/
+    rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
