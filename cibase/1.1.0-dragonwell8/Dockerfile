@@ -60,7 +60,7 @@ RUN echo Verifying install ... \
 
 # Ref: https://github.com/carlossg/docker-maven/blob/59bdaf8b1ec69a787d7857cd1025f1f3efd7b216/openjdk-8/Dockerfile
 # Install Maven Start
-ARG MAVEN_VERSION=3.8.7
+ARG MAVEN_VERSION=3.8.8
 ARG USER_HOME_DIR="/root"
 ARG SHA=f790857f3b1f90ae8d16281f902c689e4f136ebe584aba45e4b1fa66c80cba826d3e0e52fdd04ed44b4c66f6d3fe3584a057c26dfcac544a60b301e6d0f91c26
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
