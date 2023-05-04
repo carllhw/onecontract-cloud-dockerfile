@@ -9,6 +9,7 @@ RUN set -eux; \
         ca-certificates \
         dnsutils \
         gnupg2 \
+        iputils-ping \
         netcat \
         net-tools \
         openssh-client \
