@@ -1,4 +1,4 @@
-FROM alibabadragonwell/dragonwell:11.0.18.14.9-extended-ga-ubuntu
+FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11.0.18.14.9-extended-ga-ubuntu
 
 ENV TZ="Asia/Shanghai"
 
@@ -19,7 +19,6 @@ RUN set -eux; \
         unzip \
         vim \
         wget; \
-    apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
