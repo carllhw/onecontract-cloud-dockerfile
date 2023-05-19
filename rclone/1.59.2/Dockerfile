@@ -15,6 +15,7 @@ RUN set -eux; \
         procps \
         tar \
         unzip \
+        vim \
         wget; \
     rm -rf /var/lib/apt/lists/*; \
 # rclone
