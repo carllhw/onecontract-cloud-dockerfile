@@ -19,7 +19,6 @@ RUN apt-get update; \
         unzip \
         vim \
         wget; \
-    apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
     wget -qO "/tmp/rclone-${RCLONE_VERSION}-linux-amd64.zip" "https://downloads.rclone.org/${RCLONE_VERSION}/rclone-${RCLONE_VERSION}-linux-amd64.zip"; \
     unzip -q /tmp/rclone-${RCLONE_VERSION}-linux-amd64.zip -d /tmp; \
