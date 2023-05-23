@@ -189,7 +189,7 @@ jobs:
                 - minio/minio:RELEASE.2022-07-17T15-43-14Z
                 - nacos/nacos-server:v2.1.2
                 - otel/opentelemetry-collector-contrib:0.50.0
-                - sonatype/nexus3:3.40.1
+                - sonatype/nexus3:3.54.1
                 - timescale/promscale:0.11.0
                 - timescale/timescaledb-ha:pg13.7-ts2.7.0-p6
                 - zqiannnn/prometheus-alert:v4.8.1
