@@ -8,7 +8,11 @@ RUN set -eux; \
         ant \
         build-essential \
         cmake \
+        python3 \
+        python3-distutils \
+        python3-numpy \
         g++; \
+    ln -snf /usr/share/ant/bin/ant /bin/ant; \
     wget -qO opencv.zip \
         https://github.com/opencv/opencv/archive/4.x.zip; \
     wget -qO opencv_contrib.zip \

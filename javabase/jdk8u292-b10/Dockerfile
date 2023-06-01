@@ -22,4 +22,4 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list

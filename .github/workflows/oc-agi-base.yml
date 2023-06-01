@@ -1,8 +1,6 @@
 name: oc-agi-base
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 19 * * 5"
   push:
     paths:
       - "oc-agi-base/**"
