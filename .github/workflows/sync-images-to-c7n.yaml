@@ -76,7 +76,6 @@ jobs:
                 - onecontract/otel-javaagent
                 - onecontract/rclone
                 - onecontract/rustbase
-                - onecontract/srm-agent-call-chain
           sync-policy:
             from: dockerhub
             to: c7n
