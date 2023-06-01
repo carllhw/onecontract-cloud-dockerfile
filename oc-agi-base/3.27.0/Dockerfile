@@ -13,13 +13,13 @@ RUN set -eux; \
         https://github.com/opencv/opencv/archive/4.x.zip; \
     wget -qO opencv_contrib.zip \
         https://github.com/opencv/opencv_contrib/archive/4.x.zip; \
-    unzip opencv.zip -d opencv; \
-    unzip opencv_contrib.zip -d opencv_contrib; \
+    unzip opencv.zip; \
+    unzip opencv_contrib.zip; \
     rm -f opencv.zip; \
     rm -f opencv_contrib.zip; \
-    mkdir -p /opencv/build && cd /opencv/build; \
+    mkdir -p /opencv-4.x/build && cd /opencv-4.x/build; \
     cmake -D BUILD_TESTS=OFF \
-        -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules/wechat_qrcode \
+        -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib-4.x/modules/wechat_qrcode \
         -D BUILD_opencv_superres=OFF \
         -D BUILD_opencv_ts=OFF \
         -D BUILD_opencv_gpu=OFF  \
@@ -32,7 +32,7 @@ RUN set -eux; \
         -D BUILD_opencv_stitching=OFF \
         -D BUILD_opencv_highgui=OFF \
         -D BUILD_opencv_gapi=OFF \
-        /opencv; \
+        /opencv-4.x; \
     make -j8; \
     make install; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
