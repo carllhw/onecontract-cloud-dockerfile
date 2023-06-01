@@ -71,6 +71,7 @@ jobs:
                 - onecontract/kibana
                 - onecontract/mysql-backup
                 - onecontract/nodebase
+                - onecontract/oc-agi-base
                 - onecontract/oc-infra-python-base
                 - onecontract/otel-javaagent
                 - onecontract/rclone
