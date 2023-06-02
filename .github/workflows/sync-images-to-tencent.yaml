@@ -73,7 +73,6 @@ jobs:
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
                 - onecontract/oc-infra-python-base
-                - onecontract/otel-javaagent
                 - onecontract/rclone
                 - onecontract/rustbase
           sync-policy:
