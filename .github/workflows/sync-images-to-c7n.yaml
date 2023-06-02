@@ -167,7 +167,6 @@ jobs:
                 - istio/proxyv2:1.15.3
                 - jaegertracing/jaeger-query:1.32
                 - jenkins/jenkins:2.375.1-lts-jdk11
-                - jettech/kube-webhook-certgen:v1.5.2
                 - jimmidyson/configmap-reload:v0.7.1
                 - library/httpd:2.4.54
                 - library/mysql:5.7.40
@@ -211,8 +210,6 @@ jobs:
                 new: oc-tools/jaegertracing_
               - old: jenkins/
                 new: oc-tools/jenkins_
-              - old: jettech/
-                new: oc-tools/jettech_
               - old: jimmidyson/
                 new: oc-tools/jimmidyson_
               - old: library
