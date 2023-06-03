@@ -321,7 +321,7 @@ jobs:
                 - defaultbackend-amd64:1.5
                 - descheduler/descheduler:v0.25.1
                 - ingress-nginx/controller:v1.5.1
-                - ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343
+                - ingress-nginx/kube-webhook-certgen:v1.3.0
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
