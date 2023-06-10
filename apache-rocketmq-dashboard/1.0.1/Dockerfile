@@ -31,9 +31,9 @@ ARG gid=3000
 RUN groupadd -g ${gid} ${group} \
     && useradd -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
-# install maven 3.6.3
-ARG MAVEN_VERSION=3.6.3
-ARG MAVEN_DOWNLOAD_URL=https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+# install maven
+ARG MAVEN_VERSION=3.8.8
+ARG MAVEN_DOWNLOAD_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref && \
     wget -O /tmp/apache-maven.tar.gz ${MAVEN_DOWNLOAD_URL} --no-check-certificate && \
