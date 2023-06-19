@@ -7,6 +7,7 @@ RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        dnsutils \
         libssl-dev \
         netcat \
         net-tools \
