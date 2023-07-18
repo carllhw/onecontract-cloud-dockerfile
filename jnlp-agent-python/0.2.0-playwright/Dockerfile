@@ -51,7 +51,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG TIMEZONE="Asia/Shanghai"
 RUN apt-get update; \
     apt-get install -y \
-        tzdata \
+        tzdata; \
     apt-get upgrade -y --no-install-recommends; \
     echo ${TIMEZONE} > /etc/timezone; \
     rm /etc/localtime; \
