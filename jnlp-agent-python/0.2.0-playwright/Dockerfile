@@ -47,10 +47,15 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # python
+ARG DEBIAN_FRONTEND=noninteractive
 ARG TIMEZONE="Asia/Shanghai"
-RUN echo ${TIMEZONE} > /etc/timezone; \
+RUN apt-get update; \
+    apt-get install -y \
+        tzdata \
+    apt-get upgrade -y --no-install-recommends; \
+    echo ${TIMEZONE} > /etc/timezone; \
     rm /etc/localtime; \
-    dpkg-reconfigure -f noninteractive tzdata
-
+    dpkg-reconfigure -f noninteractive tzdata; \
+    rm -rf /var/lib/apt/lists/*;
 COPY requirements.txt /root
 RUN pip3 install --no-cache-dir -r /root/requirements.txt
