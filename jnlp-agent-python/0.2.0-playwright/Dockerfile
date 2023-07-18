@@ -22,7 +22,7 @@ COPY --from=jre-build /javaruntime $JAVA_HOME
 # jenkins agent
 ARG VERSION=4.13
 
-ARG AGENT_WORKDIR=/home/root/agent
+ARG AGENT_WORKDIR=/root/agent
 
 RUN apt-get update \
   && apt-get -y install \
@@ -44,7 +44,7 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
 ENV LANG C.UTF-8
 
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
-RUN mkdir /home/root/.jenkins && mkdir -p ${AGENT_WORKDIR}
+RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # python
 ARG TIMEZONE="Asia/Shanghai"
@@ -52,5 +52,5 @@ RUN echo ${TIMEZONE} > /etc/timezone; \
     rm /etc/localtime; \
     dpkg-reconfigure -f noninteractive tzdata
 
-COPY requirements.txt /home/root
-RUN pip3 install --no-cache-dir -r /home/root/requirements.txt
+COPY requirements.txt /root
+RUN pip3 install --no-cache-dir -r /root/requirements.txt
