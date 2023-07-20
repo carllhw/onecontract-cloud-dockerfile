@@ -26,6 +26,7 @@ pytest-base-url==2.0.0
 pytest-playwright==0.3.3
 pytest-repeat==0.9.1
 pytest-rerunfailures==11.1.2
+pytest-timeout==2.1.0
 pytest-xdist==3.2.1
 python-dateutil==2.8.2
 python-slugify==8.0.1

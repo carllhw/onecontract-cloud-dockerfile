@@ -7,10 +7,15 @@ RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
         dnsutils \
+        fontconfig \
         libssl-dev \
+        locales \
         netcat \
         net-tools \
+        openssh-client \
         pkg-config \
         procps \
         tar \
