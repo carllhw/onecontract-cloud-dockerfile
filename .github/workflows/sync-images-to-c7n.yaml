@@ -27,7 +27,6 @@ jobs:
                 - fluxcd/kustomize-controller:v0.35.0
                 - fluxcd/notification-controller:v0.33.0
                 - fluxcd/source-controller:v0.36.0
-                - open-telemetry/opentelemetry-operator/opentelemetry-operator:v0.48.0
           sync-policy:
             from: ghcr
             to: c7n
@@ -106,12 +105,13 @@ jobs:
                 - library/httpd:2.4
                 - library/nginx:latest
                 - library/nginx:stable
-                - library/nginx:1.22
+                - library/nginx:1.24
                 - library/mysql:5.7
                 - library/mysql:8.0
                 - library/rabbitmq:3.9-management
                 - library/rabbitmq:3.10-management
                 - library/rabbitmq:3.11-management
+                - library/rabbitmq:3.12-management
                 - library/redis:6.0
                 - library/redis:6.2
                 - library/redis:7.0
@@ -148,15 +148,16 @@ jobs:
             dockerhub:
               registry: https://registry-1.docker.io
               repositories:
-                - apache/skywalking-java-agent:8.11.0-alpine
-                - apache/skywalking-oap-server:9.1.0
-                - apache/skywalking-ui:9.1.0
-                - fatedier/frps:v0.44.0
-                - fatedier/frpc:v0.44.0
-                - grafana/grafana:9.5.2
+                - apache/skywalking-java-agent:8.16.0-alpine
+                - apache/skywalking-oap-server:9.5.0
+                - apache/skywalking-ui:9.5.0
+                - fatedier/frps:v0.51.1
+                - fatedier/frpc:v0.51.1
+                - grafana/grafana:10.0.2
+                - grafana/grafana:9.5.6
                 - grafana/loki:2.8.2
                 - grafana/promtail:2.8.2
-                - hengyunabc/arthas:3.6.2-no-jdk
+                - hengyunabc/arthas:3.6.9-no-jdk
                 - istio/install-cni:1.14.5
                 - istio/operator:1.14.5
                 - istio/pilot:1.14.5
@@ -165,32 +166,26 @@ jobs:
                 - istio/operator:1.15.3
                 - istio/pilot:1.15.3
                 - istio/proxyv2:1.15.3
-                - jaegertracing/jaeger-query:1.32
-                - jenkins/jenkins:2.375.1-lts-jdk11
-                - jimmidyson/configmap-reload:v0.7.1
-                - library/httpd:2.4.54
-                - library/mysql:5.7.40
-                - library/mysql:8.0.31
-                - library/nginx:1.22.1
-                - library/postgres:12.13
-                - library/rabbitmq:3.9.27-management
-                - library/rabbitmq:3.10.13-management
-                - library/rabbitmq:3.11.5-management
-                - library/redis:6.0.16
-                - library/redis:6.2.8
-                - library/redis:7.0.7
-                - library/zookeeper:3.5.9-temurin
-                - library/zookeeper:3.6.3-temurin
+                - jenkins/jenkins:2.401.2-lts-jdk11
+                - jimmidyson/configmap-reload:v0.9.0
+                - library/httpd:2.4.57
+                - library/mysql:5.7.42
+                - library/mysql:8.0.33
+                - library/nginx:1.24.0
+                - library/postgres:15.3
+                - library/rabbitmq:3.9.29-management
+                - library/rabbitmq:3.10.25-management
+                - library/rabbitmq:3.11.20-management
+                - library/rabbitmq:3.12.2-management
+                - library/redis:6.0.20
+                - library/redis:6.2.13
+                - library/redis:7.0.12
                 - library/zookeeper:3.7.1-temurin
-                - library/zookeeper:3.8.0-temurin
-                - minio/operator:v4.4.26
-                - minio/minio:RELEASE.2022-07-17T15-43-14Z
-                - nacos/nacos-server:v2.1.2
-                - otel/opentelemetry-collector-contrib:0.50.0
-                - sonatype/nexus3:3.54.1
-                - timescale/promscale:0.11.0
-                - timescale/timescaledb-ha:pg13.7-ts2.7.0-p6
-                - zqiannnn/prometheus-alert:v4.8.1
+                - library/zookeeper:3.8.1-temurin
+                - minio/operator:v5.0.6
+                - minio/minio:RELEASE.2023-07-18T17-49-40Z
+                - nacos/nacos-server:v2.2.3
+                - sonatype/nexus3:3.58.0
           sync-policy:
             from: dockerhub
             to: c7n
@@ -206,8 +201,6 @@ jobs:
                 new: oc-tools/hengyunabc_
               - old: istio/
                 new: oc-tools/istio_
-              - old: jaegertracing/
-                new: oc-tools/jaegertracing_
               - old: jenkins/
                 new: oc-tools/jenkins_
               - old: jimmidyson/
@@ -218,14 +211,8 @@ jobs:
                 new: oc-tools/minio_
               - old: nacos/
                 new: oc-tools/nacos_
-              - old: otel/
-                new: oc-tools/otel_
               - old: sonatype/
                 new: oc-tools/sonatype_
-              - old: timescale/
-                new: oc-tools/timescale_
-              - old: zqiannnn/
-                new: oc-tools/zqiannnn_
           EOF
           registry-manager sync -c config.yaml
   quay-to-c7n:
@@ -253,13 +240,6 @@ jobs:
                 - jetstack/cert-manager-cainjector:v1.8.0
                 - jetstack/cert-manager-controller:v1.8.0
                 - jetstack/cert-manager-webhook:v1.8.0
-                - prometheus/alertmanager:v0.24.0
-                - prometheus/node-exporter:v1.3.1
-                - prometheus/pushgateway:v1.4.3
-                - prometheus/prometheus:v2.36.0
-                - prometheus-operator/prometheus-config-reloader:v0.56.3
-                - prometheus-operator/prometheus-operator:v0.56.3
-                - thanos/thanos:v0.27.0
           sync-policy:
             from: quay
             to: c7n
@@ -271,12 +251,6 @@ jobs:
                 new: oc-tools/coreos_
               - old: jetstack/
                 new: oc-tools/jetstack_
-              - old: prometheus/
-                new: oc-tools/prometheus_
-              - old: prometheus-operator/
-                new: oc-tools/prometheus_
-              - old: thanos/
-                new: oc-tools/thanos_
           EOF
           registry-manager sync -c config.yaml
   gcr-to-c7n:
