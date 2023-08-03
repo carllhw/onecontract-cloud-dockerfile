@@ -8,6 +8,7 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         libssl-dev \
+        musl-tools \
         pkg-config \
         protobuf-compiler; \
     apt-get upgrade -y --no-install-recommends; \
