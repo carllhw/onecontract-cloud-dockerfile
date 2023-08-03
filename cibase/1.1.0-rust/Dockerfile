@@ -4,7 +4,6 @@ ARG DOCKER_BUILDX_VERSION=v0.10.2
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
-    rm /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         libssl-dev \
