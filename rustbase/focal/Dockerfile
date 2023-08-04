@@ -11,6 +11,7 @@ RUN set -eux; \
         curl \
         dnsutils \
         fontconfig \
+        iputils-ping \
         libssl-dev \
         locales \
         netcat \
