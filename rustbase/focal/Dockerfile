@@ -14,6 +14,7 @@ RUN set -eux; \
         iputils-ping \
         libssl-dev \
         locales \
+        lsof \
         netcat \
         net-tools \
         openssh-client \

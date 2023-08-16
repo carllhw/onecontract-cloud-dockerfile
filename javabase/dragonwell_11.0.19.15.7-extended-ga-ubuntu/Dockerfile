@@ -10,6 +10,7 @@ RUN set -eux; \
         dnsutils \
         gnupg2 \
         iputils-ping \
+        lsof \
         netcat \
         net-tools \
         openssh-client \
