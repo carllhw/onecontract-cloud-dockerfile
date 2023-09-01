@@ -27,11 +27,16 @@ jobs:
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         run: |
           set -eux;
+          docker_platform="linux/amd64,linux/arm64"
           for file_path in $(find oc-infra-python-base -name Dockerfile | sort -r | head -n 3);
           do
+            if [[ $file_path =~ "mysql" ]]
+            then
+              docker_platform="linux/amd64"
+            fi
             /usr/bin/docker buildx prune -a -f
             /usr/bin/docker buildx build --push --no-cache \
-              --platform linux/amd64,linux/arm64 \
+              --platform $docker_platform \
               --file ${file_path} \
               --tag ${{ secrets.DOCKERHUB_USERNAME }}/$(dirname $file_path | sed 's / : g') \
               ${file_path%/*}
@@ -40,11 +45,16 @@ jobs:
         if: ${{ github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' }}
         run: |
           set -eux;
+          docker_platform="linux/amd64,linux/arm64"
           for file_path in $(git diff --name-only HEAD~ HEAD | grep oc-infra-python-base/ | grep Dockerfile);
           do
+            if [[ $file_path =~ "mysql" ]]
+            then
+              docker_platform="linux/amd64"
+            fi
             /usr/bin/docker buildx prune -a -f
             /usr/bin/docker buildx build --push --no-cache \
-              --platform linux/amd64,linux/arm64 \
+              --platform $docker_platform \
               --file ${file_path} \
               --tag ${{ secrets.DOCKERHUB_USERNAME }}/$(dirname $file_path | sed 's / : g') \
               ${file_path%/*}
