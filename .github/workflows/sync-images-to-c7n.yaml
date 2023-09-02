@@ -11,6 +11,7 @@ jobs:
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
     steps:
       - name: Ghcr to C7N
         run: |
@@ -30,6 +31,7 @@ jobs:
           sync-policy:
             from: ghcr
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: fluxcd/
@@ -44,6 +46,7 @@ jobs:
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
     steps:
       - name: Dockerhub Onecontract to C7N force
         run: |
@@ -188,6 +191,7 @@ jobs:
           sync-policy:
             from: dockerhub
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: apache/
@@ -218,6 +222,7 @@ jobs:
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
     steps:
       - name: Quay to C7N
         run: |
@@ -240,6 +245,7 @@ jobs:
           sync-policy:
             from: quay
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: argoproj/
@@ -256,6 +262,7 @@ jobs:
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
     steps:
       - name: Gcr to C7N
         run: |
@@ -272,6 +279,7 @@ jobs:
           sync-policy:
             from: gcr
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: kubebuilder/
@@ -298,6 +306,7 @@ jobs:
           sync-policy:
             from: gcr
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: descheduler/
@@ -317,6 +326,7 @@ jobs:
     env:
       TO_USERNAME: ${{ secrets.C7N_USERNAME }}
       TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
     steps:
       - name: Gitlab to C7N
         run: |
@@ -334,6 +344,7 @@ jobs:
           sync-policy:
             from: gcr
             to: c7n
+            force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: gitlab-org/gitlab-runner/
