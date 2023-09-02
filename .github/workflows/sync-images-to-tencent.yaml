@@ -187,7 +187,7 @@ jobs:
                 - minio/operator:v5.0.6
                 - minio/minio:RELEASE.2023-07-18T17-49-40Z
                 - nacos/nacos-server:v2.2.3
-                - sonatype/nexus3:3.58.0
+                - sonatype/nexus3:3.59.0
           sync-policy:
             from: dockerhub
             to: tencentyun
