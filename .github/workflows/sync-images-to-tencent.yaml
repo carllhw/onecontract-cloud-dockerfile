@@ -157,9 +157,9 @@ jobs:
                 - fatedier/frps:v0.51.1
                 - fatedier/frpc:v0.51.1
                 - grafana/grafana:10.0.2
-                - grafana/grafana:9.5.6
-                - grafana/loki:2.8.3
-                - grafana/promtail:2.8.3
+                - grafana/grafana:10.0.5
+                - grafana/loki:2.9.1
+                - grafana/promtail:2.9.1
                 - istio/install-cni:1.14.5
                 - istio/operator:1.14.5
                 - istio/pilot:1.14.5
