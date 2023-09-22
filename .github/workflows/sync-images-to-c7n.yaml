@@ -111,6 +111,7 @@ jobs:
                 - library/nginx:1.24
                 - library/mysql:5.7
                 - library/mysql:8.0
+                - library/phpmyadmin:latest
                 - library/rabbitmq:3.9-management
                 - library/rabbitmq:3.10-management
                 - library/rabbitmq:3.11-management
