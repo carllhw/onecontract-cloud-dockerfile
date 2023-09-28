@@ -21,6 +21,6 @@ jobs:
               git clone https://github.com/${org}/${repo}.git
               cd ${repo}
               git remote add mirror https://oauth2:${{ secrets.GITCODE_TOKEN }}@gitcode.net/qq_29330659/${org}_${repo}.git
-              git push --tags --force --prune mirror
+              git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
               cd ..
           done
