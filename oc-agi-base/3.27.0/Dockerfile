@@ -1,4 +1,4 @@
-FROM onecontract/javabase:dragonwell_8.15.16-extended-ga-ubuntu
+FROM onecontract/javabase:dragonwell_8.16.17-extended-ga-ubuntu
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
