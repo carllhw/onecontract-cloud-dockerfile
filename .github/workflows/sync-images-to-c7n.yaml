@@ -112,6 +112,9 @@ jobs:
                 - library/mysql:5.7
                 - library/mysql:8.0
                 - library/phpmyadmin:latest
+                - library/postgres:latest
+                - library/postgres:16
+                - library/postgres:15
                 - library/rabbitmq:3.9-management
                 - library/rabbitmq:3.10-management
                 - library/rabbitmq:3.11-management
@@ -174,7 +177,8 @@ jobs:
                 - library/mysql:5.7.42
                 - library/mysql:8.0.33
                 - library/nginx:1.24.0
-                - library/postgres:15.3
+                - library/postgres:16.0
+                - library/postgres:15.4
                 - library/rabbitmq:3.9.29-management
                 - library/rabbitmq:3.10.25-management
                 - library/rabbitmq:3.11.20-management
