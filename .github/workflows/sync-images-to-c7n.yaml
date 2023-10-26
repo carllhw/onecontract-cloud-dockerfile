@@ -357,3 +357,58 @@ jobs:
                 new: oc-tools/
           EOF
           registry-manager sync -c config.yaml
+  oracle-to-c7n:
+    runs-on: ubuntu-latest
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
+    steps:
+      - name: Oracle to C7N force
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://container-registry.oracle.com
+              repositories:
+                - database/free:latest
+                - database/express:latest
+          sync-policy:
+            from: gcr
+            to: tencentyun
+            force: true
+            dry-run: false
+            replace:
+              - old: database/
+                new: oc-tools/oracle_database_
+          EOF
+          registry-manager sync -c config.yaml
+      - name: Oracle to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            gcr:
+              registry: https://container-registry.oracle.com
+              repositories:
+                - database/free:23.3.0.0
+                - database/express:21.3.0-xe
+                - database/express:18.4.0-xe
+          sync-policy:
+            from: gcr
+            to: tencentyun
+            force: $SYNC_POLICY_FORCE
+            dry-run: false
+            replace:
+              - old: database/
+                new: oc-tools/oracle_database_
+          EOF
+          registry-manager sync -c config.yaml
