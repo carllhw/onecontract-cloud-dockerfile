@@ -103,6 +103,7 @@ jobs:
                 - jenkins/jenkins:lts
                 - kiwigrid/k8s-sidecar:latest
                 - library/busybox:latest
+                - library/busybox:stable
                 - library/httpd:latest
                 - library/httpd:2.4
                 - library/nginx:latest
