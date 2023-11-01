@@ -180,6 +180,7 @@ jobs:
                 - library/nginx:1.24.0
                 - library/postgres:16.0
                 - library/postgres:15.4
+                - library/rabbitmq:3.8.34-management
                 - library/rabbitmq:3.9.29-management
                 - library/rabbitmq:3.10.25-management
                 - library/rabbitmq:3.11.20-management
