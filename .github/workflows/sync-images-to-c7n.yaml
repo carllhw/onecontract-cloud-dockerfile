@@ -70,7 +70,6 @@ jobs:
                 - onecontract/javabase
                 - onecontract/jnlp-agent-auto
                 - onecontract/jnlp-agent-python
-                - onecontract/kibana
                 - onecontract/mysql-backup
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
@@ -322,6 +321,37 @@ jobs:
               - old: node-problem-detector/
                 new: oc-tools/node-problem-detector_
               - new: oc-tools
+          EOF
+          registry-manager sync -c config.yaml
+  elastic-to-c7n:
+    runs-on: ubuntu-latest
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
+    steps:
+      - name: Elastic to Tencent
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            elastic:
+              registry: https://docker.elastic.co
+              repositories:
+                - kibana/kibana:7.10.2
+                - kibana/kibana:7.14.0
+          sync-policy:
+            from: elastic
+            to: c7n
+            force: $SYNC_POLICY_FORCE
+            dry-run: false
+            replace:
+              - old: kibana/
+                new: oc-tools/
           EOF
           registry-manager sync -c config.yaml
   gitlab-to-c7n:
