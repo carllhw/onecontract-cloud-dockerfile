@@ -74,6 +74,7 @@ jobs:
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
                 - onecontract/oc-infra-python-base
+                - onecontract/opengauss
                 - onecontract/rclone
                 - onecontract/rustbase
           sync-policy:
