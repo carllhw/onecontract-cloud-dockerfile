@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-ARG RCLONE_VERSION="v1.62.2"
+ARG RCLONE_VERSION="v1.64.2"
 
 ENV TZ="Asia/Shanghai"
 
