@@ -1,9 +1,5 @@
 FROM choerodon/cibase:1.1.0-base
 
-RUN set -eux; \
-    ARCH="$(dpkg --print-architecture)"; \
-    rm /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN apt-get update \
@@ -12,7 +8,7 @@ RUN apt-get update \
     && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_VERSION jdk-11.0.18.14+9
+ENV JAVA_VERSION jdk-11.0.20.17+8
 
 ARG EDITION=extended
 
@@ -21,20 +17,20 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='04d257942c75eb487075b675da0dcec6319dbf9dcdc5ed93eafbd427398f4e08'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Extended_11.0.18.14.9_aarch64_linux.tar.gz'; \
+           ESUM='2dc7bd1ad96cc9aa2aefb27003851d07b6a9c2940bfab9982fac86b8e5b52b0d'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.17_jdk-11.0.20-GA/Alibaba_Dragonwell_Extended_11.0.20.17.8_aarch64_linux.tar.gz'; \
          else \
-           ESUM='cc05189481c899c434e25320bf3de9c03b72ac7e1bc2950fe749ed9063340f65'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Standard_11.0.18.14.9_aarch64_linux.tar.gz'; \
+           ESUM='5c0b7ad09352d3cb2b55fd641c94daefb1d51b87aaee12a3ed2aad88d533effa'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Standard_11.0.20.16.8_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='4d02a4cce2d13ead8d54650c5e9bf560a6a1f79b6e7281fbb46e31ea3c20a341'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Extended_11.0.18.14.9_x64_linux.tar.gz'; \
+           ESUM='83f7fb3afe467b2f91c5404dc9d6dee0346d90ae827a3954a897b7e55f3b290b'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.17_jdk-11.0.20-GA/Alibaba_Dragonwell_Extended_11.0.20.17.8_x64_linux.tar.gz'; \
          else \
-           ESUM='2360b063f1099c0ab7def15ec83c7344ae21038e5a85139132dc4005a8d5a940'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Standard_11.0.18.14.9_x64_linux.tar.gz'; \
+           ESUM='5011ac706a856b58642ba51615eaa5d874f94cd8abe6e56fbc32666130893419'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Standard_11.0.20.16.8_x64_linux.tar.gz'; \
          fi \
          ;; \
        *) \

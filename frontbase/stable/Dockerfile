@@ -1,16 +1,25 @@
-FROM nginx:1.20
+FROM nginx:stable
 
 ENV TZ=Asia/Shanghai
 
-RUN apt-get update; \
+RUN set -eux; \
+    ARCH="$(dpkg --print-architecture)"; \
+    apt-get update; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
-        curl \
         dnsutils \
+        gnupg2 \
+        iputils-ping \
+        lsof \
         netcat \
         net-tools \
+        openssh-client \
         procps \
-        vim; \
+        tar \
+        telnet \
+        unzip \
+        vim \
+        wget; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
