@@ -24,10 +24,10 @@ jobs:
             ghcr:
               registry: https://ghcr.io
               repositories:
-                - fluxcd/helm-controller:v0.31.1
-                - fluxcd/kustomize-controller:v0.35.0
-                - fluxcd/notification-controller:v0.33.0
-                - fluxcd/source-controller:v0.36.0
+                - fluxcd/helm-controller:v0.36.2
+                - fluxcd/kustomize-controller:v1.1.1
+                - fluxcd/notification-controller:v1.1.0
+                - fluxcd/source-controller:v1.1.2
           sync-policy:
             from: ghcr
             to: tencentyun
