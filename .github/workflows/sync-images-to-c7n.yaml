@@ -241,9 +241,9 @@ jobs:
             quay:
               registry: https://quay.io
               repositories:
-                - argoproj/argocli:v3.3.5
-                - argoproj/argoexec:v3.3.5
-                - argoproj/workflow-controller:v3.3.5
+                - argoproj/argocli:v3.5.2
+                - argoproj/argoexec:v3.5.2
+                - argoproj/workflow-controller:v3.5.2
                 - coreos/etcd:v3.5.4
                 - jetstack/cert-manager-cainjector:v1.8.0
                 - jetstack/cert-manager-controller:v1.8.0
