@@ -15,6 +15,7 @@ RUN set -eux; \
         net-tools \
         openssh-client \
         procps \
+        psmisc \
         tar \
         telnet \
         unzip \
