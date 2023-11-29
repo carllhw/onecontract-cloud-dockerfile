@@ -24,3 +24,7 @@ RUN set -eux; \
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
+
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
