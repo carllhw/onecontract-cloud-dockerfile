@@ -1,5 +1,7 @@
 FROM onecontract/adoptopenjdk:jdk8u292-b10
 
+ARG CI_TRIGGER="20231129-203346"
+
 ENV TZ="Asia/Shanghai"
 
 RUN set -eux; \
@@ -28,5 +30,4 @@ RUN set -eux; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
 
-COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
