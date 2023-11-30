@@ -27,7 +27,7 @@ jobs:
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         run: |
           set -eux;
-          for file_path in $(find javabase -name Dockerfile | sort -r | head -n 3);
+          for file_path in $(find javabase -name Dockerfile | sort -r);
           do
             /usr/bin/docker buildx prune -a -f
             /usr/bin/docker buildx build --push --no-cache \

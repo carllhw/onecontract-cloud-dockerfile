@@ -28,7 +28,7 @@ jobs:
         run: |
           set -eux;
           docker_platform="linux/amd64,linux/arm64"
-          for file_path in $(find oc-infra-python-base -name Dockerfile | sort -r | head -n 3);
+          for file_path in $(find oc-infra-python-base -name Dockerfile | sort -r);
           do
             if [[ $file_path =~ "mysql" ]]
             then
