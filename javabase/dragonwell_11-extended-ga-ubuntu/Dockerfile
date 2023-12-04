@@ -20,12 +20,15 @@ RUN set -eux; \
         unzip \
         vim \
         wget; \
+    mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
-COPY entrypoint.sh /entrypoint.sh
+COPY docker-entrypoint.sh /
+COPY 10-java-opts.envsh /docker-entrypoint.d
 RUN set -eux; \
-    chmod +x /entrypoint.sh; \
+    chmod +x /docker-entrypoint.sh; \
+    chmod +x /docker-entrypoint.d/*; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
     sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
