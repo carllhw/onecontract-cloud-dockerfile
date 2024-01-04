@@ -193,6 +193,7 @@ jobs:
                 - minio/operator:v5.0.6
                 - minio/minio:RELEASE.2023-07-18T17-49-40Z
                 - nacos/nacos-server:v2.2.3
+                - prom/prometheus:v2.48.0
                 - sonatype/nexus3:3.59.0
           sync-policy:
             from: dockerhub
@@ -218,6 +219,8 @@ jobs:
                 new: oc-tools/minio_
               - old: nacos/
                 new: oc-tools/nacos_
+              - old: prom/
+                new: oc-tools/prom_
               - old: sonatype/
                 new: oc-tools/sonatype_
           EOF
@@ -402,7 +405,7 @@ jobs:
         run: |
           cat << EOF >config.yaml
           registries:
-            tencentyun:
+            c7n:
               registry: https://registry.choerodon.com.cn
               username: $TO_USERNAME
               password: $TO_PASSWORD
@@ -413,7 +416,7 @@ jobs:
                 - database/express:latest
           sync-policy:
             from: gcr
-            to: tencentyun
+            to: c7n
             force: true
             dry-run: false
             replace:
@@ -425,7 +428,7 @@ jobs:
         run: |
           cat << EOF >config.yaml
           registries:
-            tencentyun:
+            c7n:
               registry: https://registry.choerodon.com.cn
               username: $TO_USERNAME
               password: $TO_PASSWORD
@@ -437,11 +440,49 @@ jobs:
                 - database/express:18.4.0-xe
           sync-policy:
             from: gcr
-            to: tencentyun
+            to: c7n
             force: $SYNC_POLICY_FORCE
             dry-run: false
             replace:
               - old: database/
                 new: oc-tools/oracle_database_
+          EOF
+          registry-manager sync -c config.yaml
+  crl5d-to-c7n:
+    runs-on: ubuntu-latest
+    container: setzero/registry-manager
+    env:
+      TO_USERNAME: ${{ secrets.C7N_USERNAME }}
+      TO_PASSWORD: ${{ secrets.C7N_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
+    steps:
+      - name: cr.l5d to C7N
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            c7n:
+              registry: https://registry.choerodon.com.cn
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            crl5d:
+              registry: https://cr.l5d.io
+              repositories:
+                - linkerd/policy-controller:stable-2.14.8
+                - linkerd/proxy:stable-2.14.8
+                - linkerd/proxy-init:v2.2.3
+                - linkerd/controller:stable-2.14.8
+                - linkerd/debug:stable-2.14.8
+                - linkerd/metrics-api:stable-2.14.8
+                - linkerd/tap:stable-2.14.8
+                - linkerd/web:stable-2.14.8
+                - linkerd/extension-init:v0.1.0
+          sync-policy:
+            from: crl5d
+            to: c7n
+            force: $SYNC_POLICY_FORCE
+            dry-run: false
+            replace:
+              - old: linkerd/
+                new: oc-tools/linkerd_
           EOF
           registry-manager sync -c config.yaml
