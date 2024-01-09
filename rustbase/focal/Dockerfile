@@ -12,6 +12,7 @@ RUN set -eux; \
         dnsutils \
         fontconfig \
         iputils-ping \
+        libjemalloc-dev \
         libssl-dev \
         locales \
         lsof \
