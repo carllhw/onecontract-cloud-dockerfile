@@ -29,6 +29,7 @@ RUN set -eux; \
         vim \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
+    mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /

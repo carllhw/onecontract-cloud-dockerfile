@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # vim:sw=4:ts=4:et
 
 set -e
@@ -9,12 +9,12 @@ entrypoint_log() {
     fi
 }
 
-if [ -z "$RUSTBASE_ENTRYPOINT" ] || [ "$RUSTBASE_ENTRYPOINT" = "true" ]; then
-    if /usr/bin/find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/dev/null | read v; then
+if [[ "$1" =~ "/app/" ]]; then
+    if /usr/bin/find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -name "*sh" -print -quit 2>/dev/null | read v; then
         entrypoint_log "$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration"
 
         entrypoint_log "$0: Looking for shell scripts in /docker-entrypoint.d/"
-        find "/docker-entrypoint.d/" -follow -type f -print | sort -V > /tmp/docker-entrypoint-d-sort.txt
+        /usr/bin/find "/docker-entrypoint.d/" -follow -mindepth 1 -maxdepth 1 -name "*sh" -print | sort -V > /tmp/docker-entrypoint-d-sort.txt
         while read -r f; do
             case "$f" in
                 *.envsh)
