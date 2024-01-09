@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # vim:sw=4:ts=4:et
 
 set -e
@@ -10,11 +10,11 @@ entrypoint_log() {
 }
 
 if [ "$1" = "java" ]; then
-    if /usr/bin/find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -name "*sh" -print -quit 2>/dev/null | read v; then
+    if find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -name "*sh" -print -quit 2>/dev/null | read v; then
         entrypoint_log "$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration"
 
         entrypoint_log "$0: Looking for shell scripts in /docker-entrypoint.d/"
-        /usr/bin/find "/docker-entrypoint.d/" -follow -mindepth 1 -maxdepth 1 -name "*sh" -print | sort -V > /tmp/docker-entrypoint-d-sort.txt
+        find "/docker-entrypoint.d/" -follow -mindepth 1 -maxdepth 1 -name "*sh" -print | sort -V > /tmp/docker-entrypoint-d-sort.txt
         while read -r f; do
             case "$f" in
                 *.envsh)
