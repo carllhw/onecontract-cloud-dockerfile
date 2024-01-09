@@ -12,6 +12,7 @@ RUN set -eux; \
         curl \
         dnsutils \
         fontconfig \
+        graphviz \
         iputils-ping \
         libjemalloc-dev \
         libssl-dev \
