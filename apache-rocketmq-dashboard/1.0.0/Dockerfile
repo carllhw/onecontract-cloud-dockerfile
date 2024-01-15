@@ -50,7 +50,7 @@ WORKDIR ${ROCKETMQ_DASHBOARD_HOME}
 RUN set -eux; \
     curl -L https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/${ROCKETMQ_DASHBOARD_VERSION}/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}-source-release.zip -o rocketmq-dashboard.zip; \
     curl -L https://dist.apache.org/repos/dist/release/rocketmq/rocketmq-dashboard/${ROCKETMQ_DASHBOARD_VERSION}/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}-source-release.zip.asc -o rocketmq-dashboard.zip.asc; \
-    wget https://www.apache.org/dist/rocketmq/KEYS --no-check-certificate; \
+    wget https://dist.apache.org/repos/dist/release/rocketmq/KEYS --no-check-certificate; \
     \
     gpg --import KEYS; \
     gpg --batch --verify rocketmq-dashboard.zip.asc rocketmq-dashboard.zip ; \
