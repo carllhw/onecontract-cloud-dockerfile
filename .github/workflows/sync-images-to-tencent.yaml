@@ -466,14 +466,14 @@ jobs:
             crl5d:
               registry: https://cr.l5d.io
               repositories:
-                - linkerd/policy-controller:stable-2.14.8
-                - linkerd/proxy:stable-2.14.8
+                - linkerd/policy-controller:stable-2.14.9
+                - linkerd/proxy:stable-2.14.9
                 - linkerd/proxy-init:v2.2.3
-                - linkerd/controller:stable-2.14.8
-                - linkerd/debug:stable-2.14.8
-                - linkerd/metrics-api:stable-2.14.8
-                - linkerd/tap:stable-2.14.8
-                - linkerd/web:stable-2.14.8
+                - linkerd/controller:stable-2.14.9
+                - linkerd/debug:stable-2.14.9
+                - linkerd/metrics-api:stable-2.14.9
+                - linkerd/tap:stable-2.14.9
+                - linkerd/web:stable-2.14.9
                 - linkerd/extension-init:v0.1.0
           sync-policy:
             from: crl5d
