@@ -24,10 +24,10 @@ jobs:
             ghcr:
               registry: https://ghcr.io
               repositories:
-                - fluxcd/helm-controller:v0.36.2
-                - fluxcd/kustomize-controller:v1.1.1
-                - fluxcd/notification-controller:v1.1.0
-                - fluxcd/source-controller:v1.1.2
+                - fluxcd/helm-controller:v0.37.2
+                - fluxcd/kustomize-controller:v1.2.1
+                - fluxcd/notification-controller:v1.2.3
+                - fluxcd/source-controller:v1.2.3
           sync-policy:
             from: ghcr
             to: c7n
