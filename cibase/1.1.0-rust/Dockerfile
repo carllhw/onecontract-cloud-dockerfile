@@ -1,6 +1,6 @@
 FROM choerodon/cibase:1.1.0-base
 
-ARG DOCKER_BUILDX_VERSION=v0.11.2
+ARG DOCKER_BUILDX_VERSION=v0.12.1
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
@@ -22,7 +22,6 @@ RUN set -eux; \
          echo "arch: ${ARCH}"; \
          ;; \
     esac; \
-    apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
 # install docker buildx
     mkdir -p /usr/local/lib/docker/cli-plugins; \
