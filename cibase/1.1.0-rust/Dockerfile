@@ -14,6 +14,7 @@ RUN set -eux; \
         amd64|x86_64) \
           apt-get install -y \
             clang \
+            cmake \
             gcc-aarch64-linux-gnu \
             llvm ;\
         ;; \
