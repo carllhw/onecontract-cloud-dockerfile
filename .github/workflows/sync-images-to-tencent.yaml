@@ -193,7 +193,7 @@ jobs:
                 - minio/operator:v5.0.6
                 - minio/minio:RELEASE.2023-07-18T17-49-40Z
                 - nacos/nacos-server:v2.2.3
-                - prom/prometheus:v2.48.0
+                - prom/prometheus:v2.48.1
                 - sonatype/nexus3:3.59.0
           sync-policy:
             from: dockerhub
@@ -466,14 +466,14 @@ jobs:
             crl5d:
               registry: https://cr.l5d.io
               repositories:
-                - linkerd/policy-controller:stable-2.14.10
-                - linkerd/proxy:stable-2.14.10
-                - linkerd/proxy-init:v2.2.3
-                - linkerd/controller:stable-2.14.10
-                - linkerd/debug:stable-2.14.10
-                - linkerd/metrics-api:stable-2.14.10
-                - linkerd/tap:stable-2.14.10
-                - linkerd/web:stable-2.14.10
+                - linkerd/policy-controller:edge-24.3.1
+                - linkerd/proxy:edge-24.3.1
+                - linkerd/proxy-init:v2.2.4
+                - linkerd/controller:edge-24.3.1
+                - linkerd/debug:edge-24.3.1
+                - linkerd/metrics-api:edge-24.3.1
+                - linkerd/tap:edge-24.3.1
+                - linkerd/web:edge-24.3.1
                 - linkerd/extension-init:v0.1.0
           sync-policy:
             from: crl5d
