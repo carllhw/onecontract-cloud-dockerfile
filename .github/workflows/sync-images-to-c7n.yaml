@@ -194,7 +194,7 @@ jobs:
                 - minio/minio:RELEASE.2023-07-18T17-49-40Z
                 - nacos/nacos-server:v2.2.3
                 - prom/prometheus:v2.48.1
-                - sonatype/nexus3:3.59.0
+                - sonatype/nexus3:3.66.0
           sync-policy:
             from: dockerhub
             to: c7n
