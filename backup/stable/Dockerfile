@@ -7,7 +7,7 @@ ARG REDIS_DUMP_GO_VERSION="v0.8.1"
 ENV TZ="Asia/Shanghai"
 
 COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
-COPY --from=mysql /usr/bin/mysqlpump /usr/bin/mysqlpump
+COPY --from=mysql /usr/bin/mysqldump /usr/bin/mysqldump
 COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
 
 RUN set -eux; \
