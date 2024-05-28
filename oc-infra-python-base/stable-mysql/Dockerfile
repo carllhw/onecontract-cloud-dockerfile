@@ -1,4 +1,4 @@
-FROM mysql:5.7-debian as mysql
+FROM mysql:8.0-debian as mysql
 FROM python:3.11
 
 ARG CI_TRIGGER="20230902-074233"

@@ -64,13 +64,13 @@ jobs:
                 - onecontract/applicationinsights-agent
                 - onecontract/arms-agent
                 - onecontract/arthas
+                - onecontract/backup
                 - onecontract/cibase
                 - onecontract/elasticsearch
                 - onecontract/frontbase
                 - onecontract/javabase
                 - onecontract/jnlp-agent-auto
                 - onecontract/jnlp-agent-python
-                - onecontract/mysql-backup
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
                 - onecontract/oc-infra-python-base

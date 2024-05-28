@@ -1,8 +1,13 @@
-FROM mysql:5.7-debian
+FROM mysql:8.0-debian as mysql
+FROM ubuntu:22.04
 
-ARG RCLONE_VERSION="v1.62.2"
+ARG RCLONE_VERSION="v1.66.0"
 
 ENV TZ="Asia/Shanghai"
+
+COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
+COPY --from=mysql /usr/bin/mysqlpump /usr/bin/mysqlpump
+COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
 
 RUN apt-get update; \
     apt-get install -y --no-install-recommends \
@@ -14,6 +19,7 @@ RUN apt-get update; \
         net-tools \
         openssh-client \
         procps \
+        redis-tools; \
         tar \
         telnet \
         unzip \
