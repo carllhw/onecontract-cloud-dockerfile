@@ -159,8 +159,8 @@ jobs:
                 - apache/skywalking-java-agent:8.16.0-alpine
                 - apache/skywalking-oap-server:9.5.0
                 - apache/skywalking-ui:9.5.0
-                - fatedier/frps:v0.51.1
-                - fatedier/frpc:v0.51.1
+                - fatedier/frps:v0.58.0
+                - fatedier/frpc:v0.58.0
                 - grafana/grafana:10.4.1
                 - grafana/loki:2.9.6
                 - grafana/promtail:2.9.6
