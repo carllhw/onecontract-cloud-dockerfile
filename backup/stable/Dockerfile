@@ -9,7 +9,8 @@ COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
 COPY --from=mysql /usr/bin/mysqlpump /usr/bin/mysqlpump
 COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
 
-RUN apt-get update; \
+RUN set -eux; \
+    apt-get update; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
@@ -19,7 +20,7 @@ RUN apt-get update; \
         net-tools \
         openssh-client \
         procps \
-        redis-tools; \
+        redis-tools \
         tar \
         telnet \
         unzip \
@@ -31,4 +32,5 @@ RUN apt-get update; \
     cp /tmp/rclone-${RCLONE_VERSION}-linux-amd64/rclone /usr/local/bin/
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list; \
+    sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
