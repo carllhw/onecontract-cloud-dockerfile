@@ -379,7 +379,7 @@ jobs:
               registry: https://registry.gitlab.com
               repositories:
                 - gitlab-org/gitlab-runner:alpine-v15.8.3
-                - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-080abeab
+                - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-v15.8.3
           sync-policy:
             from: gitlab
             to: c7n
