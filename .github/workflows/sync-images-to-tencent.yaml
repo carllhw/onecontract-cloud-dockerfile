@@ -374,13 +374,13 @@ jobs:
               registry: https://ccr.ccs.tencentyun.com
               username: $TO_USERNAME
               password: $TO_PASSWORD
-            gcr:
+            gitlab:
               registry: https://registry.gitlab.com
               repositories:
-                - gitlab-org/gitlab-runner:alpine-v14.10.1
-                - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-f761588f
+                - gitlab-org/gitlab-runner:alpine-v15.8.3
+                - gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-080abeab
           sync-policy:
-            from: gcr
+            from: gitlab
             to: tencentyun
             force: $SYNC_POLICY_FORCE
             dry-run: false
