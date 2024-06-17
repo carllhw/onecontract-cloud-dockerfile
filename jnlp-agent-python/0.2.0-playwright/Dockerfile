@@ -58,4 +58,5 @@ RUN apt-get update; \
     dpkg-reconfigure -f noninteractive tzdata; \
     rm -rf /var/lib/apt/lists/*;
 COPY requirements.txt /root
-RUN pip3 install --no-cache-dir -r /root/requirements.txt
+RUN pip3 install --no-cache-dir -r /root/requirements.txt; \
+    playwright install
