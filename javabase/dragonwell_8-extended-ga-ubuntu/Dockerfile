@@ -14,6 +14,7 @@ RUN set -eux; \
         netcat \
         net-tools \
         openssh-client \
+        percona-toolkit \
         procps \
         tar \
         telnet \
