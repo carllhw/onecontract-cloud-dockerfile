@@ -60,3 +60,4 @@ RUN apt-get update; \
 COPY requirements.txt /root
 RUN pip3 install --no-cache-dir -r /root/requirements.txt; \
     playwright install
+COPY locust_plugins/users/playwright.py /usr/local/lib/python3.10/dist-packages/locust_plugins/users/playwright.py
