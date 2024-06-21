@@ -100,7 +100,7 @@ async def event(
         if not user.error_screenshot_made:
             user.error_screenshot_made = True  # dont spam screenshots...
             if user.page:  # in ScriptUser runs we have no reference to the page so...
-                await user.page.screenshot(
+                await user.page.context.pages[-1].screenshot(
                     path=name + time.strftime("%Y%m%d_%H%M%S") + ".png", full_page=False
                 )
         user.environment.events.request.fire(
