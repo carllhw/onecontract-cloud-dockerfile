@@ -14,13 +14,15 @@ RUN set -eux; \
         netcat \
         net-tools \
         openssh-client \
-        percona-toolkit \
         procps \
         tar \
         telnet \
         unzip \
         vim \
         wget; \
+# percona
+    wget -qO /usr/local/bin/pt-archiver "https://www.percona.com/get/pt-archiver"; \
+    chmod +x /usr/local/bin/pt-archiver; \
     mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
