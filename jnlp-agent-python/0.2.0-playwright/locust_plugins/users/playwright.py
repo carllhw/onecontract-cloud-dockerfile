@@ -287,10 +287,12 @@ class PlaywrightUser(User):
             if self.browser_type == "firefox":
                 self.browser = await self.playwright.firefox.launch(
                     headless=self.headless or self.headless is None and self.environment.runner is not None,
+                    slow_mo= self.slow_mo,
                 )
             elif self.browser_type in ["chromium", "chrome"]:
                 self.browser = await self.playwright.chromium.launch(
                     headless=self.headless or self.headless is None and self.environment.runner is not None,
+                    slow_mo=self.slow_mo,
                     channel=self.browser_type,
                     args=[
                         "--disable-gpu",
