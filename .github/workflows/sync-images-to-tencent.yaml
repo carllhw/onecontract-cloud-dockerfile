@@ -3,7 +3,7 @@ name: Sync images to Tencent
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 19 * * *"
+    - cron: "0 2 * * *"
 jobs:
   ghcr-to-tencent:
     runs-on: ubuntu-latest
@@ -44,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
+      FROM_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      FROM_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
       TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
       TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
       SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
@@ -58,6 +60,8 @@ jobs:
               password: $TO_PASSWORD
             dockerhub:
               registry: https://registry-1.docker.io
+              username: $FROM_USERNAME
+              password: $FROM_PASSWORD
               repositories:
                 - onecontract/apache-rocketmq
                 - onecontract/apache-rocketmq-dashboard
@@ -97,6 +101,8 @@ jobs:
               password: $TO_PASSWORD
             dockerhub:
               registry: https://registry-1.docker.io
+              username: $FROM_USERNAME
+              password: $FROM_PASSWORD
               repositories:
                 - curlimages/curl:latest
                 - jenkins/jenkins:lts-jdk11
@@ -155,6 +161,8 @@ jobs:
               password: $TO_PASSWORD
             dockerhub:
               registry: https://registry-1.docker.io
+              username: $FROM_USERNAME
+              password: $FROM_PASSWORD
               repositories:
                 - apache/skywalking-java-agent:8.16.0-alpine
                 - apache/skywalking-oap-server:9.5.0

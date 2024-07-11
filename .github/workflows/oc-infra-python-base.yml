@@ -2,7 +2,7 @@ name: oc-infra-python-base
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 18 * * 5"
+    - cron: "0 14 * * 5"
   push:
     paths:
       - "oc-infra-python-base/**"
