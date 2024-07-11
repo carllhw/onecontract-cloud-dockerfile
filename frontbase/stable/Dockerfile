@@ -11,7 +11,7 @@ RUN set -eux; \
         gnupg2 \
         iputils-ping \
         lsof \
-        netcat \
+        netcat-openbsd \
         net-tools \
         openssh-client \
         procps \
@@ -22,8 +22,7 @@ RUN set -eux; \
         wget; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
-    cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i "s@http://ftp.debian.org@https://repo.huaweicloud.com@g" /etc/apt/sources.list; \
-    sed -i "s@http://security.debian.org@https://repo.huaweicloud.com@g" /etc/apt/sources.list
+    cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak; \
+    sed -i 's/deb.debian.org/repo.huaweicloud.com/g' /etc/apt/sources.list.d/debian.sources
 
 ADD default.conf /etc/nginx/conf.d/default.conf
