@@ -20,9 +20,10 @@ RUN set -eux; \
         unzip \
         vim \
         wget; \
-# percona
-    wget -qO /usr/local/bin/pt-archiver "https://www.percona.com/get/pt-archiver"; \
-    chmod +x /usr/local/bin/pt-archiver; \
+# percona-toolkit
+    wget -qO /tmp/percona-toolkit.deb "https://downloads.percona.com/downloads/percona-toolkit/3.6.0/binary/debian/focal/x86_64/percona-toolkit_3.6.0-1.focal_amd64.deb"; \
+    apt-get install -y --no-install-recommends /tmp/percona-toolkit.deb; \
+    rm /tmp/percona-toolkit.deb; \
     mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
