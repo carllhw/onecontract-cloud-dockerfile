@@ -23,6 +23,7 @@ RUN set -eux; \
     apt-get upgrade -y --no-install-recommends; \
     rm -rf /var/lib/apt/lists/*; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i "s@http://ftp.debian.org@https://repo.huaweicloud.com@g" /etc/apt/sources.list; \
+    sed -i "s@http://security.debian.org@https://repo.huaweicloud.com@g" /etc/apt/sources.list
 
 ADD default.conf /etc/nginx/conf.d/default.conf

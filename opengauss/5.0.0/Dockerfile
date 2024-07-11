@@ -68,7 +68,7 @@ RUN set -eux; \
 COPY entrypoint.sh /usr/local/bin/
 RUN set -eux; \
     chmod 755 /usr/local/bin/entrypoint.sh && ln -s /usr/local/bin/entrypoint.sh /; \
-    sed -i "s#http://repo.openeuler.org#https://mirrors.huaweicloud.com/openeuler#g" /etc/yum.repos.d/openEuler.repo
+    sed -i "s#http://repo.openeuler.org#https://repo.huaweicloud.com/openeuler#g" /etc/yum.repos.d/openEuler.repo
 
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 5432

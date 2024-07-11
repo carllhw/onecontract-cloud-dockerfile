@@ -37,6 +37,7 @@ COPY docker-entrypoint.sh /
 RUN set -eux; \
     chmod +x /docker-entrypoint.sh; \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i "s@http://.*archive.ubuntu.com@https://repo.huaweicloud.com@g" /etc/apt/sources.list; \
+    sed -i "s@http://.*security.ubuntu.com@https://repo.huaweicloud.com@g" /etc/apt/sources.list
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

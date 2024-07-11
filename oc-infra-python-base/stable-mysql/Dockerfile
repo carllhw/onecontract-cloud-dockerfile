@@ -16,7 +16,7 @@ RUN set -eux; \
     dpkg-reconfigure -f noninteractive tzdata
 
 RUN cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources.bak; \
-    sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list.d/debian.sources
+    sed -i 's/deb.debian.org/repo.huaweicloud.com/g' /etc/apt/sources.list.d/debian.sources
 
 COPY requirements.txt /opt
 RUN pip3 install --no-cache-dir -r /opt/requirements.txt
