@@ -14,6 +14,7 @@ RUN set -eux; \
         netcat \
         net-tools \
         openssh-client \
+        percona-toolkit \
         procps \
         tar \
         telnet \
@@ -21,12 +22,8 @@ RUN set -eux; \
         vim \
         wget; \
 # percona-toolkit
-    wget -qO /tmp/percona-release.deb "https://repo.percona.com/apt/percona-release_latest.generic_all.deb"; \
-    apt-get install -y --no-install-recommends /tmp/percona-release.deb; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends \
-        percona-toolkit; \
-    rm /tmp/percona-release.deb; \
+    wget -qO /usr/local/bin/pt-archiver "https://www.percona.com/get/pt-archiver"; \
+    chmod +x /usr/local/bin/pt-archiver; \
     mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
