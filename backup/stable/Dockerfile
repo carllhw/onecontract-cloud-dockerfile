@@ -1,4 +1,5 @@
 FROM mysql:8.0-debian as mysql
+FROM mongo:5.0 as mongo
 FROM ubuntu:22.04
 
 ARG RCLONE_VERSION="v1.66.0"
@@ -9,6 +10,10 @@ ENV TZ="Asia/Shanghai"
 COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
 COPY --from=mysql /usr/bin/mysqldump /usr/bin/mysqldump
 COPY --from=mysql /usr/bin/lz4_decompress /usr/bin/lz4_decompress
+
+COPY --from=mongo /usr/bin/mongo /usr/bin/mongo
+COPY --from=mongo /usr/bin/mongodump /usr/bin/mongodump
+COPY --from=mongo /usr/bin/mongorestore /usr/bin/mongorestore
 
 RUN set -eux; \
     apt-get update; \
