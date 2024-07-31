@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8u332-b09-jdk-focal
+FROM eclipse-temurin:8-jdk-noble
 
 RUN set -eux; \
     apt-get update; \
@@ -72,4 +72,3 @@ RUN rm -rf /usr/share/maven
 
 RUN chown -R ${uid}:${gid} ${ROCKETMQ_DASHBOARD_HOME}
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "bin/rocketmq-dashboard.jar"];

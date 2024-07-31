@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.17_8-jdk-focal
+FROM eclipse-temurin:11-jdk-noble
 
 RUN set -eux; \
     apt-get update; \
