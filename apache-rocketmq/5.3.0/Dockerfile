@@ -7,7 +7,7 @@ RUN set -eux; \
         dnsutils \
         gettext \
         gnupg2 \
-        netcat \
+        netcat-openbsd \
         net-tools \
         openssh-client \
         openssl \
