@@ -169,17 +169,17 @@ jobs:
               registry: https://registry.choerodon.com.cn
               username: $TO_USERNAME
               password: $TO_PASSWORD
-            gcr:
+            k8s:
               registry: https://registry.k8s.io
               repositories:
                 - defaultbackend-amd64:1.5
                 - descheduler/descheduler:v0.25.1
-                - ingress-nginx/controller:v1.9.6
-                - ingress-nginx/kube-webhook-certgen:v20231226-1a7112e06
+                - ingress-nginx/controller:v1.11.2
+                - ingress-nginx/kube-webhook-certgen:v1.4.3
                 - kube-state-metrics/kube-state-metrics:v2.4.2
                 - node-problem-detector/node-problem-detector:v0.8.10
           sync-policy:
-            from: gcr
+            from: k8s
             to: c7n
             force: $SYNC_POLICY_FORCE
             dry-run: false
