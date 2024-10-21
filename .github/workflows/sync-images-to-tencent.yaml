@@ -79,7 +79,6 @@ jobs:
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
                 - onecontract/oc-infra-python-base
-                - onecontract/opengauss
                 - onecontract/rustbase
           sync-policy:
             from: dockerhub
