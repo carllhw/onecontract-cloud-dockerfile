@@ -1,6 +1,6 @@
-FROM jenkins/inbound-agent:4.13-1
+FROM jenkins/inbound-agent:3273.v4cfe589b_fd83-2
 
-ARG CI_TRIGGER="20220524-180842"
+ARG CI_TRIGGER="20241031-101429"
 ARG user=jenkins
 
 USER root

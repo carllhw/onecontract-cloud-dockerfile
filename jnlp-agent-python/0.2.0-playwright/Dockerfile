@@ -1,6 +1,6 @@
-FROM eclipse-temurin:11.0.14.1_1-jdk-focal AS jre-build
+FROM eclipse-temurin:17-jdk-focal AS jre-build
 
-ARG CI_TRIGGER="20230829-094720"
+ARG CI_TRIGGER="20241031-101429"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
@@ -10,7 +10,8 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM jenkins/inbound-agent:4.13-1 AS inbound-agent
+# https://github.com/jenkinsci/docker-agent/blob/master/debian/Dockerfile
+FROM jenkins/inbound-agent:3273.v4cfe589b_fd83-2 AS inbound-agent
 
 FROM mcr.microsoft.com/playwright/python:v1.35.0-jammy
 
@@ -20,7 +21,7 @@ ENV PATH "${JAVA_HOME}/bin:${PATH}"
 COPY --from=jre-build /javaruntime $JAVA_HOME
 
 # jenkins agent
-ARG VERSION=4.13
+ARG VERSION=3273.v4cfe589b_fd83
 
 ARG AGENT_WORKDIR=/root/agent
 
