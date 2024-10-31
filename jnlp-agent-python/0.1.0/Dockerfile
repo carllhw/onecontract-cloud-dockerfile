@@ -21,8 +21,9 @@ RUN apt-get update; \
         libnss3-dev \
         libreadline-dev \
         libssl-dev \
-        python3-pip \
         python3-dev \
+        python3-full \
+        python3-pip \
         ttf-wqy-microhei \
         ttf-wqy-zenhei \
         unzip \
