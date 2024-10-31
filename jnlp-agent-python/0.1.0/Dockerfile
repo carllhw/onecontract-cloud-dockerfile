@@ -22,7 +22,6 @@ RUN apt-get update; \
         libreadline-dev \
         libssl-dev \
         python3-dev \
-        python3-full \
         python3-pip \
         ttf-wqy-microhei \
         ttf-wqy-zenhei \
@@ -34,6 +33,6 @@ RUN apt-get update; \
     rm -rf /var/lib/apt/lists/*;
 
 COPY requirements.txt /opt
-RUN pip3 install --no-cache-dir -r /opt/requirements.txt
+RUN pip3 install --no-cache-dir --break-system-packages -r /opt/requirements.txt
 
 USER ${user}
