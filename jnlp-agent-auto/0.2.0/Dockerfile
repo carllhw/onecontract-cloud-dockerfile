@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.14.1_1-jdk-focal AS jre-build
+FROM eclipse-temurin:17-jdk-focal AS jre-build
 
 ARG CI_TRIGGER="20230131-104807"
 
@@ -10,7 +10,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM jenkins/inbound-agent:4.13-1 AS inbound-agent
+FROM jenkins/inbound-agent:3273.v4cfe589b_fd83-2 AS inbound-agent
 
 FROM marketsquare/robotframework-browser:16.0.2
 
@@ -22,7 +22,7 @@ ENV PATH "${JAVA_HOME}/bin:${PATH}"
 COPY --from=jre-build /javaruntime $JAVA_HOME
 
 # jenkins agent
-ARG VERSION=4.13
+ARG VERSION=3273.v4cfe589b_fd83
 ARG user=pwuser
 
 ARG AGENT_WORKDIR=/home/${user}/agent
