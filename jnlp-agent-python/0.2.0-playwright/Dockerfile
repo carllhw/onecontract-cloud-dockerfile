@@ -30,6 +30,7 @@ RUN apt-get update \
     git-lfs \
     curl \
     fontconfig \
+    unzip \
     wget \
   && curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
@@ -48,9 +49,12 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # allure2
-RUN wget -qO /tmp/allure_all.deb "https://github.com/allure-framework/allure2/releases/download/2.32.0/allure_2.32.0-1_all.deb"; \
-    dpkg -i /tmp/allure_all.deb; \
-    rm -f /tmp/allure_all.deb
+ARG ALLURE2_VERSION=2.32.0
+RUN wget -qO /tmp/allure.zip "https://github.com/allure-framework/allure2/releases/download/${ALLURE2_VERSION}/allure-${ALLURE2_VERSION}.zip"; \
+    unzip -i /tmp/allure.zip -d /opt/; \
+    mv /opt/allure-${ALLURE2_VERSION} /opt/allure; \
+    ln -s /opt/allure/bin/allure /usr/local/bin/allure; \
+    rm -f /tmp/allure.zip
 
 # python
 ARG DEBIAN_FRONTEND=noninteractive
