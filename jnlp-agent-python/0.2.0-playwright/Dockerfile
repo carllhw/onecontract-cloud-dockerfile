@@ -30,11 +30,11 @@ RUN apt-get update \
     git-lfs \
     curl \
     fontconfig \
+    wget \
   && curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/agent.jar \
   && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar \
-  && apt-get remove -y curl \
   && rm -rf /var/lib/apt/lists/*
 
 # inbound-agent
@@ -48,7 +48,7 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # allure2
-RUN curl -LfsSo /tmp/allure_all.deb "https://github.com/allure-framework/allure2/releases/download/2.32.0/allure_2.32.0-1_all.deb"; \
+RUN wget -qO /tmp/allure_all.deb "https://github.com/allure-framework/allure2/releases/download/2.32.0/allure_2.32.0-1_all.deb"; \
     dpkg -i /tmp/allure_all.deb; \
     rm -f /tmp/allure_all.deb
 
