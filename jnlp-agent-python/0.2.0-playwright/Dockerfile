@@ -51,7 +51,7 @@ RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 # allure2
 ARG ALLURE2_VERSION=2.32.0
 RUN wget -qO /tmp/allure.zip "https://github.com/allure-framework/allure2/releases/download/${ALLURE2_VERSION}/allure-${ALLURE2_VERSION}.zip"; \
-    unzip -i /tmp/allure.zip -d /opt/; \
+    unzip /tmp/allure.zip -d /opt/; \
     mv /opt/allure-${ALLURE2_VERSION} /opt/allure; \
     ln -s /opt/allure/bin/allure /usr/local/bin/allure; \
     rm -f /tmp/allure.zip
