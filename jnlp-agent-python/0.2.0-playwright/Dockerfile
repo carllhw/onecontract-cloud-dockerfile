@@ -48,7 +48,7 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # allure2
-RUN wget -qO /tmp/allure_all.deb "https://github.com/allure-framework/allure2/releases/download/2.32.0/allure_2.32.0-1_all.deb"; \
+RUN curl -LfsSo /tmp/allure_all.deb "https://github.com/allure-framework/allure2/releases/download/2.32.0/allure_2.32.0-1_all.deb"; \
     dpkg -i /tmp/allure_all.deb; \
     rm -f /tmp/allure_all.deb
 
