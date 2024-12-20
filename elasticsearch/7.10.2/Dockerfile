@@ -6,11 +6,11 @@ ARG LOG4J_VERSION=2.17.1
 RUN set -eux; \
     # analysis-ik
     curl -LfsSo "/tmp/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip" \
-        "https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ELASTICSEARCH_VERSION}/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip"; \
+        "https://release.infinilabs.com/analysis-ik/stable/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip"; \
     bin/elasticsearch-plugin install --batch file:///tmp/elasticsearch-analysis-ik-${ELASTICSEARCH_VERSION}.zip; \
     rm -r /tmp/*;
 
-# security
+    # security
 RUN set -eux; \
     # https://logging.apache.org/log4j/2.x/security.html
     rm -f /usr/share/elasticsearch/lib/log4j*; \
