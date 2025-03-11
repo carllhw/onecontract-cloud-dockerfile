@@ -61,7 +61,7 @@ pytest-xdist==3.2.1
 python-dateutil==2.8.2
 python-dotenv==1.0.1
 python-slugify==8.0.1
-pyzmq==25.1.2
+pyzmq==26.2.1
 requests==2.31.0
 roundrobin==0.0.4
 setuptools==75.3.0

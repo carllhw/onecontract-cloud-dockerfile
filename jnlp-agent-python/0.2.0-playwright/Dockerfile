@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk-focal AS jre-build
 
-ARG CI_TRIGGER="20241031-101429"
+ARG CI_TRIGGER="20250311-155119"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
