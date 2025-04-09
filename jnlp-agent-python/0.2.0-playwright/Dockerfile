@@ -1,6 +1,6 @@
-FROM eclipse-temurin:17-jdk-focal AS jre-build
+FROM eclipse-temurin:17-jdk-jammy AS jre-build
 
-ARG CI_TRIGGER="20250311-155119"
+ARG CI_TRIGGER="20250409-105723"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
@@ -13,7 +13,7 @@ RUN jlink \
 # https://github.com/jenkinsci/docker-agent/blob/master/debian/Dockerfile
 FROM jenkins/inbound-agent:3273.v4cfe589b_fd83-2 AS inbound-agent
 
-FROM mcr.microsoft.com/playwright/python:v1.35.0-jammy
+FROM mcr.microsoft.com/playwright/python:v1.49.1-jammy
 
 # jre
 ENV JAVA_HOME=/opt/java/openjdk

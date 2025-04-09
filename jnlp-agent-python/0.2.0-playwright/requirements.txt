@@ -50,6 +50,7 @@ pyperclip==1.8.2
 pytest==7.3.1
 pytest-asyncio==0.21.0
 pytest-base-url==2.0.0
+python-docx==1.1.2
 pytest-ordering==0.6
 pytest-playwright==0.6.2
 pytest-random-order==1.1.0
