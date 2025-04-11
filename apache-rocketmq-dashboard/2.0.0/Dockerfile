@@ -57,7 +57,7 @@ RUN set -eux; \
     unzip rocketmq-dashboard.zip ; \
     rm rocketmq-dashboard.zip rocketmq-dashboard.zip.asc KEYS;
 
-RUN cd rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION} ; \
+RUN cd rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}-source-release ; \
     mvn -DskipTests clean install ;\
     ls -l target ;
 
