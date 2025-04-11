@@ -43,7 +43,7 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref && \
 
 RUN cat /usr/share/maven/conf/settings.xml
 
-ENV ROCKETMQ_DASHBOARD_VERSION 1.0.1-SNAPSHOT
+ENV ROCKETMQ_DASHBOARD_VERSION 2.0.1-SNAPSHOT
 ENV ROCKETMQ_DASHBOARD_HOME  /home/rocketmq/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}
 WORKDIR ${ROCKETMQ_DASHBOARD_HOME}
 
