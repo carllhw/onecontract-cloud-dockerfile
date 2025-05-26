@@ -74,7 +74,6 @@ jobs:
                 - onecontract/frontbase
                 - onecontract/golangbase
                 - onecontract/javabase
-                - onecontract/jnlp-agent-auto
                 - onecontract/jnlp-agent-python
                 - onecontract/nodebase
                 - onecontract/oc-agi-base
