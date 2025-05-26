@@ -1,6 +1,6 @@
-FROM eclipse-temurin:17-jdk-jammy AS jre-build
+FROM eclipse-temurin:21-jdk-jammy AS jre-build
 
-ARG CI_TRIGGER="20250409-105723"
+ARG CI_TRIGGER="20250526-102322"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
@@ -11,7 +11,7 @@ RUN jlink \
          --output /javaruntime
 
 # https://github.com/jenkinsci/docker-agent/blob/master/debian/Dockerfile
-FROM jenkins/inbound-agent:3273.v4cfe589b_fd83-2 AS inbound-agent
+FROM jenkins/inbound-agent:3309.v27b_9314fd1a_4-3 AS inbound-agent
 
 FROM mcr.microsoft.com/playwright/python:v1.49.1-jammy
 
@@ -21,7 +21,7 @@ ENV PATH "${JAVA_HOME}/bin:${PATH}"
 COPY --from=jre-build /javaruntime $JAVA_HOME
 
 # jenkins agent
-ARG VERSION=3273.v4cfe589b_fd83
+ARG VERSION=3309.v27b_9314fd1a_4
 
 ARG AGENT_WORKDIR=/root/agent
 
@@ -49,7 +49,7 @@ ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /root/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
 # allure2
-ARG ALLURE2_VERSION=2.32.0
+ARG ALLURE2_VERSION=2.34.0
 RUN wget -qO /tmp/allure.zip "https://github.com/allure-framework/allure2/releases/download/${ALLURE2_VERSION}/allure-${ALLURE2_VERSION}.zip"; \
     unzip /tmp/allure.zip -d /opt/; \
     mv /opt/allure-${ALLURE2_VERSION} /opt/allure; \
