@@ -13,7 +13,7 @@ RUN jlink \
 # https://github.com/jenkinsci/docker-agent/blob/master/debian/Dockerfile
 FROM jenkins/inbound-agent:3309.v27b_9314fd1a_4-3 AS inbound-agent
 
-FROM mcr.microsoft.com/playwright/python:v1.49.1-jammy
+FROM mcr.microsoft.com/playwright/python:v1.52.0-jammy
 
 # jre
 ENV JAVA_HOME=/opt/java/openjdk
@@ -69,5 +69,6 @@ RUN apt-get update; \
     rm -rf /var/lib/apt/lists/*;
 COPY requirements.txt /root
 RUN pip3 install --no-cache-dir -r /root/requirements.txt; \
+    playwright install-deps; \
     playwright install
 COPY locust_plugins/users/playwright.py /usr/local/lib/python3.10/dist-packages/locust_plugins/users/playwright.py
