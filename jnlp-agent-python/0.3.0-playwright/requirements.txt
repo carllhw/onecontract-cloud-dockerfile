@@ -1,5 +1,5 @@
-allure-pytest==2.13.2
-allure-python-commons==2.13.2
+allure-pytest==2.14.2
+allure-python-commons==2.14.2
 annotated-types==0.7.0
 anyio==4.9.0
 attrs==23.1.0
@@ -12,7 +12,7 @@ ConfigArgParse==1.7
 decorator==5.1.1
 et-xmlfile==1.1.0
 exceptiongroup==1.1.1
-execnet==1.9.0
+execnet==2.1.1
 Faker==18.11.2
 filelock==3.12.2
 Flask==3.0.2
@@ -46,7 +46,7 @@ openpyxl==3.1.2
 packaging==23.1
 pillow==10.4.0
 playwright==1.52.0
-pluggy==1.0.0
+pluggy==1.6.0
 proglog==0.1.10
 psutil==5.9.8
 py==1.11.0
@@ -57,17 +57,17 @@ pydantic_core==2.33.2
 pyee==13.0.0
 Pygments==2.19.1
 pyperclip==1.8.2
-pytest==7.3.1
+pytest==8.3.5
 pytest-asyncio==0.21.0
-pytest-base-url==2.0.0
+pytest-base-url==2.1.0
 pytest-ordering==0.6
 pytest-playwright==0.7.0
 pytest-random-order==1.1.0
 pytest-repeat==0.9.1
-pytest-rerunfailures==11.1.2
+pytest-rerunfailures==15.1
 pytest-sugar==0.9.7
 pytest-timeout==2.1.0
-pytest-xdist==3.2.1
+pytest-xdist==3.7.0
 python-dateutil==2.8.2
 python-docx==1.1.2
 python-dotenv==1.0.1
