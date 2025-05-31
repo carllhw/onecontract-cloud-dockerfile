@@ -32,8 +32,8 @@ RUN groupadd -g ${gid} ${group} \
     && useradd -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
 # install maven
-ARG MAVEN_VERSION=3.8.8
-ARG MAVEN_DOWNLOAD_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_VERSION=3.9.9
+ARG MAVEN_DOWNLOAD_URL=https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 # rocketmq-dashboard
 ENV ROCKETMQ_DASHBOARD_VERSION 2.0.0
 ENV ROCKETMQ_DASHBOARD_HOME  /home/rocketmq/rocketmq-dashboard-${ROCKETMQ_DASHBOARD_VERSION}
