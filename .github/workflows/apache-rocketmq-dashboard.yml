@@ -1,8 +1,6 @@
 name: apache-rocketmq-dashboard
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 13 * * 5"
   push:
     paths:
       - "apache-rocketmq-dashboard/**"
