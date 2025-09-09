@@ -2,6 +2,8 @@ FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11.0.
 
 ENV TZ="Asia/Shanghai"
 
+ARG TARGETPLATFORM
+
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     apt-get update; \
