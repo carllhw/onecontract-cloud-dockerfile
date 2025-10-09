@@ -4,6 +4,6 @@
 set -eu
 
 if [ -n "${JAVA_OPTS:-}" ]; then
-    export JAVA_TOOL_OPTIONS="$JAVA_OPTS ${JAVA_TOOL_OPTIONS:-}"
+    export _JAVA_OPTIONS="$JAVA_OPTS"
     export JAVA_OPTS=""
 fi
