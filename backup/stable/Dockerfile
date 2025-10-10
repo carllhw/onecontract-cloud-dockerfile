@@ -1,8 +1,8 @@
 FROM mysql:8.0-debian as mysql
 FROM ubuntu:22.04
 
-ARG RCLONE_VERSION="v1.66.0"
-ARG REDIS_DUMP_GO_VERSION="v0.8.1"
+ARG RCLONE_VERSION="v1.71.1"
+ARG REDIS_DUMP_GO_VERSION="v0.8.2"
 
 ENV TZ="Asia/Shanghai"
 
@@ -11,7 +11,7 @@ COPY --from=mysql /usr/bin/mysqldump /usr/bin/mysqldump
 
 RUN set -eux; \
     apt-get update; \
-    apt-get install -y --no-install-recommends \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
         dnsutils \
@@ -23,6 +23,7 @@ RUN set -eux; \
         redis-tools \
         tar \
         telnet \
+        tzdata \
         unzip \
         vim \
         wget \
