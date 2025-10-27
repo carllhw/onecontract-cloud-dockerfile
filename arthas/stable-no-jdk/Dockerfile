@@ -1,6 +1,6 @@
 FROM alpine
 
-ARG ARTHAS_VERSION="4.0.5"
+ARG ARTHAS_VERSION="4.1.1"
 ARG MIRROR=false
 
 ENV MAVEN_HOST=https://repo1.maven.org/maven2 \
@@ -12,4 +12,9 @@ RUN if $MIRROR; then MAVEN_HOST=${MIRROR_MAVEN_HOST} ; fi && \
   wget -qO /tmp/arthas.zip "${MAVEN_HOST}/com/taobao/arthas/arthas-packaging/${ARTHAS_VERSION}/arthas-packaging-${ARTHAS_VERSION}-bin.zip" && \
   mkdir -p /opt/arthas && \
   unzip /tmp/arthas.zip -d /opt/arthas && \
-  rm /tmp/arthas.zip
+  rm /tmp/arthas.zip && \
+  mkdir /opt/arthas/bin
+
+COPY bin /opt/arthas/bin
+
+RUN chmod +x /opt/arthas/bin/*
