@@ -10,6 +10,10 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         dnsutils \
+        fonts-wqy-zenhei \
+        fonts-wqy-microhei \
+        fonts-arphic-ukai \
+        fonts-arphic-uming \
         gnupg2 \
         iputils-ping \
         lsof \
