@@ -1,13 +1,9 @@
-FROM mysql:8.0-debian as mysql
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
-ARG RCLONE_VERSION="v1.71.1"
+ARG RCLONE_VERSION="v1.71.2"
 ARG REDIS_DUMP_GO_VERSION="v0.8.2"
 
 ENV TZ="Asia/Shanghai"
-
-COPY --from=mysql /usr/bin/mysql /usr/bin/mysql
-COPY --from=mysql /usr/bin/mysqldump /usr/bin/mysqldump
 
 RUN set -eux; \
     apt-get update; \
@@ -16,7 +12,8 @@ RUN set -eux; \
         curl \
         dnsutils \
         gnupg2 \
-        netcat \
+        mysql-client \
+        netcat-openbsd \
         net-tools \
         openssh-client \
         procps \
@@ -42,10 +39,7 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends mongodb-org-tools; \
     # postgresql
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -; \
-    echo "deb http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends postgresql-client-16; \
+    apt-get install -y --no-install-recommends postgresql-client; \
     rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
