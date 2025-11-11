@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21-jdk-jammy AS jre-build
 
-ARG CI_TRIGGER="20250529-111421"
+ARG CI_TRIGGER="20251111-144543"
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
