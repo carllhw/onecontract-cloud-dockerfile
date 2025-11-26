@@ -1,4 +1,4 @@
-FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11.0.20.17.8-extended-ga-ubuntu
+FROM alibabadragonwell/dragonwell:11.0.28.25.6-extended-ga-ubuntu
 
 ENV TZ="Asia/Shanghai"
 
