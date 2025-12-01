@@ -1,4 +1,4 @@
-FROM alibabadragonwell/dragonwell:8.16.17-extended-ga-ubuntu
+FROM alibabadragonwell/dragonwell:8-extended-ga-ubuntu
 
 ENV TZ="Asia/Shanghai"
 
