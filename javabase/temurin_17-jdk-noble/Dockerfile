@@ -17,7 +17,7 @@ RUN set -eux; \
         gnupg2 \
         iputils-ping \
         lsof \
-        netcat \
+        netcat-openbsd \
         net-tools \
         openssh-client \
         procps \
