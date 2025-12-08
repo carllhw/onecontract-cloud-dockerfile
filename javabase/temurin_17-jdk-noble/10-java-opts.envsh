@@ -1,0 +1,9 @@
+#!/bin/sh
+# vim:sw=4:ts=4:et
+
+set -eu
+
+if [ -n "${JAVA_OPTS:-}" ]; then
+    export _JAVA_OPTIONS="$JAVA_OPTS ${_JAVA_OPTIONS:-}"
+    export JAVA_OPTS=""
+fi
