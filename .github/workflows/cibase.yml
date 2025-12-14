@@ -1,6 +1,8 @@
 name: cibase
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "30 14 * * 5"
   push:
     paths:
       - "cibase/**"
