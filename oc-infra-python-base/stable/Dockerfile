@@ -6,9 +6,12 @@ ENV TZ="Asia/Shanghai"
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends \
-        mariadb-client; \
+    apt update; \
+    apt install -y --no-install-recommends \
+        mariadb-client \
+        pipx; \
+    pipx ensurepath; \
+    pipx install poetry; \
     echo ${TZ} > /etc/timezone; \
     rm /etc/localtime; \
     dpkg-reconfigure -f noninteractive tzdata; \
@@ -19,3 +22,4 @@ RUN cp /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sou
 
 COPY requirements.txt /opt
 RUN pip3 install --no-cache-dir -r /opt/requirements.txt
+COPY pip.conf /root/.pip/pip.conf
