@@ -36,6 +36,7 @@ RUN set -eux; \
     chmod +x /docker-entrypoint.d/*; \
     cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak; \
     sed -i "s@http://.*archive.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
-    sed -i "s@http://.*security.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources
+    sed -i "s@http://.*security.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
+    sed -i "s@http://.*ports.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
