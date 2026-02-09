@@ -2,7 +2,7 @@ FROM onecontract/javabase:temurin_17-jdk-noble
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
-    mv /etc/apt/sources.list.bak /etc/apt/sources.list; \
+    mv /etc/apt/sources.list.d/ubuntu.sources.bak /etc/apt/sources.list.d/ubuntu.sources; \
     apt update; \
     apt install -y --no-install-recommends \
         ant \
@@ -39,7 +39,7 @@ RUN set -eux; \
         /opencv-4.x; \
     make -j8; \
     make install; \
-    cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
+    cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak; \
     sed -i "s@http://.*archive.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
     sed -i "s@http://.*security.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
     sed -i "s@http://.*ports.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
