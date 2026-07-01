@@ -12,6 +12,8 @@ RUN set -eux; \
         dnsutils \
         gnupg2 \
         iputils-ping \
+        libdbi-perl \
+        libdbd-mysql-perl \
         lsof \
         netcat-openbsd \
         net-tools \
