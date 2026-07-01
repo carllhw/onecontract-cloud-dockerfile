@@ -22,6 +22,9 @@ RUN set -eux; \
         unzip \
         vim \
         wget; \
+# percona-toolkit
+    wget -qO /usr/local/bin/pt-archiver "https://www.percona.com/get/pt-archiver"; \
+    chmod +x /usr/local/bin/pt-archiver; \
     mkdir /docker-entrypoint.d; \
     rm -rf /var/lib/apt/lists/*
 
