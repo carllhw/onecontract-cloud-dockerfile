@@ -16,6 +16,7 @@ RUN set -eux; \
         netcat-openbsd \
         net-tools \
         openssh-client \
+        perl \
         procps \
         tar \
         telnet \
