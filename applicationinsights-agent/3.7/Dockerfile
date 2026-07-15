@@ -1,6 +1,6 @@
 FROM alpine
 
-ARG APPLICATION_INSIGHTS_VERSION=3.2.10
+ARG APPLICATION_INSIGHTS_VERSION=3.7.9
 
 RUN wget -qO /tmp/applicationinsights-agent.jar "https://github.com/microsoft/ApplicationInsights-Java/releases/download/${APPLICATION_INSIGHTS_VERSION}/applicationinsights-agent-${APPLICATION_INSIGHTS_VERSION}.jar"; \
   mkdir -p /opt/ApplicationInsights; \
