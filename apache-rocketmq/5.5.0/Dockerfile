@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-jdk-noble
+FROM eclipse-temurin:17-jdk-noble
 
 RUN set -eux; \
     apt-get update; \
@@ -32,7 +32,7 @@ RUN groupadd -g ${gid} ${group} \
     && useradd -u ${uid} -g ${gid} -m -s /bin/bash ${user}
 
 # Rocketmq version
-ENV ROCKETMQ_VERSION 5.3.0
+ENV ROCKETMQ_VERSION 5.5.0
 
 # Rocketmq home
 ENV ROCKETMQ_HOME /home/rocketmq/rocketmq-${ROCKETMQ_VERSION}

@@ -40,7 +40,7 @@ jobs:
                 new: onecontract-cloud/open-telemetry_
           EOF
           registry-manager sync -c config.yaml
-  dockerhub-to-tencent:
+  dockerhub-to-tencent-01:
     runs-on: ubuntu-latest
     container: setzero/registry-manager
     env:
@@ -70,6 +70,39 @@ jobs:
                 - onecontract/arthas
                 - onecontract/backup
                 - onecontract/cibase
+          sync-policy:
+            from: dockerhub
+            to: tencentyun
+            force: true
+            dry-run: false
+            replace:
+              - old: onecontract/
+                new: onecontract-cloud/
+          EOF
+          registry-manager sync -c config.yaml
+  dockerhub-to-tencent-02:
+    runs-on: ubuntu-latest
+    container: setzero/registry-manager
+    env:
+      FROM_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      FROM_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      TO_USERNAME: ${{ secrets.TENCENT_USERNAME }}
+      TO_PASSWORD: ${{ secrets.TENCENT_PASSWORD }}
+      SYNC_POLICY_FORCE: ${{ vars.SYNC_POLICY_FORCE }}
+    steps:
+      - name: Dockerhub Onecontract to Tencent force
+        run: |
+          cat << EOF >config.yaml
+          registries:
+            tencentyun:
+              registry: https://ccr.ccs.tencentyun.com
+              username: $TO_USERNAME
+              password: $TO_PASSWORD
+            dockerhub:
+              registry: https://registry-1.docker.io
+              username: $FROM_USERNAME
+              password: $FROM_PASSWORD
+              repositories:
                 - onecontract/elasticsearch
                 - onecontract/frontbase
                 - onecontract/golangbase
