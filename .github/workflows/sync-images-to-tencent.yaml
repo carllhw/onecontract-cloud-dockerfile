@@ -245,7 +245,7 @@ jobs:
               registry: https://docker.elastic.co
               repositories:
                 - kibana/kibana:7.10.2
-                - kibana/kibana:7.14.0
+                - kibana/kibana:8.17.10
           sync-policy:
             from: elastic
             to: tencentyun

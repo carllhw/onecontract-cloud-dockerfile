@@ -47,5 +47,6 @@ app.log.*
 *.tar.gz
 *.rar
 
-# claude
-.claude/
+# AI Agent
+.claude
+.pi
