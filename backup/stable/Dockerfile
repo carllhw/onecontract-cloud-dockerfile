@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-ARG RCLONE_VERSION="v1.72.1"
+ARG RCLONE_VERSION="v1.75.0"
 ARG REDIS_DUMP_GO_VERSION="v0.8.2"
 
 ENV TZ="Asia/Shanghai"
@@ -40,6 +40,12 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends mongodb-org-tools; \
     # postgresql
     apt-get install -y --no-install-recommends postgresql-client; \
+    # jq
+    apt-get install -y --no-install-recommends jq; \
+    # nodejs + elasticdump
+    curl -fsSL https://deb.nodesource.com/setup_24.x | bash -; \
+    apt-get install -y --no-install-recommends nodejs; \
+    npm install -g elasticdump; \
     rm -rf /var/lib/apt/lists/*
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
