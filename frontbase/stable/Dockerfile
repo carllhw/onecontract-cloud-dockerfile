@@ -13,9 +13,7 @@ RUN set -eux; \
         lsof \
         netcat-openbsd \
         net-tools \
-        openssh-client \
         procps \
-        tar \
         telnet \
         unzip \
         vim \

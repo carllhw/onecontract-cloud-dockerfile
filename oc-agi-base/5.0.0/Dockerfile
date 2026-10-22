@@ -38,6 +38,7 @@ RUN set -eux; \
         /opencv-4.x; \
     make -j8; \
     make install; \
+    apt-get purge -y linux-libc-dev patch; \
     cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak; \
     sed -i "s@http://.*archive.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
     sed -i "s@http://.*security.ubuntu.com@https://mirrors.huaweicloud.com@g" /etc/apt/sources.list.d/ubuntu.sources; \
